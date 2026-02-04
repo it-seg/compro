@@ -1,0 +1,88 @@
+.reservation-section {
+    position: relative;
+
+    width: 100%;
+    min-height: 70vh;
+
+    background: url('../images/reservation.jpg') center center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 120px 0;
+
+    overflow: hidden;
+}
+
+.reservation-section::before {
+    content:none;
+}
+
+.reservation-bg {
+    position: relative;
+    z-index: 2;
+}
+
+.reservation-card {
+    background: rgba(255, 255, 255, .93);
+    color: #123635;
+
+    max-width: 520px;
+    margin: auto;
+    padding: 60px 40px;
+    text-align: center;
+
+    border-radius: 12px;
+    border: 2px solid rgba(93, 194, 190, .35);
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .08),
+    0 2px 8px rgba(0, 0, 0, .05);
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: .7s ease;
+
+    animation: none;
+}
+
+/* reveal */
+.reservation-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* idle floating */
+@keyframes floatCard {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.reservation-card.float {
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+.reservation-text {
+    font-size: 18px;
+    color: #165251;
+    margin-bottom: 22px;
+}
+
+.reservation-btn {
+    background: #C96A50;
+    color: #fff;
+    padding: 14px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    letter-spacing: .15em;
+    transition: .25s;
+}
+
+.reservation-btn:hover {
+    background: #B4573F;
+    transform: translateY(-2px);
+}

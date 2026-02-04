@@ -1,0 +1,338 @@
+/* ==========================================================
+   GLOBAL PAGE BACKGROUND — EVENT (REFINED)
+========================================================== */
+html, body{
+    height:100%;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+}
+
+.event-page-wrap{
+    flex:1;
+    padding: 70px 4vw 110px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    var(--event-bg-1, #1b120c) 0%,
+                    var(--event-bg-2, #080503) 100%
+            );
+
+    background-attachment: fixed;
+}
+
+
+/* ==========================================================
+   HERO SECTION — CLEAN VERSION
+========================================================== */
+
+.event-hero{
+    display: flex;
+    align-items: center;
+    gap: 36px;
+
+    padding: 50px 46px;
+    margin: 0 auto 70px;
+    max-width: 1280px;
+
+    border-radius: 22px;
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(35,24,17,.85),
+                    rgba(15,10,7,.95)
+            );
+
+    box-shadow: 0 20px 45px rgba(0,0,0,.5);
+}
+
+
+/* =========================
+   LEFT LABEL (SUBTLE)
+========================= */
+
+.hero-label-box{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-label-inner{
+    text-align: center;
+    opacity: .75;
+}
+
+.hero-label-text{
+    font-size: 22px;
+    font-weight: 800;
+    color: #f5e3c4;
+    letter-spacing: .12em;
+}
+
+.hero-label-sub{
+    margin-top: 6px;
+    font-size: 13px;
+    color: #d4b78a;
+    letter-spacing: .12em;
+}
+
+
+/* =========================
+   POSTER — SMALLER & ELEGANT
+========================= */
+
+.hero-poster{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-poster img{
+    max-height: 420px; /* LEBIH KECIL */
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+
+    border-radius: 16px;
+    border: 1px solid rgba(202,162,122,.28);
+
+    box-shadow: 0 12px 30px rgba(0,0,0,.45);
+}
+
+
+/* =========================
+   INFO PANEL — LIGHT
+========================= */
+
+.hero-info{
+    flex: 1;
+    color: #f0d8b2;
+}
+
+.hero-date{
+    display: inline-block;
+    padding: 6px 16px;
+    margin-bottom: 14px;
+
+    background: rgba(202,162,122,.15);
+    border: 1px solid rgba(202,162,122,.25);
+    border-radius: 16px;
+
+    font-size: 13px;
+    letter-spacing: .08em;
+}
+
+.hero-title{
+    font-size: 34px;
+    font-weight: 800;
+    color: #f4e4c7;
+    margin-bottom: 14px;
+    line-height: 1.25;
+}
+
+.hero-desc{
+    font-size: 16px;
+    color: #e7dbc7;
+    line-height: 1.55;
+    margin-bottom: 22px;
+    max-width: 420px;
+    opacity: .9;
+}
+
+
+/* =========================
+   CTA — SIMPLE
+========================= */
+
+.hero-btn{
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 8px;
+
+    background: linear-gradient(180deg,#e4c896,#cda265,#b27a38);
+    color: #2b180c;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    box-shadow: 0 10px 24px rgba(0,0,0,.45);
+    transition: .25s ease;
+}
+
+.hero-btn:hover{
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================
+   RESPONSIVE — TABLET
+========================================================== */
+
+@media (max-width: 992px){
+
+    .event-hero{
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+        gap: 28px;
+    }
+
+    .hero-label-box{
+        width: 100%;
+    }
+
+    .hero-poster img{
+        max-height: 360px;
+    }
+
+    .hero-title{
+        font-size: 28px;
+    }
+
+    .hero-desc{
+        max-width: none;
+        margin: 0 auto 20px;
+    }
+}
+
+
+/* ==========================================================
+   RESPONSIVE — MOBILE
+========================================================== */
+
+@media (max-width: 600px){
+
+    .event-page-wrap{
+        padding: 60px 5vw 90px;
+    }
+
+    .event-hero{
+        padding: 32px 22px;
+    }
+
+    .hero-poster img{
+        max-height: 260px;
+    }
+
+    .hero-title{
+        font-size: 24px;
+    }
+
+    .hero-desc{
+        font-size: 15px;
+    }
+}
+
+
+/* ==========================================================
+   OTHER EVENTS — SIMPLE CARDS
+========================================================== */
+
+.other-title{
+    text-align: center;
+    color: #f0d8b2;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 36px;
+}
+
+.event-card{
+    background: rgba(30,20,14,.82);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(202,162,122,.22);
+
+    box-shadow: 0 14px 34px rgba(0,0,0,.4);
+}
+
+.event-img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.event-info-box{
+    padding: 16px;
+    color: #f4e4c7;
+}
+
+.event-date{
+    font-size: 12px;
+    letter-spacing: .06em;
+    color: #d4b98c;
+    margin-bottom: 6px;
+}
+
+.event-name{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.event-more-btn{
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+
+    background: linear-gradient(180deg,#e4c896,#cda265,#b27a38);
+    color: #2b180c;
+
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+.event-empty.hero{
+    min-height:60vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.event-empty-inner{
+    max-width:560px;
+    padding:50px 36px;
+
+    border-radius:22px;
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(35,24,17,.75),
+                    rgba(15,10,7,.9)
+            );
+
+    box-shadow:0 22px 50px rgba(0,0,0,.5);
+}
+
+.event-empty-inner h1{
+    font-size:34px;
+    font-weight:800;
+    color:#f4e4c7;
+    margin-bottom:14px;
+}
+
+.event-empty-inner p{
+    font-size:17px;
+    color:#d8c4a1;
+    letter-spacing:.04em;
+    line-height:1.6;
+    opacity:.9;
+}
+
+.event-empty.secondary{
+    margin:90px auto 0;
+    text-align:center;
+    opacity:.6;
+    font-size:13px;
+    letter-spacing:.1em;
+}

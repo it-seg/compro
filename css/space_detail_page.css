@@ -1,0 +1,303 @@
+/* ==========================================================
+   SPACE DETAIL PAGE — CLEAN & SAFARI SAFE
+========================================================== */
+
+/* =========================
+   PAGE WRAPPER
+========================= */
+
+.space-detail-page{
+    position:relative;
+    padding:110px 6vw 0;
+    background:
+            linear-gradient(
+                    180deg,
+                    #3a2a20 0%,
+                    #241913 40%,
+                    #120c09 75%,
+                    #050404 100%
+            );
+    color:#f5f1ed;
+}
+
+.space-detail-page::after{
+    content:"";
+    display:block;
+    height:100px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.space-detail-header{
+    text-align:center;
+    max-width:1400px;
+    margin:0 auto 70px;
+}
+
+.space-detail-header h1{
+    font-size:clamp(28px,4vw,46px);
+    letter-spacing:.28em;
+    font-weight:500;
+}
+
+.space-detail-header p{
+    margin-top:16px;
+    font-size:14px;
+    letter-spacing:.08em;
+    opacity:.75;
+}
+
+/* =========================
+   SPLIT LAYOUT
+========================= */
+
+.space-split-layout{
+    max-width:1400px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:28px;
+    align-items:stretch;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.space-split-hero{
+    position:relative;
+    aspect-ratio:16 / 10;
+    border-radius:26px;
+    overflow:hidden;
+    background:#000;
+}
+
+.space-split-hero img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* =========================
+   SIDE IMAGES
+========================= */
+
+.space-split-side{
+    display:grid;
+    grid-template-rows:1fr 1fr;
+    gap:28px;
+    height:100%;
+}
+
+.space-split-img{
+    position:relative;
+    border-radius:22px;
+    overflow:hidden;
+    background:#000;
+}
+
+.space-split-img img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* =========================
+   MORE GALLERY
+========================= */
+
+.space-more-gallery{
+    max-width:1400px;
+    margin:80px auto 0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:26px;
+}
+
+.space-more-item{
+    position:relative;
+    aspect-ratio:4 / 3;
+    border-radius:20px;
+    overflow:hidden;
+    background:#000;
+}
+
+.space-more-item img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* =========================
+   RESERVE BUTTON
+========================= */
+
+.space-reserve-btn{
+    display:inline-block;
+    margin-top:28px;
+    padding:12px 34px;
+    border-radius:999px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-decoration:none;
+    color:#3a2a20;
+    background:linear-gradient(135deg,#f0d8b2,#caa27a);
+}
+
+/* =========================
+   IMAGE POPUP + SWIPE
+========================= */
+
+.image-popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .3s ease, visibility .3s ease;
+    z-index:9999;
+}
+
+.image-popup.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.image-popup img{
+    max-width:92vw;
+    max-height:88vh;
+    object-fit:contain;
+    border-radius:14px;
+    box-shadow:0 30px 80px rgba(0,0,0,.7);
+}
+
+/* CLOSE */
+.popup-close{
+    position:absolute;
+    top:24px;
+    right:28px;
+    font-size:36px;
+    color:#fff;
+    cursor:pointer;
+    opacity:.7;
+    z-index:2;
+}
+
+.popup-close:hover{ opacity:1; }
+
+/* NAV */
+.popup-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:48px;
+    color:#fff;
+    background:none;
+    border:none;
+    cursor:pointer;
+    opacity:.6;
+    z-index:2;
+    padding:10px 16px;
+}
+
+.popup-nav:hover{ opacity:1; }
+
+.popup-nav.prev{ left:24px; }
+.popup-nav.next{ right:24px; }
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width:992px){
+
+    .space-split-layout{
+        grid-template-columns:1fr;
+    }
+
+    .space-split-side{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:auto;
+        height:auto;
+    }
+
+    .space-split-img{
+        aspect-ratio:4 / 3;
+    }
+}
+
+/* =========================
+   MOBILE (SAFARI SAFE)
+========================= */
+
+@media (max-width:600px){
+
+    .space-detail-page{
+        padding:90px 5vw 140px;
+    }
+
+    .space-detail-header{
+        margin-bottom:50px;
+    }
+
+    .space-split-layout{
+        gap:20px;
+    }
+
+    .space-split-hero{
+        aspect-ratio:4 / 5;
+        border-radius:20px;
+    }
+
+    .space-split-side{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .space-more-gallery{
+        margin-top:60px;
+        grid-template-columns:1fr;
+    }
+
+    .popup-nav{
+        font-size:38px;
+        padding:8px 12px;
+    }
+}
+
+/* =========================
+   IMAGE SAFETY
+========================= */
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+/* =========================
+   QUILL ALIGNMENT FIX
+========================= */
+
+.space-desc .ql-align-center {
+    text-align: center;
+}
+
+.space-desc .ql-align-right {
+    text-align: right;
+}
+
+.space-desc .ql-align-justify {
+    text-align: justify;
+}
+

@@ -1,0 +1,42 @@
+/* ========================
+   RUNNING TEXT / TICKER
+   ======================== */
+
+.ticker-wrap{
+    width:100%;
+    overflow:hidden;
+    background:#163838;
+    color:#fff;
+    padding:14px 0;
+}
+
+.ticker-track{
+    display:flex;
+    width:max-content;
+    animation: tickerMove 50s linear infinite;
+}
+
+.ticker-track span{
+    padding-right:60px;
+    font-size:18px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    white-space:nowrap;
+}
+
+/* animation */
+@keyframes tickerMove{
+    0%{
+        transform:translateX(0);
+    }
+    100%{
+        transform:translateX(-50%);
+    }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .ticker-track span{
+        font-size:11px;
+    }
+}

@@ -1,0 +1,260 @@
+/* ============================================================
+   WRAPPER
+============================================================ */
+.event-detail-wrap{
+    background:
+            linear-gradient(
+                    180deg,
+                    var(--event-bg-1, #1f1a14) 0%,
+                    var(--event-bg-2, #000000) 100%
+            );
+    background-attachment: fixed;
+    color:#f5e9d6;
+
+    padding:20px 16px 60px;
+    display:flex;
+    justify-content:center;
+}
+
+
+
+
+/* ============================================================
+   MAIN CARD – SLIM, GOLD FRAME, NOT CUT OFF
+============================================================ */
+.event-detail-inner{
+    width:100%;
+    max-width:880px;   /* ❗ lebih kecil dari 980px → card lebih ramping */
+    margin:0 auto;
+
+    display:flex;
+    gap:26px;          /* ❗ sempitkan jarak kiri–kanan */
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(44,33,22,0.92),
+                    rgba(20,14,10,0.92)
+            );
+    backdrop-filter:blur(4px);
+
+    border-radius:16px;
+    padding:24px;      /* ❗ lebih kecil dari 30px → card lebih padat */
+
+    border:1px solid rgba(202,162,122,.35);
+    box-shadow:
+            0 8px 20px rgba(0,0,0,.45),
+            0 0 14px rgba(202,162,122,.25);
+
+    position:relative;
+}
+
+
+
+
+/* ============================================================
+   LUXURY GOLD LINE (TOP DECOR)
+============================================================ */
+.event-detail-inner::before{
+    content:"";
+    position:absolute;
+    top:-12px;
+    left:50%;
+    transform:translateX(-50%);
+    width:70%;
+    height:2px;
+
+    background:linear-gradient(
+            90deg,
+            transparent,
+            #f0d8b2,
+            #caa27a,
+            #f0d8b2,
+            transparent
+    );
+
+    box-shadow:0 0 12px rgba(202,162,122,.75);
+    opacity:.9;
+}
+
+
+
+/* ============================================================
+   LEFT IMAGE – SIGNIFICANTLY SMALLER
+============================================================ */
+.event-image-box img{
+    width:300px;
+    max-height:440px;
+    border-radius:12px;
+
+    object-fit:cover;
+
+    box-shadow:
+            0 6px 16px rgba(0,0,0,.45),
+            0 0 12px rgba(202,162,122,.30);
+    border:1px solid rgba(202,162,122,.25);
+}
+
+
+
+/* ============================================================
+   RIGHT CONTENT
+============================================================ */
+.event-content-box{
+    flex:1;
+    color:#f5e9d6;
+}
+
+.event-date{
+    background:rgba(202,162,122,.18);
+    padding:8px 16px;
+    border-radius:24px;
+    display:inline-block;
+    font-weight:600;
+    font-size:14px;
+    border:1px solid rgba(202,162,122,.28);
+}
+
+.event-title{
+    font-size:32px;
+    margin-top:18px;
+    font-weight:800;
+    color:#f0d8b2;
+    text-shadow:0 0 6px rgba(202,162,122,.35);
+}
+
+.event-desc{
+    margin-top:18px;
+    font-size:15px;
+    line-height:1.65;
+    color:#f3e6d2;
+    opacity:.92;
+}
+
+
+
+/* ============================================================
+   CONTACT BUTTON – GOLD GRADIENT
+============================================================ */
+.event-contact-btn{
+    margin-top:26px;
+    display:inline-block;
+
+    padding:12px 22px;
+    font-weight:700;
+
+    background:
+            linear-gradient(180deg,#d6b484,#c89a57,#b88234);
+    color:#3a2617;
+    text-decoration:none;
+
+    border-radius:10px;
+
+    box-shadow:
+            inset 0 0 4px rgba(255,255,255,.35),
+            0 6px 16px rgba(0,0,0,.45);
+
+    transition:.25s ease;
+}
+
+.event-contact-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:
+            inset 0 0 6px rgba(255,255,255,.5),
+            0 10px 22px rgba(0,0,0,.6);
+}
+
+
+
+/* ============================================================
+   TABLET VIEW  (max-width: 992px)
+============================================================ */
+@media (max-width: 992px){
+
+    .event-detail-inner{
+        max-width:760px;
+        padding:26px;
+        gap:26px;
+    }
+
+    .event-image-box img{
+        width:300px;
+        max-height:420px;
+    }
+
+    .event-title{
+        font-size:28px;
+    }
+
+    .event-desc{
+        font-size:14px;
+    }
+}
+
+
+
+/* ============================================================
+   MOBILE VIEW  (max-width: 768px)
+============================================================ */
+@media (max-width: 768px){
+
+    .event-detail-inner{
+        flex-direction:column;
+        max-width:520px;
+        padding:22px;
+        gap:20px;
+    }
+
+    .event-image-box img{
+        width:100%;
+        max-height:380px;
+    }
+
+    .event-title{
+        font-size:26px;
+        text-align:center;
+    }
+
+    .event-date{
+        margin:auto;
+        margin-bottom:12px;
+    }
+
+    .event-desc{
+        font-size:14px;
+        text-align:center;
+    }
+
+    .event-contact-btn{
+        display:block;
+        width:100%;
+        text-align:center;
+        padding:14px;
+        margin-top:22px;
+    }
+}
+
+
+
+/* ============================================================
+   SMALL MOBILE  (max-width: 480px)
+============================================================ */
+@media (max-width: 480px){
+
+    .event-detail-wrap{
+        padding:10px 16px 40px;
+    }
+
+    .event-detail-inner{
+        padding:18px;
+        border-radius:12px;
+    }
+
+    .event-title{
+        font-size:22px;
+    }
+
+    .event-desc{
+        font-size:13px;
+    }
+}

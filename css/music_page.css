@@ -1,0 +1,331 @@
+/* ==================================================
+   GLOBAL LAYOUT (STICKY FOOTER SAFE)
+================================================== */
+
+html, body{
+    height:100%;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+}
+
+
+/* ==================================================
+   MUSIC PAGE — 2 COLOR GRADIENT
+================================================== */
+
+.music-page{
+    flex:1;
+    padding:3px 5vw 160px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    var(--music-bg-1, #1a0f0a) 0%,
+                    var(--music-bg-2, #120807) 100%
+            );
+
+    background-attachment: fixed;
+    color:#ffffff;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.music-hero{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.music-title{
+    font-size:34px;
+    letter-spacing:.25em;
+    color:#efd9b0;
+}
+
+.music-title::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:2px;
+    margin:18px auto 0;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    transparent,
+                    #c8a46a,
+                    transparent
+            );
+}
+
+.music-sub{
+    margin-top:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    font-size:11px;
+    letter-spacing:.2em;
+    color:#c8a46a;
+}
+
+.music-sub .dot{
+    width:6px;
+    height:6px;
+    background:#c8a46a;
+    border-radius:50%;
+}
+
+
+/* ==================================================
+   GRID
+================================================== */
+
+.music-grid{
+    max-width:1400px;
+    margin:0 auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+    gap:28px;
+}
+
+
+/* ==================================================
+   ITEM
+================================================== */
+
+.music-item{
+    position:relative;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    border-radius:16px;
+
+    background:#000000;
+    box-shadow:0 12px 35px rgba(0,0,0,.45);
+}
+
+.music-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s ease;
+    cursor:zoom-in;
+}
+
+
+/* ==================================================
+   OVERLAY
+================================================== */
+
+.music-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(26,15,10,.15),
+                    rgba(26,15,10,.85)
+            );
+
+    opacity:0;
+    transition:.35s ease;
+    pointer-events:none;
+}
+
+.music-item:hover img{
+    transform:scale(1.08);
+}
+
+.music-item:hover .music-overlay{
+    opacity:1;
+}
+
+
+/* ==================================================
+   EMPTY MUSIC STATE
+================================================== */
+
+.music-empty.hero{
+    min-height:65vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.music-empty-inner{
+    max-width:620px;
+    padding:60px 40px;
+
+    border-radius:22px;
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(40,25,18,.75),
+                    rgba(15,10,7,.9)
+            );
+
+    box-shadow:0 25px 60px rgba(0,0,0,.6);
+}
+
+.music-empty-inner h1{
+    font-size:36px;
+    font-weight:800;
+    letter-spacing:.08em;
+    color:#efd9b0;
+    margin-bottom:18px;
+}
+
+.music-empty-inner p{
+    font-size:16px;
+    line-height:1.7;
+    color:#d2c2a2;
+    opacity:.9;
+}
+
+
+/* ==================================================
+   IMAGE LIGHTBOX
+================================================== */
+
+.music-lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+
+    opacity:0;
+    pointer-events:none;
+    transition:.3s ease;
+}
+
+.music-lightbox.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.lightbox-img{
+    max-width:90vw;
+    max-height:85vh;
+    border-radius:16px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.7);
+    animation:zoomIn .35s ease;
+}
+
+.lightbox-close{
+    position:absolute;
+    top:20px;
+    right:30px;
+
+    font-size:38px;
+    color:#efd9b0;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.lightbox-close:hover{
+    opacity:.7;
+}
+
+
+/* ==================================================
+   MUSIC LIGHTBOX NAV
+================================================== */
+
+.music-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    font-size:42px;
+    color:#efd9b0;
+    cursor:pointer;
+    padding:12px;
+
+    user-select:none;
+    transition:.25s;
+}
+
+.music-nav:hover{
+    opacity:.7;
+}
+
+.music-nav.prev{ left:20px; }
+.music-nav.next{ right:20px; }
+
+
+/* ==================================================
+   ANIMATION
+================================================== */
+
+@keyframes zoomIn{
+    from{
+        transform:scale(.85);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+
+/* ==================================================
+   RESPONSIVE — TABLET
+================================================== */
+
+@media (max-width:992px){
+
+    .music-hero{
+        margin-bottom:50px;
+    }
+
+    .music-title{
+        font-size:28px;
+        letter-spacing:.2em;
+    }
+}
+
+
+/* ==================================================
+   RESPONSIVE — MOBILE
+================================================== */
+
+@media (max-width:768px){
+
+    .music-page{
+        padding:90px 4vw 120px;
+    }
+
+    .music-title{
+        font-size:22px;
+        letter-spacing:.18em;
+    }
+
+    .music-nav{
+        font-size:32px;
+    }
+
+    .music-empty-inner{
+        padding:45px 28px;
+    }
+
+    .music-empty-inner h1{
+        font-size:28px;
+    }
+}

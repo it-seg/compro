@@ -1,0 +1,223 @@
+/* ==================================
+   SPACE PAGE — EDITORIAL GALLERY
+================================== */
+
+.space-page{
+    padding:20px 5vw 100px;
+    background:
+            linear-gradient(
+                    180deg,
+                    #efe6dc 0%,
+                    #cfa985 35%,
+                    #8a5b3f 70%,
+                    #3b2015 100%
+            );
+    color:#fff;
+}
+
+/* =====================
+   HEADER
+===================== */
+
+.space-page-hero{
+    text-align:center;
+    margin-bottom:90px;
+}
+
+.space-page-title{
+    font-size:38px;
+    letter-spacing:.25em;
+    color:#3b2015;
+}
+
+.space-page-title::after{
+    content:"";
+    display:block;
+    width:90px;
+    height:2px;
+    margin:18px auto 0;
+    background:linear-gradient(
+            90deg,
+            transparent,
+            #9FB4A3,
+            transparent
+    );
+}
+
+.space-page-sub{
+    margin-top:14px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    font-size:12px;
+    letter-spacing:.2em;
+    color:#2a5b3f;
+}
+
+.space-page-sub .dot{
+    width:6px;
+    height:6px;
+    background:#2a5b3f;
+    border-radius:50%;
+}
+
+/* =====================
+   GRID
+===================== */
+
+.space-page-grid{
+    max-width:1400px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+}
+
+@media(max-width:1024px){
+    .space-page-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:640px){
+    .space-page-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =====================
+   CARD
+===================== */
+
+.space-page-card{
+    position:relative;
+    aspect-ratio:3/4;
+    overflow:hidden;
+    border-radius:22px;
+
+    background:#000;
+    box-shadow:0 20px 45px rgba(0,0,0,.45);
+}
+
+.space-page-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.08);
+    transition:.6s ease;
+}
+
+.space-page-card:hover img{
+    transform:scale(1.15);
+}
+
+/* =====================
+   OVERLAY CONTENT
+===================== */
+
+.space-page-overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    padding:32px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(0,0,0,0),
+                    rgba(0,0,0,.75)
+            );
+}
+
+.space-page-overlay h3{
+    font-size:18px;
+    letter-spacing:.15em;
+    margin-bottom:8px;
+}
+
+.space-page-overlay p{
+    font-size:13px;
+    line-height:1.6;
+    opacity:.85;
+    margin-bottom:18px;
+}
+
+/* CTA */
+.space-page-overlay a{
+    align-self:flex-start;
+
+    padding:8px 22px;
+    border-radius:24px;
+
+    font-size:11px;
+    letter-spacing:.15em;
+    text-decoration:none;
+
+    color:#3b2015;
+    background:#efe6dc;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.35);
+    transition:.25s ease;
+}
+
+.space-page-overlay a:hover{
+    background:#fff;
+    transform:translateY(-2px);
+}
+
+/* =====================
+   MOBILE
+===================== */
+
+@media(max-width:768px){
+
+    .space-page{
+        padding:90px 5vw 130px;
+    }
+
+    .space-page-title{
+        font-size:26px;
+        letter-spacing:.18em;
+    }
+
+}
+
+/* ==================================
+   SPACE PAGE → CONTACT DIVIDER
+================================== */
+
+.space-page::after{
+    content:"";
+    display:block;
+
+    width:100%;
+    max-width:880px;
+    height:3px;
+
+    margin:130px auto 0;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    transparent,
+                    #8a5b3f,
+                    #c8a46a,
+                    #efd9b0,
+                    #c8a46a,
+                    #8a5b3f,
+                    transparent
+            );
+
+    box-shadow:
+            0 0 10px rgba(200,164,106,.45),
+            0 6px 22px rgba(90,42,29,.35);
+
+    border-radius:3px;
+}

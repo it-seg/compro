@@ -1,6 +1,16 @@
-assets/*
-!assets/.gitignore
-protected/runtime/*
-!protected/runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
+/protected/runtime/application.log
+/protected/runtime
+/protected/config/main.php
+images
+yii
+
+# IDE
+.idea/
+
+# Yii runtime
+protected/runtime/
+assets/runtime/
+
+# OS
+.DS_Store
+Thumbs.db

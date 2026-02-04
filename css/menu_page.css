@@ -1,0 +1,128 @@
+/* =========================
+   MENU TABS – STICKY KE NAVBAR
+========================= */
+
+.menu-tabs{
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+
+    display: flex;
+    justify-content: center;
+    gap: 38px;
+    flex-wrap: wrap;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(44,33,22,.96),
+                    rgba(20,14,10,.96)
+            );
+
+    padding: 8px 0 10px;
+    margin: 0;
+
+    border-bottom: 1px solid rgba(202,162,122,.35);
+    box-shadow: 0 10px 22px rgba(0,0,0,.45);
+}
+
+
+/* =========================
+   LUXURY LINE EFFECT
+========================= */
+
+.menu-tabs::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-12px;
+    transform:translateX(-50%);
+    width:86%;
+    max-width:1200px;
+    height:2px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    transparent,
+                    #f0d8b2,
+                    #caa27a,
+                    #f0d8b2,
+                    transparent
+            );
+
+    box-shadow: 0 0 14px rgba(202,162,122,.75);
+    opacity: .9;
+}
+
+.menu-tabs::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-22px;
+    transform:translateX(-50%);
+    width:86%;
+    max-width:1200px;
+    height:18px;
+
+    background:
+            radial-gradient(
+                    ellipse at center,
+                    rgba(202,162,122,.25) 0%,
+                    rgba(202,162,122,.15) 20%,
+                    rgba(0,0,0,0) 65%
+            );
+
+    pointer-events:none;
+}
+
+
+/* =========================
+   MENU PAGE BACKGROUND
+   (GLOBAL 2 COLOR GRADIENT)
+========================= */
+
+.menu-book{
+    position: relative;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    var(--menu-bg-1, #2c2116) 0%,
+                    var(--menu-bg-2, #0b0805) 100%
+            );
+
+    background-attachment: fixed;
+
+    /* OFFSET DARI NAVBAR + TABS */
+    padding-top: 130px;
+    padding-bottom: 80px;
+
+    min-height: 140vh;
+}
+
+
+/* =========================
+   MENU CONTENT
+========================= */
+
+.menu-pages{
+    display: none;
+}
+
+.menu-pages.active{
+    display: block;
+}
+
+
+/* =========================
+   MENU IMAGES
+========================= */
+
+.menu-pages img{
+    width: 100%;
+    display: block;
+    margin-bottom: 28px;
+}

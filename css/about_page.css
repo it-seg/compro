@@ -1,0 +1,290 @@
+/* ==================================
+   ABOUT PAGE — FULL STORY LAYOUT
+   Dark Coffee • Cinematic • Premium
+================================== */
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.about-hero-full{
+    position:relative;
+    width:100%;
+    height:85vh;
+    min-height:520px;
+    overflow:hidden;
+}
+
+.about-hero-full img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    filter:
+            saturate(1.05)
+            contrast(1.08)
+            brightness(.85);
+}
+
+.about-hero-overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:0 6vw;
+
+    background:
+            linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,.55),
+                    rgba(0,0,0,.65)
+            );
+}
+
+.about-hero-overlay h1{
+    font-size:42px;
+    letter-spacing:.32em;
+    color:#efd9b0;
+    margin-bottom:18px;
+}
+
+.about-hero-overlay p{
+    font-size:13px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:#e2c7a8;
+}
+
+/* =========================
+   STORY TEXT
+========================= */
+
+.about-story{
+    background:
+            linear-gradient(
+                    180deg,
+                    #3b2015,
+                    #2a160d
+            );
+
+    padding:100px 6vw;
+}
+
+.about-story-inner{
+    max-width:900px;
+    margin:auto;
+}
+
+.about-story .lead{
+    font-size:19px;
+    line-height:2;
+    color:#efd9b0;
+    margin-bottom:32px;
+}
+
+.about-story p{
+    font-size:15px;
+    line-height:1.9;
+    color:#e2c7a8;
+    margin-bottom:18px;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.about-gallery{
+    background:
+            linear-gradient(
+                    180deg,
+                    #2a160d,
+                    #140d08
+            );
+
+    padding:90px 6vw 120px;
+}
+
+.about-gallery-grid{
+    max-width:1300px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:26px;
+}
+
+.about-gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    aspect-ratio:4/5;
+
+    box-shadow:
+            0 28px 80px rgba(0,0,0,.6);
+}
+
+.about-gallery-item img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    filter:
+            saturate(1.05)
+            contrast(1.08)
+            brightness(.9);
+
+    transition:transform .8s cubic-bezier(.2,.75,.2,1);
+}
+
+.about-gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+.about-gallery-item::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+            linear-gradient(
+                    to top,
+                    rgba(0,0,0,.45),
+                    transparent
+            );
+}
+
+/* =========================
+   EVENT DIVIDER
+========================= */
+
+.about-event-divider{
+    position:relative;
+    width:100%;
+    height:140px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(20,14,10,1),
+                    rgba(0,0,0,1)
+            );
+}
+
+.about-event-divider::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+
+    width:120px;
+    height:2px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    transparent,
+                    #caa27a,
+                    #efd9b0,
+                    #caa27a,
+                    transparent
+            );
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .about-hero-full{
+        height:65vh;
+    }
+
+    .about-hero-overlay h1{
+        font-size:26px;
+        letter-spacing:.22em;
+    }
+
+    .about-story{
+        padding:70px 6vw;
+    }
+
+    .about-gallery{
+        padding:60px 6vw 90px;
+    }
+
+    .about-gallery-item{
+        aspect-ratio:16/9;
+    }
+}
+
+/* =========================
+   STORY — GOLD LINE ACCENT
+========================= */
+
+.about-story-inner{
+    position:relative;
+    padding-left:40px;
+}
+
+/* GOLD LINE */
+.about-story-inner::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+
+    width:2px;
+    height:100%;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    transparent,
+                    #caa27a,
+                    #efd9b0,
+                    #caa27a,
+                    transparent
+            );
+
+    box-shadow:
+            0 0 10px rgba(202,162,122,.5);
+}
+
+/* GOLD MINI SEPARATOR */
+.about-story .lead::before{
+    content:"";
+    display:block;
+
+    width:80px;
+    height:2px;
+    margin-bottom:22px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    #caa27a,
+                    #efd9b0,
+                    #caa27a
+            );
+
+    box-shadow:
+            0 0 8px rgba(202,162,122,.4);
+}
+
+@media(max-width:900px){
+
+    .about-story-inner{
+        padding-left:24px;
+    }
+}

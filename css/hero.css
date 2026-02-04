@@ -1,0 +1,280 @@
+/* ================================
+   HERO — BRIGHT & CLEAN VERSION
+   No Dark Overlay • Safari iOS Safe
+================================ */
+
+/* ================================
+   HERO WRAPPER
+================================ */
+
+.hero-wrap{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* ================================
+   IMAGE / VIDEO ROTATOR
+================================ */
+
+.hero-rotator{
+    position:absolute;
+    inset:0;
+}
+
+.hero-media{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    /* bikin foto lebih hidup */
+    filter:
+            brightness(1.08)
+            contrast(1.05)
+            saturate(1.08);
+}
+
+/* fade animation */
+.hero-visible{
+    opacity:1;
+    transition:opacity 1.2s ease;
+    z-index:2;
+}
+
+.hero-hidden{
+    opacity:0;
+    transition:opacity 1.2s ease;
+    z-index:1;
+}
+
+/* ================================
+   OVERLAY (NO DARK LAYER)
+================================ */
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:transparent; /* HILANGKAN GELAP */
+    z-index:5;
+}
+
+/* ================================
+   HERO CONTENT
+================================ */
+
+.hero-content{
+    text-align:center;
+    padding:0 24px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* ================================
+   TEXT BASE
+================================ */
+
+.hero-title{
+    margin:0;
+    padding:0;
+    font-weight:700;
+    font-family:sans-serif;
+}
+
+.hero-sub{
+    margin-top:14px;
+}
+
+/* ================================
+   HERO TITLE — CLEAN NEON
+================================ */
+
+.neon-title{
+    font-size:clamp(36px,6vw,70px);
+    letter-spacing:.30em;
+    text-transform:uppercase;
+    color:#ffffff;
+
+    /* cukup kontras tanpa gelapin foto */
+    text-shadow:
+            0 2px 8px rgba(0,0,0,.45),
+            0 0 10px rgba(227,193,138,.55),
+            0 0 18px rgba(201,106,80,.25);
+
+    animation: woodNeon 3s ease-in-out infinite alternate;
+}
+
+@keyframes woodNeon{
+    from{
+        text-shadow:
+                0 2px 6px rgba(0,0,0,.4),
+                0 0 8px rgba(227,193,138,.45),
+                0 0 14px rgba(201,106,80,.15);
+    }
+    to{
+        text-shadow:
+                0 2px 10px rgba(0,0,0,.55),
+                0 0 14px rgba(227,193,138,.65),
+                0 0 22px rgba(201,106,80,.30);
+    }
+}
+
+/* ================================
+   HERO SUBTITLE
+================================ */
+
+.neon-sub{
+    margin-top:10px;
+
+    letter-spacing:.45em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:rgba(255,255,255,.9);
+
+    text-shadow:
+            0 2px 6px rgba(0,0,0,.45);
+
+    animation: subGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes subGlow{
+    from{opacity:.75;}
+    to{opacity:1;}
+}
+
+/* ================================
+   CTA GROUP
+================================ */
+
+.hero-cta-group{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    margin-top:36px;
+}
+
+/* ================================
+   PRIMARY CTA
+================================ */
+
+.hero-cta{
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+
+    padding:16px 42px;
+    border-radius:44px;
+
+    text-decoration:none;
+    color:#FFF;
+
+    background:linear-gradient(145deg,#4A2F23,#6B3E2E);
+    border:1px solid rgba(227,193,138,.45);
+
+    position:relative;
+    overflow:hidden;
+
+    transition:.35s cubic-bezier(.2,.75,.25,1);
+}
+
+/* CTA TEXT */
+
+.hero-cta .cta-main{
+    letter-spacing:.28em;
+    font-weight:600;
+    font-size:13px;
+}
+
+.hero-cta .cta-sub{
+    letter-spacing:.42em;
+    font-size:8px;
+    opacity:.65;
+}
+
+/* SHIMMER */
+
+.hero-cta::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+            linear-gradient(
+                    115deg,
+                    transparent 15%,
+                    rgba(227,193,138,.35),
+                    transparent 85%
+            );
+
+    transform:translateX(-120%);
+    transition:.7s ease;
+}
+
+/* HOVER */
+
+.hero-cta:hover{
+    transform:translateY(-5px) scale(1.05);
+
+    background:linear-gradient(145deg,#5A3826,#7A472F);
+
+    box-shadow:
+            0 25px 65px rgba(0,0,0,.55),
+            0 0 0 7px rgba(227,193,138,.25),
+            inset 0 0 0 1px rgba(255,255,255,.12);
+}
+
+.hero-cta:hover::after{
+    transform:translateX(120%);
+}
+
+/* ================================
+   SECONDARY CTA
+================================ */
+
+.hero-cta-secondary{
+    padding:16px 54px;
+    background:linear-gradient(145deg,#2C1B12,#472A1C);
+    border:1px solid rgba(201,106,80,.55);
+}
+
+.hero-cta-secondary:hover{
+    background:linear-gradient(145deg,#3A2217,#5A3421);
+    box-shadow:
+            0 25px 65px rgba(0,0,0,.55),
+            0 0 0 7px rgba(201,106,80,.30),
+            inset 0 0 0 1px rgba(255,255,255,.12);
+}
+
+/* ================================
+   MOBILE ADJUSTMENT
+================================ */
+
+@media(max-width:768px){
+
+    /* sedikit bantu kontras teks di layar kecil */
+    .hero-overlay{
+        background:rgba(0,0,0,.12);
+    }
+
+    .neon-title{
+        font-size:clamp(28px,7vw,44px);
+        letter-spacing:.22em;
+    }
+
+    .neon-sub{
+        font-size:10px;
+        letter-spacing:.34em;
+    }
+}

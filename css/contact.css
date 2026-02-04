@@ -1,0 +1,97 @@
+/* ==========================================================
+   CONTACT SECTION — CENTERED LUXURY (FINAL)
+========================================================== */
+
+.site-contact{
+    background:
+            linear-gradient(
+                    180deg,
+                    var(--contact-bg-1),
+                    var(--contact-bg-2)
+            );
+
+    color:#ffffff;
+    padding:30px 20px 30px;
+    border-top:4px solid #B4573F;
+}
+
+/* CENTER WRAPPER */
+.contact-wrap{
+    max-width:1400px;
+    margin:0 auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* LOGO + SOCIAL STACK */
+.contact-logo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+}
+
+/* LOGO */
+.contact-logo img{
+    max-width:200px;
+    opacity:.9;
+}
+
+/* SOCIAL LABEL */
+.contact-social-label{
+    font-size:10px;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    opacity:.55;
+}
+
+/* SOCIAL ICONS */
+.contact-social{
+    margin-top:10px;
+    display:flex;
+    justify-content:center;
+    gap:18px;
+}
+
+.contact-social a{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#ffffff;
+    color:#1f1f1f;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:18px;
+    transition:
+            background .25s ease,
+            color .25s ease,
+            box-shadow .25s ease;
+}
+
+.contact-social a:hover{
+    background:#C96A50;
+    color:#ffffff;
+    box-shadow:0 0 14px rgba(201,106,80,.45);
+}
+
+/* ----------------------------------------------------------
+   MOBILE
+---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+    .site-contact{
+        padding:70px 20px 60px;
+    }
+
+    .contact-logo img{
+        max-width:170px;
+    }
+
+}

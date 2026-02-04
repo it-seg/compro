@@ -1,0 +1,230 @@
+/* ==========================================================
+   NAVBAR — CLEAN & PROPORTIONAL (SAFARI iOS SAFE)
+========================================================== */
+
+/* =========================
+   BASE NAVBAR
+========================= */
+
+.navbar{
+    position:fixed !important;
+    top:0;
+    width:100%;
+    height:60px;
+    z-index:1100;
+    padding:4px 0;
+    background:var(--navbar-bg) !important;
+    box-shadow:0 2px 16px rgba(0,0,0,.65);
+    display:flex;
+    align-items:center;
+}
+
+.navbar.scrolled{
+    background:var(--navbar-bg-scroll) !important;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.navbar .container-fluid{
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+/* =========================
+   BRAND / LOGO
+========================= */
+
+.navbar-brand{
+    display:flex;
+    align-items:center;
+    height:100%;
+    padding:0;
+    z-index:2;
+}
+
+/* LOGO AUTO PROPORTIONAL */
+.navbar-logo{
+    display:block;
+    max-height:40px;      /* tinggi aman */
+    max-width:160px;     /* batas lebar */
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    transition:max-height .25s ease;
+}
+
+/* sedikit mengecil saat scroll */
+.navbar.scrolled .navbar-logo{
+    max-height:36px;
+}
+
+/* =========================
+   TOGGLER
+========================= */
+
+.navbar-toggler{
+    z-index:3;
+}
+
+/* =========================
+   CENTER MENU
+========================= */
+
+.navbar-collapse{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.navbar-nav{
+    justify-content:center;
+    gap:4px;
+}
+
+.navbar-brand,
+.nav-link{
+    letter-spacing:.14em;
+    font-size:13px;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.navbar-nav .nav-link{
+    position:relative;
+    color:#f5f1ed;
+    padding:6px 10px;
+    transition:.25s ease;
+}
+
+.navbar-nav .nav-link:hover{
+    opacity:.7;
+}
+
+/* ACTIVE MENU — GOLD */
+.navbar-nav .nav-link.active{
+    color:#e6c28b;
+    font-weight:500;
+    opacity:1;
+}
+
+/* underline gold */
+.navbar-nav .nav-link.active::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-6px;
+    width:28px;
+    height:2px;
+    background:linear-gradient(
+            90deg,
+            transparent,
+            #caa27a,
+            transparent
+    );
+    transform:translateX(-50%);
+    border-radius:2px;
+}
+
+/* =========================
+   LANGUAGE SWITCH
+========================= */
+
+.lang-switch{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    z-index:3;
+}
+
+/* FLAGS */
+.lang-switch .flag{
+    width:26px;
+    height:16px;
+    display:block;
+    border-radius:2px;
+    background-size:cover;
+    background-position:center;
+    border:1px solid rgba(255,255,255,.4);
+    box-shadow:0 0 6px rgba(0,0,0,.6);
+    transition:.25s ease;
+}
+
+.flag-id{ background-image:url('../images/flags/id.png'); }
+.flag-en{ background-image:url('../images/flags/en.png'); }
+
+.lang-switch .flag:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 8px rgba(240,200,150,.6);
+}
+
+.lang-switch .flag:active{
+    transform:scale(0.96);
+    box-shadow:0 0 4px rgba(202,162,122,.4);
+}
+
+/* =========================
+   MOBILE & TABLET
+========================= */
+@media (max-width:991px){
+
+    /* LOGO */
+    .navbar-logo{
+        max-height:34px;
+        max-width:140px;
+    }
+
+    /* COLLAPSE MENU — MENYATU DENGAN NAVBAR */
+    .navbar-collapse{
+        position:static;
+        transform:none;
+        width:100%;
+
+        background:var(--navbar-bg) !important; /* sama persis */
+        backdrop-filter:none; /* cegah edge glow */
+
+        border-radius:0 !important;
+        border-top:none !important;
+        box-shadow:none !important;
+
+        margin-top:0;
+        padding:14px 22px 18px;
+    }
+
+    .navbar-nav{
+        width:100%;
+        text-align:center;
+        gap:0;
+    }
+
+    .nav-link{
+        padding:12px 0;
+        letter-spacing:.2em;
+        border-bottom:1px solid rgba(255,255,255,.12);
+    }
+
+    .nav-link:last-child{
+        border-bottom:none;
+    }
+
+    .nav-link:hover{
+        background:rgba(255,255,255,.04);
+    }
+
+    /* ACTIVE MOBILE */
+    .navbar-nav .nav-link.active{
+        color:#f0d8b2;
+        background:rgba(202,162,122,.08);
+    }
+
+    .navbar-nav .nav-link.active::after{
+        display:none;
+    }
+}
+
+

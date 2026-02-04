@@ -1,0 +1,276 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* =====================
+   SHARED FLOAT BUTTON
+===================== */
+
+.back-to-top,
+.wa-float {
+    width: 56px;
+    height: 56px;
+    right: 30px;
+    border-radius: 50%;
+    position: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    transform: scale(.6);
+    pointer-events: none;
+
+    transition: .3s cubic-bezier(.2, .6, .3, 1);
+    z-index: 9999;
+}
+
+/* SHOW STATE */
+.float-show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+
+/* =====================
+   BACK TO TOP
+===================== */
+
+.back-to-top {
+    bottom: 30px;
+    background: rgba(201, 106, 80, .92);
+    backdrop-filter: blur(4px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .15),
+    0 0 0 rgba(201, 106, 80, 0);
+}
+
+.back-to-top:hover {
+    background: #B4573F;
+}
+
+
+/* SVG */
+.arrow-svg { width:100%; height:100%; }
+
+.progress-ring {
+    fill:none;
+    stroke:#fff;
+    stroke-width:4;
+    opacity:.35;
+    stroke-dasharray:283;
+    stroke-dashoffset:283;
+}
+
+.arrow-icon {
+    fill:none;
+    stroke:#fff;
+    stroke-width:6;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    animation:arrowPulse 1.4s infinite ease-in-out;
+}
+
+@keyframes arrowPulse {
+    0%   { transform:translateY(3px);  opacity:.7; }
+    50%  { transform:translateY(0);    opacity:1; }
+    100% { transform:translateY(3px);  opacity:.7; }
+}
+
+
+/* =====================
+   WHATSAPP FLOAT
+===================== */
+
+.wa-float {
+    bottom:110px;
+    background:#25D366;
+
+    box-shadow:
+            0 10px 30px rgba(0,0,0,.25),
+            inset 0 0 0 2px rgba(255,255,255,.15);
+
+    animation:waPulse 2.4s ease-in-out infinite;
+}
+
+.wa-icon {
+    width:28px;
+    height:28px;
+    fill:#fff;
+}
+
+.wa-float:hover {
+    background:#1EBE5D;
+    transform:scale(1.06);
+}
+
+@keyframes waPulse {
+    0% {
+        box-shadow:
+                0 0 0 0 rgba(37,211,102,.45),
+                0 10px 30px rgba(0,0,0,.25);
+    }
+    70% {
+        box-shadow:
+                0 0 0 14px rgba(37,211,102,0),
+                0 10px 30px rgba(0,0,0,.25);
+    }
+    100% {
+        box-shadow:
+                0 0 0 0 rgba(37,211,102,0),
+                0 10px 30px rgba(0,0,0,.25);
+    }
+}
+
+
+/* =====================
+   MOBILE FLOAT BUTTON
+===================== */
+
+@media(max-width:768px){
+
+    .back-to-top,
+    .wa-float{
+        width:48px;
+        height:48px;
+        right:20px;
+    }
+
+    .back-to-top{ bottom:20px; }
+    .wa-float{ bottom:90px; }
+}
+
+
+/* =========================
+   REMOVE FOCUS RING
+========================= */
+
+.back-to-top,
+.back-to-top:focus,
+.back-to-top:active{
+    outline:none !important;
+    box-shadow:inherit;
+}
+
+.back-to-top::-moz-focus-inner{
+    border:0;
+}
+
+.back-to-top:focus-visible{
+    outline:2px solid rgba(201,106,80,.6);
+    outline-offset:3px;
+}
+
+
+/* =========================
+   NUCLEAR FIX BACK TO TOP
+========================= */
+
+.back-to-top{
+    border:none !important;
+    outline:none !important;
+    box-shadow:
+            0 8px 20px rgba(0,0,0,.15),
+            0 0 18px rgba(201,106,80,.45);
+}
+
+.back-to-top:focus,
+.back-to-top:active,
+.back-to-top:focus-visible{
+    outline:none !important;
+    box-shadow:
+            0 8px 20px rgba(0,0,0,.15),
+            0 0 18px rgba(201,106,80,.45) !important;
+}
+
+.back-to-top::-moz-focus-inner{
+    border:0 !important;
+}
+
+
+/* =========================
+   STICKY FOOTER LAYOUT
+========================= */
+
+html, body{
+    height:100%;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+.page-content{
+    /*flex:1;*/
+    padding-top:60px; /* match navbar height */
+}
+
+
+
+/* ========================
+   MENU AREA (FINAL CLEAN)
+======================== */
+
+.menu-book{
+    background:#0e0e0e;
+    min-height:100vh;
+
+    /* FINAL OFFSET => navbar + fixed tabs */
+    padding-top:160px;
+    padding-bottom:80px;
+}
+
+
+/* TABS (NO GAP / NO OVERRIDE) */
+.menu-tabs{
+    display:flex;
+    justify-content:center;
+    gap:38px;
+    flex-wrap:wrap;
+
+    margin:0;
+    padding:0;
+}
+
+.menu-tabs button{
+    background:none;
+    border:none;
+    color:rgba(255,255,255,.5);
+    letter-spacing:4px;
+    font-size:13px;
+    padding-bottom:6px;
+    cursor:pointer;
+    border-bottom:2px solid transparent;
+}
+
+.menu-tabs button.active{
+    color:#caa27a;
+    border-color:#caa27a;
+}
+
+
+/* IMAGE STACK */
+.menu-pages{
+    max-width:1100px;
+    margin:auto;
+    display:none;
+    padding:0 10px;
+}
+
+.menu-pages.active{
+    display:block;
+}
+
+.menu-pages img{
+    width:100%;
+    display:block;
+    margin-bottom:28px;
+    border-radius:14px;
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+}

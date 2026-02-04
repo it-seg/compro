@@ -1,0 +1,272 @@
+/* =================================================
+   MENU SECTION — LUXURY SCROLL EDITION
+================================================= */
+
+.menu-section{
+    background:
+            linear-gradient(
+                    180deg,
+                    var(--menu-bg-1),
+                    var(--menu-bg-2)
+            );
+    padding:50px 5vw 40px;
+}
+
+/* =======================
+   HEADER
+======================= */
+
+.menu-head{
+    max-width:1300px;
+    margin:0 auto 45px;
+}
+
+.menu-title{
+    margin:0;
+    font-size:40px;
+    letter-spacing:.26em;
+    text-transform:uppercase;
+    color:#E3C18A;
+}
+
+.menu-title span{
+    display:block;
+    margin-top:10px;
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:#BEB2A3;
+}
+
+/* =======================
+   SLIDER WRAPPER
+======================= */
+
+.menu-slider-wrap{
+    position:relative;
+    max-width:1300px;
+    margin:0 auto 60px;
+}
+
+/* =======================
+   HORIZONTAL GRID
+======================= */
+
+.menu-scroll{
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:260px;
+    gap:26px;
+
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    padding:10px 0;
+
+    scrollbar-width:none;
+}
+
+.menu-scroll::-webkit-scrollbar{
+    display:none;
+}
+
+/* =======================
+   CARD
+======================= */
+
+.menu-card{
+    display:block;
+    position:relative;
+    overflow:hidden;
+
+    border-radius:22px;
+    aspect-ratio:4/5;
+
+    background:#EFE6DC;
+    box-shadow:
+            0 25px 70px rgba(0,0,0,.28);
+
+    transition:.35s ease;
+}
+
+.menu-card:hover{
+    transform:translateY(-6px) scale(1.03);
+}
+
+.menu-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.7s ease;
+}
+
+.menu-card:hover img{
+    transform:scale(1.09);
+}
+
+.menu-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+            linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,.05),
+                    rgba(0,0,0,.50)
+            );
+}
+
+/* =======================
+   LABEL
+======================= */
+
+.menu-label{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+
+    margin:0 18px 18px;
+    padding:9px 0;
+
+    text-align:center;
+    border-radius:12px;
+
+    background:#F7F3EE;
+    border:1px solid rgba(227,193,138,.65);
+
+    color:#2A1E1A;
+    font-size:12px;
+    letter-spacing:.28em;
+    font-weight:500;
+    text-transform:uppercase;
+
+    box-shadow:
+            0 4px 10px rgba(0,0,0,.12);
+
+    transition:.25s ease;
+    z-index:2;
+}
+
+.menu-card:hover .menu-label{
+    transform:translateY(-2px);
+    background:#F1E8DD;
+    box-shadow:
+            0 8px 16px rgba(0,0,0,.18);
+}
+
+/* =======================
+   ARROWS
+======================= */
+
+.menu-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:10;
+
+    width:46px;
+    height:46px;
+    border-radius:50%;
+
+    background:rgba(20,15,10,.55);
+    backdrop-filter:blur(6px);
+
+    border:1px solid rgba(227,193,138,.45);
+    color:#E3C18A;
+
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.menu-arrow:hover{
+    background:rgba(20,15,10,.85);
+    transform:translateY(-50%) scale(1.1);
+}
+
+.menu-arrow.left{
+    left:-18px;
+}
+
+.menu-arrow.right{
+    right:-18px;
+}
+
+/* =======================
+   DIVIDER
+======================= */
+
+.menu-divider{
+    margin:20px auto 0;
+    width:100%;
+    max-width:1300px;
+    position:relative;
+}
+
+.menu-divider span{
+    display:block;
+    width:100%;
+    height:1px;
+    background:
+            linear-gradient(
+                    90deg,
+                    transparent,
+                    #E3C18A 20%,
+                    #EFE6DC 50%,
+                    #E3C18A 80%,
+                    transparent
+            );
+    opacity:.65;
+    box-shadow:
+            0 0 12px rgba(227,193,138,.35);
+}
+
+.menu-divider:before,
+.menu-divider:after{
+    content:"✦";
+    position:absolute;
+    top:-7px;
+    font-size:10px;
+    color:#E3C18A;
+    opacity:.75;
+}
+
+.menu-divider:before{
+    left:50%;
+    transform:translateX(-45px);
+}
+
+.menu-divider:after{
+    left:50%;
+    transform:translateX(35px);
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media(max-width:768px){
+
+    .menu-arrow{
+        display:none;
+    }
+
+    .menu-scroll{
+        grid-auto-columns:220px;
+    }
+
+    .menu-title{
+        font-size:32px;
+        letter-spacing:.2em;
+    }
+}
+
+
+/* DRAG FEEL */
+.menu-scroll{
+    cursor:grab;
+}
+
+.menu-scroll:active{
+    cursor:grabbing;
+}
