@@ -170,7 +170,9 @@ class Controller extends CController
            MENU
         ================================ */
         $this->menuItems = Navigation::model()
-            ->findAll(['order' => 't.sort_order ASC']);
+            ->findAll([
+                'condition' => 't.is_active = 1',
+                'order' => 't.sort_order ASC']);
 
         /* ===============================
            HEADER CONTENT (CACHED)
