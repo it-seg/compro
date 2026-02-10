@@ -33,30 +33,6 @@
    LUXURY LINE EFFECT
 ========================= */
 
-.menu-tabs::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    bottom:-12px;
-    transform:translateX(-50%);
-    width:86%;
-    max-width:1200px;
-    height:2px;
-
-    background:
-            linear-gradient(
-                    90deg,
-                    transparent,
-                    #f0d8b2,
-                    #caa27a,
-                    #f0d8b2,
-                    transparent
-            );
-
-    box-shadow: 0 0 14px rgba(202,162,122,.75);
-    opacity: .9;
-}
-
 .menu-tabs::before{
     content:"";
     position:absolute;

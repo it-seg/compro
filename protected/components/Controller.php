@@ -98,6 +98,10 @@ class Controller extends CController
     public $gallery_bg_2 ;
     public $music_bg_1 ;
     public $music_bg_2 ;
+    public $carousel_color_title ;
+    public $carousel_color_sub_title ;
+    public $color_button_view_menu ;
+    public $color_button_make_reservation;
 
 
     public $menuItems = [];
@@ -295,6 +299,10 @@ class Controller extends CController
         $this->gallery_bg_2 = $dataSetting['gallery_bg_2'] ?? '#120807';
         $this->music_bg_1 = $dataSetting['music_bg_1'] ?? '#1a0f0a';
         $this->music_bg_2 = $dataSetting['music_bg_2'] ?? '#120807';
+        $this->carousel_color_title = $dataSetting['carousel_color_title'] ?? '#ffffff';
+        $this->carousel_color_sub_title = $dataSetting['carousel_color_sub_title'] ?? '#ffffff';
+        $this->color_button_view_menu = $dataSetting['color_button_view_menu'] ?? '#000000';
+        $this->color_button_make_reservation = $dataSetting['color_button_make_reservation'] ?? '#000000';
 
 
 

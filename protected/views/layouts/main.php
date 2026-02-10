@@ -56,6 +56,11 @@
 
             --music-bg-1: <?= CHtml::encode($this->music_bg_1); ?>;
             --music-bg-2: <?= CHtml::encode($this->music_bg_2); ?>;
+
+            --carousel-color-title: <?= CHtml::encode($this->carousel_color_title); ?>;
+            --carousel-color-sub-title: <?= CHtml::encode($this->carousel_color_sub_title); ?>;
+            --color-button-view-menu: <?= CHtml::encode($this->color_button_view_menu); ?>;
+            --color-button-make-reservation: <?= CHtml::encode($this->color_button_make_reservation); ?>;
         }
     </style>
 

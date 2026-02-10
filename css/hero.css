@@ -1,9 +1,4 @@
 /* ================================
-   HERO — BRIGHT & CLEAN VERSION
-   No Dark Overlay • Safari iOS Safe
-================================ */
-
-/* ================================
    HERO WRAPPER
 ================================ */
 
@@ -102,7 +97,7 @@
     font-size:clamp(36px,6vw,70px);
     letter-spacing:.30em;
     text-transform:uppercase;
-    color:#ffffff;
+    color:var(--carousel-color-title);
 
     /* cukup kontras tanpa gelapin foto */
     text-shadow:
@@ -138,7 +133,7 @@
     letter-spacing:.45em;
     text-transform:uppercase;
     font-size:12px;
-    color:rgba(255,255,255,.9);
+    color:var(--carousel-color-sub-title);
 
     text-shadow:
             0 2px 6px rgba(0,0,0,.45);
@@ -180,7 +175,7 @@
     text-decoration:none;
     color:#FFF;
 
-    background:linear-gradient(145deg,#4A2F23,#6B3E2E);
+    background: var(--color-button-view-menu);;
     border:1px solid rgba(227,193,138,.45);
 
     position:relative;
@@ -222,19 +217,6 @@
     transition:.7s ease;
 }
 
-/* HOVER */
-
-.hero-cta:hover{
-    transform:translateY(-5px) scale(1.05);
-
-    background:linear-gradient(145deg,#5A3826,#7A472F);
-
-    box-shadow:
-            0 25px 65px rgba(0,0,0,.55),
-            0 0 0 7px rgba(227,193,138,.25),
-            inset 0 0 0 1px rgba(255,255,255,.12);
-}
-
 .hero-cta:hover::after{
     transform:translateX(120%);
 }
@@ -245,17 +227,10 @@
 
 .hero-cta-secondary{
     padding:16px 54px;
-    background:linear-gradient(145deg,#2C1B12,#472A1C);
+    background: var(--color-button-make-reservation);;
     border:1px solid rgba(201,106,80,.55);
 }
 
-.hero-cta-secondary:hover{
-    background:linear-gradient(145deg,#3A2217,#5A3421);
-    box-shadow:
-            0 25px 65px rgba(0,0,0,.55),
-            0 0 0 7px rgba(201,106,80,.30),
-            inset 0 0 0 1px rgba(255,255,255,.12);
-}
 
 /* ================================
    MOBILE ADJUSTMENT

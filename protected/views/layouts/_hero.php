@@ -25,7 +25,7 @@ $firstImage = isset($images[0])
     ? $images[0]
     : Yii::app()->baseUrl . '/images/header/main.jpg';
 
-$waText = urlencode("Halo Tip Tap Toe, saya ingin reservasi meja");
+$waText = urlencode("Halo, saya ingin reservasi meja");
 $waLink = "https://wa.me/" . $this->whatsApp_number . "?text={$waText}";
 ?>
 
@@ -65,7 +65,7 @@ $waLink = "https://wa.me/" . $this->whatsApp_number . "?text={$waText}";
 
 
                     <a href="<?php echo $waLink; ?>"
-                       class="hero-cta hero-cta-secondary"
+                       class="hero-cta-secondary"
                        target="_blank">
 
                         <span class="cta-main"><?php echo CHtml::encode($this->hero_reservation); ?></span>

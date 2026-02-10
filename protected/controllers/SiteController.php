@@ -8,6 +8,7 @@ class SiteController extends Controller
         $menus  = $this->getMenuData();
         $sections = $this->getSectionsData();
 
+
         $this->render('index', [
             'news'     => $news,
             'spaces'   => $spaces,
@@ -25,17 +26,6 @@ class SiteController extends Controller
             else
                 $this->render('error', $error);
         }
-    }
-
-    public function actionAbout_page()
-    {
-        $this->render('about_page', [
-            'about_title'     => 'TENTANG TIP TAP TOE',
-            'about_sub_title' => 'MAKANAN HANGAT, PENGALAMAN BERKELAS',
-            'about_value_p1'  => 'Tip Tap Toe adalah day club ...',
-            'about_value_p2'  => 'Dilengkapi live music ...',
-            'about_button'   => 'Hubungi Kami'
-        ]);
     }
 
     public function actionMenu()
