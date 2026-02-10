@@ -5,7 +5,7 @@
 .ticker-wrap{
     width:100%;
     overflow:hidden;
-    background:#163838;
+    background:var(--color-background-running-text);;
     color:#fff;
     padding:14px 0;
 }

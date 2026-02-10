@@ -103,6 +103,8 @@ class Controller extends CController
     public $color_button_view_menu ;
     public $color_button_make_reservation;
 
+    public $color_background_running_text;
+
 
     public $menuItems = [];
 
@@ -303,6 +305,7 @@ class Controller extends CController
         $this->carousel_color_sub_title = $dataSetting['carousel_color_sub_title'] ?? '#ffffff';
         $this->color_button_view_menu = $dataSetting['color_button_view_menu'] ?? '#000000';
         $this->color_button_make_reservation = $dataSetting['color_button_make_reservation'] ?? '#000000';
+        $this->color_background_running_text = $dataSetting['color_background_running_text'] ?? '#000000';
 
 
 
