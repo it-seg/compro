@@ -10,7 +10,7 @@
                     var(--news-bg-1),
                     var(--news-bg-2)
             );
-
+    margin-bottom:120px;
     color:#fff;
 }
 

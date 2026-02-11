@@ -61,6 +61,7 @@
             --running-text-color-title: <?= CHtml::encode($this->running_text_color_title); ?>;
             --navbar-menu-color-title: <?= CHtml::encode($this->navbar_menu_color_title); ?>;
             --color-button-about-view-more: <?= CHtml::encode($this->color_button_about_view_more); ?>;
+            --about-color-view-more: <?= CHtml::encode($this->about_color_view_more); ?>;
             --about-color-title: <?= CHtml::encode($this->about_color_title); ?>;
             --about-color-sub-title: <?= CHtml::encode($this->about_color_sub_title); ?>;
             --carousel-color-sub-title: <?= CHtml::encode($this->carousel_color_sub_title); ?>;
@@ -99,7 +100,6 @@
 <main class="page-content">
     <?php echo $content; ?>
 </main>
-
 <?php $this->renderPartial('//layouts/_contact'); ?>
 <?php $this->renderPartial('//layouts/_footer'); ?>
 

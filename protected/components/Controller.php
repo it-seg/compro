@@ -108,6 +108,7 @@ class Controller extends CController
     public $about_color_title;
     public $about_color_sub_title;
     public $color_button_about_view_more;
+    public $about_color_view_more;
     public $space_color_title;
     public $space_color_sub_title;
     public $menu_color_title;
@@ -319,6 +320,7 @@ class Controller extends CController
         $this->running_text_color_title = $dataSetting['running_text_color_title'] ?? '#ffffff';
         $this->navbar_menu_color_title = $dataSetting['navbar_menu_color_title'] ?? '#f5f1ed';
         $this->color_button_about_view_more = $dataSetting['color_button_about_view_more'] ?? '#ffffff';
+        $this->about_color_view_more = $dataSetting['about_color_view_more'] ?? '#ffffff';
         $this->about_color_title = $dataSetting['about_color_title'] ?? '#2a1e1a';
         $this->about_color_sub_title = $dataSetting['about_color_sub_title'] ?? '#2a1e1a';
         $this->carousel_color_sub_title = $dataSetting['carousel_color_sub_title'] ?? '#ffffff';

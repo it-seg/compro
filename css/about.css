@@ -216,14 +216,9 @@
     padding:12px 38px;
     border-radius:40px;
 
-    background:
-            linear-gradient(
-                    135deg,
-                    #c96a50,
-                    #b4573f
-            );
+    background:var(--color-button-about-view-more);
 
-    color:var(--color-button-about-view-more);
+    color:var(--about-color-view-more);
     font-size:12px;
     letter-spacing:.12em;
     text-decoration:none;
