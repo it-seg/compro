@@ -102,8 +102,22 @@ class Controller extends CController
     public $carousel_color_sub_title ;
     public $color_button_view_menu ;
     public $color_button_make_reservation;
-
+    public $running_text_color_title;
+    public $navbar_menu_color_title;
     public $color_background_running_text;
+    public $about_color_title;
+    public $about_color_sub_title;
+    public $color_button_about_view_more;
+    public $space_color_title;
+    public $space_color_sub_title;
+    public $menu_color_title;
+    public $menu_color_sub_title;
+    public $event_color_title;
+    public $event_color_sub_title;
+    public $news_color_title;
+    public $news_color_sub_title;
+    public $sosmed_color_title;
+    public $footer_color_title;
 
 
     public $menuItems = [];
@@ -302,10 +316,25 @@ class Controller extends CController
         $this->music_bg_1 = $dataSetting['music_bg_1'] ?? '#1a0f0a';
         $this->music_bg_2 = $dataSetting['music_bg_2'] ?? '#120807';
         $this->carousel_color_title = $dataSetting['carousel_color_title'] ?? '#ffffff';
+        $this->running_text_color_title = $dataSetting['running_text_color_title'] ?? '#ffffff';
+        $this->navbar_menu_color_title = $dataSetting['navbar_menu_color_title'] ?? '#f5f1ed';
+        $this->color_button_about_view_more = $dataSetting['color_button_about_view_more'] ?? '#ffffff';
+        $this->about_color_title = $dataSetting['about_color_title'] ?? '#2a1e1a';
+        $this->about_color_sub_title = $dataSetting['about_color_sub_title'] ?? '#2a1e1a';
         $this->carousel_color_sub_title = $dataSetting['carousel_color_sub_title'] ?? '#ffffff';
         $this->color_button_view_menu = $dataSetting['color_button_view_menu'] ?? '#000000';
         $this->color_button_make_reservation = $dataSetting['color_button_make_reservation'] ?? '#000000';
         $this->color_background_running_text = $dataSetting['color_background_running_text'] ?? '#000000';
+        $this->space_color_title = $dataSetting['space_color_title'] ?? '#ffffff';
+        $this->space_color_sub_title = $dataSetting['space_color_sub_title'] ?? '#ffffff';
+        $this->sosmed_color_title = $dataSetting['sosmed_color_title'] ?? '#ffffff';
+        $this->menu_color_title = $dataSetting['menu_color_title'] ?? '#ffffff';
+        $this->menu_color_sub_title = $dataSetting['menu_color_sub_title'] ?? '#ffffff';
+        $this->event_color_title = $dataSetting['event_color_title'] ?? '#ffffff';
+        $this->event_color_sub_title = $dataSetting['event_color_sub_title'] ?? '#ffffff';
+        $this->news_color_title = $dataSetting['news_color_title'] ?? '#ffffff';
+        $this->news_color_sub_title = $dataSetting['news_color_sub_title'] ?? '#ffffff';
+        $this->footer_color_title = $dataSetting['footer_color_title'] ?? '#ffffff';
 
 
 

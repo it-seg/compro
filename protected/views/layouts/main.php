@@ -58,10 +58,26 @@
             --music-bg-2: <?= CHtml::encode($this->music_bg_2); ?>;
 
             --carousel-color-title: <?= CHtml::encode($this->carousel_color_title); ?>;
+            --running-text-color-title: <?= CHtml::encode($this->running_text_color_title); ?>;
+            --navbar-menu-color-title: <?= CHtml::encode($this->navbar_menu_color_title); ?>;
+            --color-button-about-view-more: <?= CHtml::encode($this->color_button_about_view_more); ?>;
+            --about-color-title: <?= CHtml::encode($this->about_color_title); ?>;
+            --about-color-sub-title: <?= CHtml::encode($this->about_color_sub_title); ?>;
             --carousel-color-sub-title: <?= CHtml::encode($this->carousel_color_sub_title); ?>;
             --color-button-view-menu: <?= CHtml::encode($this->color_button_view_menu); ?>;
             --color-button-make-reservation: <?= CHtml::encode($this->color_button_make_reservation); ?>;
             --color-background-running-text: <?= CHtml::encode($this->color_background_running_text); ?>;
+
+            --space-color-title: <?= CHtml::encode($this->space_color_title); ?>;
+            --space-color-sub-title: <?= CHtml::encode($this->space_color_sub_title); ?>;
+            --menu-color-title: <?= CHtml::encode($this->menu_color_title); ?>;
+            --menu-color-sub-title: <?= CHtml::encode($this->menu_color_sub_title); ?>;
+            --event-color-title: <?= CHtml::encode($this->event_color_title); ?>;
+            --event-color-sub-title: <?= CHtml::encode($this->event_color_sub_title); ?>;
+            --news-color-title: <?= CHtml::encode($this->news_color_title); ?>;
+            --news-color-sub-title: <?= CHtml::encode($this->news_color_sub_title); ?>;
+            --sosmed-color-title: <?= CHtml::encode($this->sosmed_color_title); ?>;
+            --footer-color-title: <?= CHtml::encode($this->footer_color_title); ?>;
         }
     </style>
 

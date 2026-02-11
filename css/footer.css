@@ -19,7 +19,7 @@
     line-height: 1.4;
     letter-spacing: 1px;
     opacity: 0.7;
-    color: #ffffff;
+    color: var(--footer-color-title);
 }
 
 /* =========================

@@ -48,6 +48,7 @@
             <?= CHtml::decode($this->about_value_p1); ?>
 
             <?= CHtml::decode($this->about_value_p2); ?>
+            <hr>
 
             <a href="<?= Yii::app()->createUrl('site/about_page'); ?>"
                class="about-btn">

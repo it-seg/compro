@@ -10,7 +10,7 @@
                     var(--contact-bg-2)
             );
 
-    color:#ffffff;
+    color:var(--sosmed-color-title);
     padding:30px 20px 30px;
     border-top:4px solid #B4573F;
 }

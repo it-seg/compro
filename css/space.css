@@ -30,7 +30,7 @@
 .space-title {
     font-size: 34px;
     letter-spacing: .15em;
-    color: #3b2015;
+    color: var(--space-color-title);
 }
 
 .space-title::after {
@@ -51,7 +51,7 @@
     gap: 10px;
     font-size: 12px;
     letter-spacing: .15em;
-    color: #2a5b3f;
+    color: var(--space-color-sub-title);
 }
 
 .space-sub .dot {

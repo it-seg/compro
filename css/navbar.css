@@ -96,7 +96,7 @@
 
 .navbar-nav .nav-link{
     position:relative;
-    color:#f5f1ed;
+    color:var(--navbar-menu-color-title);
     padding:6px 10px;
     transition:.25s ease;
 }

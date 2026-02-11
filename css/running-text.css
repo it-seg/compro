@@ -6,7 +6,7 @@
     width:100%;
     overflow:hidden;
     background:var(--color-background-running-text);;
-    color:#fff;
+    color:var(--running-text-color-title);
     padding:14px 0;
 }
 
