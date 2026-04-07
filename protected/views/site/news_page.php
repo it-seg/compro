@@ -56,8 +56,8 @@ if ($hasNews) {
                 <?= CHtml::encode($mainNews['date']); ?>
             </span>
 
-                <?php if (!empty($n['short'])): ?>
-                    <p><?= CHtml::encode($n['short']); ?></p>
+                <?php if (!empty($mainNews['short'])): ?>
+                    <p><?= CHtml::encode($mainNews['short']); ?></p>
                 <?php endif; ?>
 
                 <a class="news-main-link"
