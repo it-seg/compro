@@ -3,18 +3,23 @@
 ================================== */
 
 .news-section{
-    padding:120px 6vw 140px;
+    padding:120px 6vw 200px;
     background:
             linear-gradient(
                     180deg,
                     var(--news-bg-1),
                     var(--news-bg-2)
             );
-    margin-bottom:120px;
     color:#fff;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
-
+.news-section::after{
+    content:"";
+    display:block;
+    height:60px;
+}
 /* =====================
    HEADER
 ===================== */
@@ -70,7 +75,7 @@
 .news-grid{
     max-width:1300px;
     margin:auto;
-
+    align-items: stretch;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:40px;
@@ -96,9 +101,11 @@
     background:#111;
     border-radius:22px;
     overflow:hidden;
-
+    min-height: 420px;
     box-shadow:0 18px 40px rgba(0,0,0,.5);
     transition:.35s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .news-card:hover{
@@ -127,7 +134,10 @@
 /* CONTENT */
 
 .news-content{
-    padding:26px 28px 32px;
+    padding:26px 28px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .news-date{
@@ -157,7 +167,7 @@
     display:inline-flex;
     align-items:center;
     gap:8px;
-
+    margin-top: auto;
     font-size:11px;
     letter-spacing:.22em;
     text-decoration:none;
