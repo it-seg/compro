@@ -206,21 +206,6 @@
 }
 
 
-
-.news-detail-content p:first-of-type::first-letter{
-    float:left;
-
-    font-size:52px;
-    line-height:1;
-    margin:6px 10px 0 0;
-
-    font-family: serif;
-    font-weight:600;
-
-    color:#c8a46a;
-}
-
-
 .news-back{
     max-width:700px;
     margin:40px auto 0;
