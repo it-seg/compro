@@ -55,23 +55,45 @@ $waLink = "https://wa.me/" . $this->whatsApp_number . "?text={$waText}";
 
                 <div class="hero-cta-group">
 
-                    <a href="<?php echo Yii::app()->createUrl('site/menu'); ?>"
-                       class="hero-cta">
+                    <?php if (!empty($this->view_menus) || !empty($this->sub_view_menus)): ?>
+                        <a href="<?php echo Yii::app()->createUrl('site/menu'); ?>"
+                           class="hero-cta">
 
-                        <span class="cta-main"><?php echo CHtml::encode($this->view_menus); ?></span>
-                        <span class="cta-sub"><?php echo CHtml::encode($this->sub_view_menus); ?></span>
+                            <?php if (!empty($this->view_menus)): ?>
+                                <span class="cta-main">
+                <?php echo CHtml::encode($this->view_menus); ?>
+            </span>
+                            <?php endif; ?>
 
-                    </a>
+                            <?php if (!empty($this->sub_view_menus)): ?>
+                                <span class="cta-sub">
+                <?php echo CHtml::encode($this->sub_view_menus); ?>
+            </span>
+                            <?php endif; ?>
+
+                        </a>
+                    <?php endif; ?>
 
 
-                    <a href="<?php echo $waLink; ?>"
-                       class="hero-cta-secondary"
-                       target="_blank">
+                    <?php if (!empty($this->hero_reservation) || !empty($this->sub_hero_reservation)): ?>
+                        <a href="<?php echo $waLink; ?>"
+                           class="hero-cta hero-cta-secondary"
+                           target="_blank">
 
-                        <span class="cta-main"><?php echo CHtml::encode($this->hero_reservation); ?></span>
-                        <span class="cta-sub"><?php echo CHtml::encode($this->sub_hero_reservation); ?></span>
+                            <?php if (!empty($this->hero_reservation)): ?>
+                                <span class="cta-main">
+                <?php echo CHtml::encode($this->hero_reservation); ?>
+            </span>
+                            <?php endif; ?>
 
-                    </a>
+                            <?php if (!empty($this->sub_hero_reservation)): ?>
+                                <span class="cta-sub">
+                <?php echo CHtml::encode($this->sub_hero_reservation); ?>
+            </span>
+                            <?php endif; ?>
+
+                        </a>
+                    <?php endif; ?>
 
                 </div>
 
@@ -106,23 +128,45 @@ $waLink = "https://wa.me/" . $this->whatsApp_number . "?text={$waText}";
 
                     <div class="hero-cta-group">
 
-                        <a href="<?php echo Yii::app()->createUrl('site/menu'); ?>"
-                           class="hero-cta">
+                        <?php if (!empty($this->view_menus) || !empty($this->sub_view_menus)): ?>
+                            <a href="<?php echo Yii::app()->createUrl('site/menu'); ?>"
+                               class="hero-cta">
 
-                            <span class="cta-main"><?php echo CHtml::encode($this->view_menus); ?></span>
-                            <span class="cta-sub"><?php echo CHtml::encode($this->sub_view_menus); ?></span>
+                                <?php if (!empty($this->view_menus)): ?>
+                                    <span class="cta-main">
+                    <?php echo CHtml::encode($this->view_menus); ?>
+                </span>
+                                <?php endif; ?>
 
-                        </a>
+                                <?php if (!empty($this->sub_view_menus)): ?>
+                                    <span class="cta-sub">
+                    <?php echo CHtml::encode($this->sub_view_menus); ?>
+                </span>
+                                <?php endif; ?>
+
+                            </a>
+                        <?php endif; ?>
 
 
-                        <a href="<?php echo $waLink; ?>"
-                           class="hero-cta hero-cta-secondary"
-                           target="_blank">
+                        <?php if (!empty($this->hero_reservation) || !empty($this->sub_hero_reservation)): ?>
+                            <a href="<?php echo $waLink; ?>"
+                               class="hero-cta hero-cta-secondary"
+                               target="_blank">
 
-                            <span class="cta-main"><?php echo CHtml::encode($this->hero_reservation); ?></span>
-                            <span class="cta-sub"><?php echo CHtml::encode($this->sub_hero_reservation); ?></span>
+                                <?php if (!empty($this->hero_reservation)): ?>
+                                    <span class="cta-main">
+                    <?php echo CHtml::encode($this->hero_reservation); ?>
+                </span>
+                                <?php endif; ?>
 
-                        </a>
+                                <?php if (!empty($this->sub_hero_reservation)): ?>
+                                    <span class="cta-sub">
+                    <?php echo CHtml::encode($this->sub_hero_reservation); ?>
+                </span>
+                                <?php endif; ?>
+
+                            </a>
+                        <?php endif; ?>
 
                     </div>
 
@@ -142,10 +186,10 @@ $jsInterval = max(2000, $interval);
 ?>
 
 <script>
-    (function(){
+    (function () {
 
         const images = <?php echo $jsImages ?>;
-        if(!images.length) return;
+        if (!images.length) return;
 
         const A = document.getElementById('heroImgA');
         const B = document.getElementById('heroImgB');
@@ -163,7 +207,7 @@ $jsInterval = max(2000, $interval);
             index = (index + 1) % images.length;
             const next = images[index];
 
-            const fadeIn  = showA ? B : A;
+            const fadeIn = showA ? B : A;
             const fadeOut = showA ? A : B;
 
             fadeIn.src = next;

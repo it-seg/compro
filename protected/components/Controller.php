@@ -264,14 +264,38 @@ class Controller extends CController
             'other_event_detail_button'	=>	'other_event_detail_button'
         ];
 
-        $dataHeader = $this->loadKeyValue(
-            HeaderContent::class,
-            'type',
-            $field
-        );
+        $rows = HeaderContent::model()->findAll();
+
+        $dataHeader = [];
+
+        foreach ($rows as $row) {
+            $isActive = true;
+
+            if (isset($row->is_active)) {
+                if ($row->is_active === '0' || $row->is_active === 0) {
+                    $isActive = false;
+                }
+            }
+
+            if (!$isActive) {
+                continue;
+            }
+            $value = $row->$field ?? null;
+
+            if (empty($value)) {
+                $value = "Default {$row->type}";
+            }
+
+            $dataHeader[$row->type] = $value;
+        }
 
         foreach ($contentMap as $property => $type) {
-            $this->$property = $dataHeader[$type] ?? "Default {$type}";
+
+            if (array_key_exists($type, $dataHeader)) {
+                $this->$property = $dataHeader[$type];
+            } else {
+                $this->$property = '';
+            }
         }
 
         /* ===============================
