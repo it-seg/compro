@@ -11,7 +11,7 @@
             );
 
     color:var(--sosmed-color-title);
-    padding:50px 20px 50px;
+    padding:20px 20px 20px;
 }
 
 /* CENTER WRAPPER */
@@ -35,7 +35,7 @@
 
 /* LOGO */
 .contact-logo img{
-    max-width:200px;
+    max-width:100px;
     opacity:.9;
 }
 
