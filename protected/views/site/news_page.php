@@ -37,7 +37,7 @@ if ($hasNews) {
             <h1 class="news-page-title">Latest News</h1>
             <div class="news-page-sub">
                 <span class="dot"></span>
-                <span>Stories & Updates from Tip Tap Toe</span>
+                <span>Stories & Updates From Us</span>
             </div>
         </header>
 
@@ -77,7 +77,7 @@ if ($hasNews) {
                 <h3>Other News</h3>
                 <div class="other-news-sub">
                     <span class="dot"></span>
-                    <span>More updates from Tip Tap Toe</span>
+                    <span>More updates from us</span>
                 </div>
             </div>
 

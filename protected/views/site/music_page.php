@@ -17,10 +17,11 @@ $hasMusic = isset($posts) && is_array($posts) && count($posts) > 0;
 
     <!-- HERO -->
     <header class="music-hero">
-        <h1 class="music-title">Music & Atmosphere</h1>
+        <br>
+        <h1 class="music-title"><?= CHtml::encode($this->music_title); ?></h1>
         <div class="music-sub">
             <span class="dot"></span>
-            <span>Captured music from Tip Tap Toe</span>
+            <span><?= CHtml::encode($this->music_sub_title); ?></span>
         </div>
     </header>
 
@@ -59,7 +60,7 @@ $hasMusic = isset($posts) && is_array($posts) && count($posts) > 0;
             <div class="music-empty-inner">
                 <h1>No Music Yet</h1>
                 <p>
-                    We’re preparing moments of music & atmosphere at Tip Tap Toe.<br>
+                    We’re preparing moments of music & atmosphere.<br>
                     Stay tuned and follow our social media for updates.
                 </p>
             </div>

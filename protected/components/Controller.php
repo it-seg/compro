@@ -38,6 +38,8 @@ class Controller extends CController
     public $space_title = '';
     public $gallery_title = '';
     public $gallery_sub_title = '';
+    public $music_title = '';
+    public $music_sub_title = '';
     public $space_sub_title = '';
     public $view_menus = '';
     public $sub_view_menus = '';
@@ -249,6 +251,8 @@ class Controller extends CController
 
             'space_title' => 'space_title',
             'gallery_title' => 'gallery_title',
+            'music_title' => 'music_title',
+            'music_sub_title' => 'music_sub_title',
             'gallery_sub_title' => 'gallery_sub_title',
             'space_sub_title' => 'space_sub_title',
             'view_menus' => 'view_menus',
