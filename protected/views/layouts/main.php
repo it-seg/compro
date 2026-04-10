@@ -66,6 +66,7 @@
             --about-color-sub-title: <?= CHtml::encode($this->about_color_sub_title); ?>;
             --carousel-color-sub-title: <?= CHtml::encode($this->carousel_color_sub_title); ?>;
             --color-button-view-menu: <?= CHtml::encode($this->color_button_view_menu); ?>;
+            --color-button-menu-tabs: <?= CHtml::encode($this->color_button_menu_tabs); ?>;
             --color-button-make-reservation: <?= CHtml::encode($this->color_button_make_reservation); ?>;
             --color-background-running-text: <?= CHtml::encode($this->color_background_running_text); ?>;
 

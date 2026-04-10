@@ -101,6 +101,7 @@ class Controller extends CController
     public $carousel_color_title ;
     public $carousel_color_sub_title ;
     public $color_button_view_menu ;
+    public $color_button_menu_tabs ;
     public $color_button_make_reservation;
     public $running_text_color_title;
     public $navbar_menu_color_title;
@@ -349,6 +350,7 @@ class Controller extends CController
         $this->about_color_sub_title = $dataSetting['about_color_sub_title'] ?? '#2a1e1a';
         $this->carousel_color_sub_title = $dataSetting['carousel_color_sub_title'] ?? '#ffffff';
         $this->color_button_view_menu = $dataSetting['color_button_view_menu'] ?? '#000000';
+        $this->color_button_menu_tabs = $dataSetting['color_button_menu_tabs'] ?? '#280e01';
         $this->color_button_make_reservation = $dataSetting['color_button_make_reservation'] ?? '#000000';
         $this->color_background_running_text = $dataSetting['color_background_running_text'] ?? '#000000';
         $this->space_color_title = $dataSetting['space_color_title'] ?? '#ffffff';
