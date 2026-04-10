@@ -139,6 +139,7 @@ class SiteController extends Controller
     {
         $galleryBg1 = $this->gallery_bg_1 ?? '#1a0f0a';
         $galleryBg2 = $this->gallery_bg_2 ?? '#120807';
+        $gallery_title =
 
         $this->render('gallery_page', [
             'galleryBg1' => $galleryBg1,

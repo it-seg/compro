@@ -3,9 +3,7 @@ Yii::app()->clientScript->registerCssFile(
     Yii::app()->baseUrl . '/css/gallery_page.css'
 );
 
-$this->pageTitle = 'Gallery | Tip Tap Toe';
-
-// ambil semua feed (lebih banyak dari homepage)
+$this->pageTitle = 'Gallery Site';
 $posts = $this->getInstagramFeed(30);
 
 
@@ -19,12 +17,12 @@ $posts = $this->getInstagramFeed(30);
     <!-- HERO -->
     <header class="gallery-hero">
         <h1 class="gallery-title">
-            Moments & Atmosphere
+            <?= CHtml::encode($this->gallery_title); ?>
         </h1>
 
         <div class="gallery-sub">
             <span class="dot"></span>
-            <span>Captured stories from Tip Tap Toe</span>
+            <span><?= CHtml::encode($this->gallery_sub_title); ?></span>
         </div>
     </header>
 
@@ -61,7 +59,7 @@ $posts = $this->getInstagramFeed(30);
     <?php else: ?>
 
         <div class="gallery-empty">
-            No gallery available at the moment
+
         </div>
 
     <?php endif; ?>

@@ -67,6 +67,10 @@
             --carousel-color-sub-title: <?= CHtml::encode($this->carousel_color_sub_title); ?>;
             --color-button-view-menu: <?= CHtml::encode($this->color_button_view_menu); ?>;
             --color-button-menu-tabs: <?= CHtml::encode($this->color_button_menu_tabs); ?>;
+
+            --gallery-color-title: <?= CHtml::encode($this->gallery_color_title); ?>;
+            --gallery-color-sub-title: <?= CHtml::encode($this->gallery_color_sub_title); ?>;
+
             --color-button-make-reservation: <?= CHtml::encode($this->color_button_make_reservation); ?>;
             --color-background-running-text: <?= CHtml::encode($this->color_background_running_text); ?>;
 

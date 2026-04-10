@@ -30,7 +30,7 @@
 .gallery-title{
     font-size:34px;
     letter-spacing:.25em;
-    color:#efd9b0;
+    color: var(--gallery-color-title);
 }
 
 .gallery-title::after{
@@ -58,6 +58,7 @@
 
     font-size:11px;
     letter-spacing:.2em;
+    color: var(--gallery-color-sub-title);
     color:#c8a46a;
 }
 
