@@ -1,11 +1,9 @@
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <?php
     // LOAD OFFLINE ===========================
     $base = Yii::app()->baseUrl;
-
     // LIBRARY ONLINE ========================
     Yii::app()->clientScript->registerCssFile(
         'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'
@@ -14,19 +12,14 @@
         'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
         CClientScript::POS_END
     );
-
     // font awesome
     Yii::app()->clientScript->registerCssFile('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
-
     // slider instagram
     Yii::app()->clientScript->registerCssFile('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
     Yii::app()->clientScript->registerScriptFile('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', CClientScript::POS_END);
-
-
     ?>
-
     <style>
-        :root{
+        :root {
             --navbar-bg: <?= CHtml::encode($this->navbar_bg); ?>;
             --navbar-bg-scroll: <?= CHtml::encode($this->navbar_bg_scroll); ?>;
 
@@ -86,12 +79,8 @@
             --footer-color-title: <?= CHtml::encode($this->footer_color_title); ?>;
         }
     </style>
-
 </head>
-
 <body>
-
-
 <!-- BACK TO TOP -->
 <button id="backToTop" class="back-to-top" aria-label="Back to top">
     <svg class="arrow-svg" viewBox="0 0 100 100">
@@ -99,17 +88,12 @@
         <polyline class="arrow-icon" points="30,55 50,35 70,55"></polyline>
     </svg>
 </button>
-
-<?php $this->renderPartial('//layouts/_navbar'); ?>
 <!-- CONTENT -->
 <main class="page-content">
     <?php echo $content; ?>
 </main>
-<?php $this->renderPartial('//layouts/_contact'); ?>
-<?php $this->renderPartial('//layouts/_footer'); ?>
-
+<?php $this->renderPartial('//layouts/_landing'); ?>
 <?php $this->renderPartial('//layouts/_debug_script'); ?>
-
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/6281329403145"
    class="wa-float"
@@ -131,5 +115,4 @@
         .3z"/>
     </svg>
 </a>
-
 </body>

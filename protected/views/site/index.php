@@ -1,6 +1,9 @@
 <?php foreach ($sections as $section): ?>
 
     <?php switch ($section->section_key):
+        case 'navbar':
+            $this->renderPartial('//layouts/_navbar');
+            break;
 
         case 'hero':
             $this->renderPartial('//layouts/_hero');
@@ -42,6 +45,14 @@
 
         case 'social':
             $this->renderPartial('//layouts/_social');
+            break;
+
+        case 'contact':
+            $this->renderPartial('//layouts/_contact');
+            break;
+
+        case 'footer':
+            $this->renderPartial('//layouts/_footer');
             break;
 
     endswitch; ?>
