@@ -145,11 +145,13 @@ $baseUrl = Yii::app()->request->baseUrl;
 <section class="section" id="services">
     <div class="container">
 
-        <span class="section-label">Our Expertise</span>
-        <h2 class="section-heading">
+        <span class="section-label fade-up delay-1">Our Expertise</span>
+
+        <h2 class="section-heading fade-up delay-2">
             Business Units That Drive Growth
         </h2>
-        <hr>
+
+        <hr class="fade-up delay-3">
 
         <div class="row g-4 justify-content-center">
 
@@ -280,6 +282,8 @@ $baseUrl = Yii::app()->request->baseUrl;
 
 
         </div>
+
+        <hr class="fade-up delay-3">
 
     </div>
 </section>

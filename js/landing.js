@@ -15,23 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-/* SERVICES ANIMATION */
-const serviceCards = document.querySelectorAll('.card-service');
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            serviceCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('show');
-                }, index * 120);
-            });
-        }
-    });
-}, { threshold: 0.2 });
-
-observer.observe(document.querySelector('#services'));
-
 /* =========================================
    SCROLL ANIMATION (BOLAK-BALIK)
 ========================================= */
@@ -67,3 +50,20 @@ document.querySelectorAll('.navbar .nav-link').forEach(link => {
 
     });
 });
+
+/* =========================================
+   SERVICES OBSERVER (CLEAN)
+========================================= */
+const serviceCards = document.querySelectorAll('.card-service');
+
+const serviceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show'); // optional (biar repeat)
+        }
+    });
+}, { threshold: 0.2 });
+
+serviceCards.forEach(card => serviceObserver.observe(card));

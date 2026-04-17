@@ -353,27 +353,19 @@ img {
 }
 
 
-/* =====================================================
-   SERVICES
-===================================================== */
+/* =========================================
+   SERVICES ANIMATION (UPGRADE)
+========================================= */
 .card-service {
-    display: flex;
-    flex-direction: column;
-
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid #eee;
-
-    transition: 0.4s ease;
-
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(50px) scale(0.98);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
 }
 
 .card-service.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 /* IMAGE */
@@ -526,3 +518,56 @@ footer {
 .delay-1 { transition-delay: 0.2s; }
 .delay-2 { transition-delay: 0.4s; }
 .delay-3 { transition-delay: 0.6s; }
+
+/* =========================================
+   LUXURY DIVIDER (VISIBLE VERSION)
+========================================= */
+hr {
+    border: none;
+    height: 2px;
+    width: 940px;
+    margin: 25px auto;
+
+    background: linear-gradient(
+            to right,
+            transparent,
+            var(--color-gold),
+            transparent
+    );
+
+    position: relative;
+}
+
+/* CENTER ACCENT (BIAR KELIHATAN) */
+hr::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 30px;
+    height: 2px;
+    background: var(--color-gold);
+
+    box-shadow: 0 0 6px rgba(212,175,55,0.6);
+}
+@media (max-width: 576px) {
+    hr {
+        width: 340px;
+    }
+}
+
+/* =========================================
+   SERVICE LINKS (CLEAN & LUXURY)
+========================================= */
+.card-service a {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: 0.3s ease;
+}
+
+/* HOVER */
+.card-service a:hover {
+    color: var(--color-gold);
+}
