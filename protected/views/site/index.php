@@ -55,6 +55,10 @@
             $this->renderPartial('//layouts/_footer');
             break;
 
+        case 'landing_page':
+            $this->renderPartial('//layouts/_landing');
+            break;
+
     endswitch; ?>
 
 <?php endforeach; ?>

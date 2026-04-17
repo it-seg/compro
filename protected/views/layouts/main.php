@@ -92,7 +92,6 @@
 <main class="page-content">
     <?php echo $content; ?>
 </main>
-<?php $this->renderPartial('//layouts/_landing'); ?>
 <?php $this->renderPartial('//layouts/_debug_script'); ?>
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/6281329403145"
