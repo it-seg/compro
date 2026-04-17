@@ -106,7 +106,7 @@ $baseUrl = Yii::app()->request->baseUrl;
     <div class="container">
         <div class="row align-items-center about-box">
 
-            <div class="col-md-6">
+            <div class="col-md-6 fade-up delay-1">
                 <div class="about-content">
 
                     <span class="about-label">About</span>
@@ -131,7 +131,7 @@ $baseUrl = Yii::app()->request->baseUrl;
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 fade-up delay-2">
                 <div class="about-image">
                     <img src="images/about_landing/about.jpg" class="img-fluid">
                 </div>

@@ -31,3 +31,39 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 observer.observe(document.querySelector('#services'));
+
+/* =========================================
+   SCROLL ANIMATION (BOLAK-BALIK)
+========================================= */
+const fadeElements = document.querySelectorAll('.fade-up');
+
+const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show'); // 👈 INI KUNCINYA
+        }
+
+    });
+}, {
+    threshold: 0.2
+});
+
+fadeElements.forEach(el => fadeObserver.observe(el));
+
+/* =========================================
+   AUTO CLOSE NAVBAR (MOBILE)
+========================================= */
+document.querySelectorAll('.navbar .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        if (navbarCollapse.classList.contains('show')) {
+            new bootstrap.Collapse(navbarCollapse).hide();
+        }
+
+    });
+});
