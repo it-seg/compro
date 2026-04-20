@@ -470,11 +470,61 @@ $baseUrl = Yii::app()->request->baseUrl;
 </section>
 
 <!-- FOOTER -->
-<footer>
-    <div class="container text-center">
-        <p>© <?= date('Y') ?> FS Group</p>
+<footer class="footer-luxury footer-animate">
+
+    <div class="container">
+
+        <div class="footer-top">
+
+            <!-- BRAND -->
+            <div class="footer-col brand">
+                <img src="images/logo.png" class="footer-logo">
+
+                <p class="footer-address">
+                    Jl. Urip Sumoharjo No.69 A<br>
+                    Klitren, Gondokusuman, Kota Yogyakarta<br>
+                    Daerah Istimewa Yogyakarta 55222<br><br>
+                    (0274) 586877
+                </p>
+            </div>
+
+            <!-- PRODUCTS -->
+            <div class="footer-col">
+                <h6>Products</h6>
+                <ul>
+                    <li><a href="https://natasha-skin.com/" target="_blank">Natasha Skin Clinic</a></li>
+                    <li><a href="http://www.naavagreen.com/" target="_blank">Naavagreen Skin Care</a></li>
+                    <li><a href="http://www.aishaderm.co.id/" target="_blank">Aishaderm Cosmetics</a></li>
+                    <li><a href="http://www.madamtan.com/" target="_blank">Madam Tan Indonesian Food</a></li>
+                </ul>
+            </div>
+
+            <!-- COMPANY -->
+            <div class="footer-col">
+                <h6>Company</h6>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="https://job-like.com/joblist/company/383696/" target="_blank">Career</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="footer-divider"></div>
+
+        <!-- BOTTOM -->
+        <div class="footer-bottom">
+            <p>
+                © <script>document.write(new Date().getFullYear());</script>
+                PT. Setyawan Eunike Gemilang — All Rights Reserved
+            </p>
+        </div>
+
     </div>
+
 </footer>
+
 
 <!-- NEWS MODAL -->
 <div class="modal fade modal-news" id="newsModal" tabindex="-1">

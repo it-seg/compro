@@ -227,3 +227,24 @@ const visionObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 visionItems.forEach(el => visionObserver.observe(el));
+
+
+// =============================
+// FADE I OUT FOOTER
+// =============================
+
+const footer = document.querySelector('.footer-animate');
+
+const footerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            footer.classList.add('show');
+        } else {
+            footer.classList.remove('show'); // biar bisa fade-out juga
+        }
+
+    });
+}, { threshold: 0.2 });
+
+footerObserver.observe(footer);
