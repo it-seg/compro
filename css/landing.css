@@ -664,8 +664,25 @@ footer {
 /* =====================================================
    LAYOUT FIX (GRID CONSISTENT HEIGHT)
 ===================================================== */
-.row.g-4 > div {
-    display: flex;
+@media (max-width: 768px) {
+
+    /* CENTER GRID */
+    #services .row {
+        justify-content: center;
+    }
+
+    #services .row > div {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .card-service {
+        width: 90%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
 }
 
 /* =========================================
