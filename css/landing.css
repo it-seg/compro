@@ -836,45 +836,156 @@ hr::after {
 .modal-news .modal-body {
     padding: 30px;
     text-align: center;
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* SCROLL STYLE (biar premium) */
+.modal-news .modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-news .modal-body::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
 }
 
 .modal-news h3 {
     font-family: 'Playfair Display', serif;
-    margin-bottom: 15px;
+
+    font-size: 26px;
+    font-weight: 600;
+
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* GOLD ACCENT LINE */
+.modal-news h3::after {
+    content: "";
+    display: block;
+
+    width: 40px;
+    height: 2px;
+
+    margin: 12px auto;
+
+    background: var(--color-gold);
+    border-radius: 2px;
 }
 
 .modal-news p {
     color: var(--color-muted);
-    line-height: 1.6;
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    text-align: justify;
+}
+
+.modal-news .modal-content {
+    height: 90vh; /* 🔥 hampir full layar */
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+            to bottom,
+            #ffffff,
+            #f9fafb
+    );
+}
+
+.modal-news .modal-dialog {
+    max-width: 900px; /* desktop */
+    width: 95%;
+    margin: auto;
 }
 
 /* CLOSE BUTTON */
 .modal-close {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 15px;
+    right: 15px;
 
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
 
     border-radius: 50%;
     border: none;
 
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.6); /* 🔥 lebih kontras */
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+    font-weight: bold;
 
     cursor: pointer;
-    z-index: 10;
+    z-index: 20;
 
-    font-size: 14px;
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
 }
 
 /* HOVER */
 .modal-close:hover {
+    background: #000;
     transform: scale(1.1);
 }
 
+.modal-content-inner {
+    background: #ffffff;
+
+    border-radius: 14px;
+    padding: 25px;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.modal-image-wrapper {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+
+.modal-label {
+    display: inline-block;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: var(--color-gold);
+
+    margin-bottom: 10px;
+}
+
+
 @media (max-width: 768px) {
+
+    .modal-close {
+        top: 12px;
+        right: 12px;
+
+        width: 44px;
+        height: 44px;
+
+        font-size: 18px;
+    }
+
+    .modal-news .modal-dialog {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    .modal-news .modal-content {
+        height: 100vh;
+        border-radius: 0; /* full layar */
+    }
 
     .modal-image-wrapper {
         max-height: 200px;

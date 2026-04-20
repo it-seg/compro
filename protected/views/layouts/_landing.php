@@ -467,8 +467,13 @@ $baseUrl = Yii::app()->request->baseUrl;
 
             <!-- CONTENT -->
             <div class="modal-body">
-                <h3 id="modalTitle"></h3>
-                <p id="modalDesc"></p>
+
+                <div class="modal-content-inner">
+                    <span class="modal-label">NEWS UPDATE</span>
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDesc"></p>
+                </div>
+
             </div>
 
         </div>
