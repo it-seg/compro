@@ -469,6 +469,73 @@ $baseUrl = Yii::app()->request->baseUrl;
     </div>
 </section>
 
+<!-- CAREER -->
+<section class="section career-slider-section" id="career">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span class="section-label">Join Us</span>
+            <h2 class="section-heading">Career Opportunities</h2>
+        </div>
+
+        <div class="career-slider">
+
+            <div class="career-track">
+
+                <!-- ITEM -->
+                <div class="career-item">
+                    <img src="images/career_landing/career1.jpg">
+
+                    <div class="career-overlay">
+                        <h3>Crew Store</h3>
+                        <p>Full Time • Yogyakarta</p>
+
+                        <a href="https://wa.me/628xxxx" target="_blank">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="career-item">
+                    <img src="images/career_landing/career2.jpg">
+
+                    <div class="career-overlay">
+                        <h3>Crew Store</h3>
+                        <p>Part Time • Yogyakarta</p>
+
+                        <a href="https://wa.me/628xxxx" target="_blank">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- DUPLICATE UNTUK LOOP -->
+                <div class="career-item">
+                    <img src="images/career_landing/career1.jpg">
+                    <div class="career-overlay">
+                        <h3>Crew Store</h3>
+                        <p>Full Time • Yogyakarta</p>
+                        <a href="#">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="career-item">
+                    <img src="images/career_landing/career2.jpg">
+                    <div class="career-overlay">
+                        <h3>Crew Store</h3>
+                        <p>Part Time • Yogyakarta</p>
+                        <a href="#">Apply Now</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer-luxury footer-animate">
 
@@ -486,17 +553,14 @@ $baseUrl = Yii::app()->request->baseUrl;
                     Daerah Istimewa Yogyakarta 55222<br><br>
                     (0274) 586877
                 </p>
-            </div>
 
-            <!-- PRODUCTS -->
-            <div class="footer-col">
-                <h6>Products</h6>
-                <ul>
-                    <li><a href="https://natasha-skin.com/" target="_blank">Natasha Skin Clinic</a></li>
-                    <li><a href="http://www.naavagreen.com/" target="_blank">Naavagreen Skin Care</a></li>
-                    <li><a href="http://www.aishaderm.co.id/" target="_blank">Aishaderm Cosmetics</a></li>
-                    <li><a href="http://www.madamtan.com/" target="_blank">Madam Tan Indonesian Food</a></li>
-                </ul>
+                <div class="footer-map">
+                    <iframe
+                            src="https://www.google.com/maps?q=Jl.%20Urip%20Sumoharjo%20No.69%20A%20Yogyakarta&output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
 
             <!-- COMPANY -->
