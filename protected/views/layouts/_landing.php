@@ -434,12 +434,38 @@ $baseUrl = Yii::app()->request->baseUrl;
 </section>
 
 <!-- VISI MISI -->
-<section class="section dark-section">
+<section class="section vision-section" id="vision">
     <div class="container">
-        <h2>Vision & Mission</h2>
-        <p>
-            Menjadi group usaha terpercaya dengan pertumbuhan berkelanjutan
-        </p>
+
+        <div class="section-title vision-animate">
+            <span class="section-label">Our Direction</span>
+            <h2 class="section-heading">Vision & Mission</h2>
+        </div>
+
+        <div class="vision-wrapper">
+
+            <!-- VISI -->
+            <div class="vision-card vision-animate delay-1">
+                <h3>Our Vision</h3>
+                <p>
+                    Menjadi perusahaan terintegrasi yang unggul dalam berbagai sektor industri,
+                    dengan fokus pada inovasi, kualitas, dan keberlanjutan.
+                </p>
+            </div>
+
+            <!-- MISI -->
+            <div class="vision-card vision-animate delay-2">
+                <h3>Our Mission</h3>
+                <ul>
+                    <li>Menyediakan produk dan layanan berkualitas tinggi</li>
+                    <li>Mengembangkan sumber daya manusia yang profesional</li>
+                    <li>Mendorong inovasi berkelanjutan</li>
+                    <li>Membangun hubungan jangka panjang dengan mitra</li>
+                </ul>
+            </div>
+
+        </div>
+
     </div>
 </section>
 

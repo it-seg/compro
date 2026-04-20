@@ -206,3 +206,24 @@ document.querySelectorAll('.btn-readmore').forEach(btn => {
 modalEl.addEventListener('hidden.bs.modal', () => {
     document.getElementById('modalImage').src = '';
 });
+
+
+// =============================
+// VISI MISI
+// =============================
+
+const visionItems = document.querySelectorAll('.vision-animate');
+
+const visionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show'); // biar bisa repeat
+        }
+
+    });
+}, { threshold: 0.2 });
+
+visionItems.forEach(el => visionObserver.observe(el));

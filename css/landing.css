@@ -1006,3 +1006,112 @@ hr::after {
     }
 
 }
+
+/* =========================================
+   VISION SECTION
+========================================= */
+.vision-section {
+    position: relative;
+    padding: 80px 0;
+
+    background: linear-gradient(
+            to bottom,
+            #ffffff,
+            #f8fafc
+    );
+}
+
+/* TOP DIVIDER (PEMISAH HALUS) */
+.vision-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 120px;
+    height: 2px;
+
+    background: linear-gradient(
+            to right,
+            transparent,
+            var(--color-gold),
+            transparent
+    );
+
+    opacity: 0.6;
+}
+
+.vision-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.vision-card {
+    background: #fff;
+    padding: 40px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER HALUS */
+.vision-card:hover {
+    transform: translateY(-6px);
+}
+
+.vision-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.vision-card p,
+.vision-card li {
+    color: var(--color-muted);
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.vision-card ul {
+    padding-left: 18px;
+}
+
+.vision-card li {
+    margin-bottom: 8px;
+}
+
+/* =========================================
+   VISION ANIMATION (DIFFERENT STYLE)
+========================================= */
+.vision-animate {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(10px);
+
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vision-animate.show {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+@media (max-width: 768px) {
+
+    .vision-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .vision-card {
+        padding: 25px;
+    }
+
+}
