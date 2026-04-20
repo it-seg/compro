@@ -186,22 +186,23 @@ prevBtn.addEventListener('click', () => {
 // =============================
 // NEWS MODAL
 // =============================
-
-const modal = new bootstrap.Modal(document.getElementById('newsModal'));
+const modalEl = document.getElementById('newsModal');
+const modal = new bootstrap.Modal(modalEl);
 
 document.querySelectorAll('.btn-readmore').forEach(btn => {
 
     btn.addEventListener('click', () => {
 
-        const title = btn.getAttribute('data-title');
-        const desc = btn.getAttribute('data-desc');
-        const img = btn.getAttribute('data-img');
-
-        document.getElementById('modalTitle').innerText = title;
-        document.getElementById('modalDesc').innerText = desc;
-        document.getElementById('modalImage').src = img;
+        document.getElementById('modalTitle').innerText = btn.dataset.title;
+        document.getElementById('modalDesc').innerText = btn.dataset.desc;
+        document.getElementById('modalImage').src = btn.dataset.img;
 
         modal.show();
     });
 
+});
+
+// RESET IMAGE biar tidak flicker
+modalEl.addEventListener('hidden.bs.modal', () => {
+    document.getElementById('modalImage').src = '';
 });

@@ -417,7 +417,8 @@ $baseUrl = Yii::app()->request->baseUrl;
                         <button
                                 class="btn-readmore"
                                 data-title="Penghargaan Internasional"
-                                data-desc="Pada tanggal 12 Mei 2018, PT DION FARMA ABADI menerima penghargaan European Award for Best Pratices 2018 diwakili oleh Bapak Jonatan Dion Setyawan selaku komisaris."
+                                data-desc="Pada tanggal 12 Mei 2018,  PT DION FARMA ABADI  menerima penghargaan  European Award for Best Pratices 2018 diwakili oleh Bapak Jonatan Dion Setyawan selaku komisaris.  European Society for Quality Research (ESQR) ini diadakan di Brussel, Belgia. European Award for Best Practices sendiri diberikan kepada  perusahaan yang dinilai secara comprehensive telah mengimplementasikan dan berusaha keras dalam penerapan manajemen mutu perusahaan.
+                                ESQR (European Society for Quality Research) yang bertempat di Switzerland sebagai penyelenggara telah melakukan seleksi ketat ke berbagai Negara, untuk menemukan perusahaan-perusahaan yang berkomitmen dan terus berinovasi untuk meningkatkan kualitas dari Manajemen Perusahaan tersebut, dan salah satu dari sekitar 78 perusahaan yang terpilih adalah PT. Dion Farma Abadi."
                                 data-img="images/news_landing/news2.jpg"
                         >
                             Read More
@@ -450,17 +451,23 @@ $baseUrl = Yii::app()->request->baseUrl;
 </footer>
 
 <!-- NEWS MODAL -->
-<div class="modal fade" id="newsModal" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal fade modal-news" id="newsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
 
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitle"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <!-- CLOSE -->
+            <button type="button" class="modal-close" data-bs-dismiss="modal">
+                ✕
+            </button>
+
+            <!-- IMAGE -->
+            <div class="modal-image-wrapper">
+                <img id="modalImage">
             </div>
 
-            <div class="modal-body text-center">
-                <img id="modalImage" class="img-fluid mb-3">
+            <!-- CONTENT -->
+            <div class="modal-body">
+                <h3 id="modalTitle"></h3>
                 <p id="modalDesc"></p>
             </div>
 
