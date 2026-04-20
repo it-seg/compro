@@ -248,3 +248,22 @@ const footerObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 footerObserver.observe(footer);
+
+/* =========================================
+   NEWS ANIMATION
+========================================= */
+const newsItems = document.querySelectorAll('.news-animate');
+
+const newsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show'); // fade out juga
+        }
+
+    });
+}, { threshold: 0.2 });
+
+newsItems.forEach(el => newsObserver.observe(el));

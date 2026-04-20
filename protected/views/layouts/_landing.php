@@ -390,7 +390,7 @@ $baseUrl = Yii::app()->request->baseUrl;
 
         <div class="row g-4">
 
-            <div class="col-md-6">
+            <div class="col-md-6 news-animate">
                 <div class="card-news">
                     <img src="images/news_landing/news1.png">
                     <div class="p-3">
@@ -408,7 +408,7 @@ $baseUrl = Yii::app()->request->baseUrl;
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 news-animate" >
                 <div class="card-news">
                     <img src="images/news_landing/news2.jpg">
                     <div class="p-3">
