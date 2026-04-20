@@ -390,35 +390,42 @@ $baseUrl = Yii::app()->request->baseUrl;
 
         <div class="row g-4">
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card-news">
-                    <img src="images/news/1.jpg">
+                    <img src="images/news_landing/news1.png">
                     <div class="p-3">
                         <h5>Natasha Raih Sertifikasi ISO</h5>
                         <p>Natasha Skin Clinic resmi mendapatkan ISO 9001:2015...</p>
+                        <button
+                                class="btn-readmore"
+                                data-title="Natasha Raih Sertifikasi ISO"
+                                data-desc="Natasha Skin Clinic resmi mendapatkan ISO 9001:2015 sebagai bentuk komitmen terhadap kualitas pelayanan dan standar internasional."
+                                data-img="images/news_landing/news1.png"
+                        >
+                            Read More
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card-news">
-                    <img src="images/news/2.jpg">
+                    <img src="images/news_landing/news2.jpg">
                     <div class="p-3">
                         <h5>Penghargaan Internasional</h5>
                         <p>PT Dion Farma Abadi meraih penghargaan Eropa...</p>
+                        <button
+                                class="btn-readmore"
+                                data-title="Penghargaan Internasional"
+                                data-desc="Pada tanggal 12 Mei 2018, PT DION FARMA ABADI menerima penghargaan European Award for Best Pratices 2018 diwakili oleh Bapak Jonatan Dion Setyawan selaku komisaris."
+                                data-img="images/news_landing/news2.jpg"
+                        >
+                            Read More
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card-news">
-                    <img src="images/news/3.jpg">
-                    <div class="p-3">
-                        <h5>Ekspansi Bisnis Baru</h5>
-                        <p>FS Group memperluas lini bisnis di sektor hospitality...</p>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
@@ -442,8 +449,29 @@ $baseUrl = Yii::app()->request->baseUrl;
     </div>
 </footer>
 
+<!-- NEWS MODAL -->
+<div class="modal fade" id="newsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <img id="modalImage" class="img-fluid mb-3">
+                <p id="modalDesc"></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="<?= $baseUrl ?>/js/landing.js"></script>
+
+
 </body>
 </html>

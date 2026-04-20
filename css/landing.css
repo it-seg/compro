@@ -756,3 +756,32 @@ hr::after {
 .card-service a:hover {
     color: var(--color-gold);
 }
+
+/* =========================================
+   NEWS POP UP
+========================================= */
+
+.btn-readmore {
+    margin-top: 10px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border: none;
+    background: none;
+    color: var(--color-gold);
+    cursor: pointer;
+    position: relative;
+}
+
+/* underline elegant */
+.btn-readmore::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 1px;
+    background: var(--color-gold);
+    transition: 0.3s;
+}
+
+.btn-readmore:hover::after {
+    width: 100%;
+}

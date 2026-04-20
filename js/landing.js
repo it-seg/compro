@@ -182,3 +182,26 @@ prevBtn.addEventListener('click', () => {
     }
 
 });
+
+// =============================
+// NEWS MODAL
+// =============================
+
+const modal = new bootstrap.Modal(document.getElementById('newsModal'));
+
+document.querySelectorAll('.btn-readmore').forEach(btn => {
+
+    btn.addEventListener('click', () => {
+
+        const title = btn.getAttribute('data-title');
+        const desc = btn.getAttribute('data-desc');
+        const img = btn.getAttribute('data-img');
+
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalDesc').innerText = desc;
+        document.getElementById('modalImage').src = img;
+
+        modal.show();
+    });
+
+});
