@@ -67,3 +67,118 @@ const serviceObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 serviceCards.forEach(card => serviceObserver.observe(card));
+
+/* =========================================
+   BRAND FADE IN & OUT
+========================================= */
+const brandSection = document.querySelector('#brands');
+const brandItems = document.querySelectorAll('.brand-item');
+
+const brandObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            brandSection.classList.remove('fade-out');
+
+            brandItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('show');
+                }, index * 100); // stagger
+            });
+
+        } else {
+            brandSection.classList.add('fade-out');
+
+            brandItems.forEach(item => {
+                item.classList.remove('show');
+            });
+        }
+
+    });
+}, { threshold: 0.2 });
+
+brandObserver.observe(brandSection);
+
+/* =========================================
+   BRAND PRE & NEXT
+========================================= */
+const track = document.querySelector('.brand-track');
+const items = document.querySelectorAll('.brand-item');
+const prevBtn = document.querySelector('.brand-nav.prev');
+const nextBtn = document.querySelector('.brand-nav.next');
+
+let scrollAmount = 0;
+const scrollStep = 200;
+let index = 0;
+
+// DETECT MOBILE
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+// =============================
+// DESKTOP HELPERS
+// =============================
+function getTranslateX() {
+    const style = window.getComputedStyle(track);
+    const matrix = new WebKitCSSMatrix(style.transform);
+    return matrix.m41;
+}
+
+function stopAnimation() {
+    const currentX = getTranslateX();
+    track.style.animation = 'none';
+    track.style.transform = `translateX(${currentX}px)`;
+    scrollAmount = Math.abs(currentX);
+}
+
+function startAnimation() {
+    track.style.animation = 'scrollBrand 25s linear infinite';
+}
+
+// =============================
+// MOBILE SLIDE
+// =============================
+function updateSlide() {
+    const width = track.clientWidth;
+    track.style.transform = `translateX(-${index * width}px)`;
+}
+
+// =============================
+// NEXT BUTTON
+// =============================
+nextBtn.addEventListener('click', () => {
+
+    if (isMobile()) {
+        if (index < items.length - 1) {
+            index++;
+            updateSlide();
+        }
+    } else {
+        stopAnimation();
+        scrollAmount += scrollStep;
+        track.style.transform = `translateX(-${scrollAmount}px)`;
+        setTimeout(startAnimation, 2000);
+    }
+
+});
+
+// =============================
+// PREV BUTTON
+// =============================
+prevBtn.addEventListener('click', () => {
+
+    if (isMobile()) {
+        if (index > 0) {
+            index--;
+            updateSlide();
+        }
+    } else {
+        stopAnimation();
+        scrollAmount -= scrollStep;
+        if (scrollAmount < 0) scrollAmount = 0;
+        track.style.transform = `translateX(-${scrollAmount}px)`;
+        setTimeout(startAnimation, 2000);
+    }
+
+});

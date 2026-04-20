@@ -442,28 +442,196 @@ img {
 
 
 /* =====================================================
-   BRANDS
+   BRANDS — LIGHT LUXURY
 ===================================================== */
+#brands {
+    background: linear-gradient(
+            to bottom,
+            #ffffff,
+            #f8fafc
+    );
+}
+
+/* SLIDER */
 .brand-slider {
     overflow: hidden;
+    margin-top: 40px;
+}
+
+/* =========================================
+   APPLE CAROUSEL STYLE
+========================================= */
+.brand-slider {
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.brand-slider:active {
+    cursor: grabbing;
 }
 
 .brand-track {
     display: flex;
     gap: 60px;
-    animation: scrollBrand 20s linear infinite;
+    animation: scrollBrand 25s linear infinite;
+    will-change: transform;
 }
 
-.brand-track img {
-    height: 60px;
-    opacity: 0.6;
+/* biar item tidak pecah */
+.brand-item {
+    flex: 0 0 auto;
 }
 
+/* ITEM */
+.brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    height: 100px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+/* IMAGE */
+.brand-item img {
+    max-height: 80%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: all 0.4s ease;
+}
+
+/* HOVER */
+.brand-item:hover img {
+    transform: scale(1.1);
+}
+
+/* PAUSE ON HOVER */
+.brand-slider:hover .brand-track {
+    animation-play-state: paused;
+}
+
+/* SCROLL */
 @keyframes scrollBrand {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
 }
+/* =========================================
+   BRAND SECTION FADE IN OUT
+========================================= */
+#brands .brand-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
+#brands.fade-out .brand-item {
+    opacity: 0 !important;
+    transform: translateY(40px);
+}
+
+/* =========================================
+   BRAND NAV BUTTON
+========================================= */
+.brand-slider {
+    position: relative;
+}
+
+/* BUTTON */
+.brand-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(6px);
+
+    cursor: pointer;
+    z-index: 5;
+
+    font-size: 18px;
+    color: #111;
+
+    transition: all 0.3s ease;
+}
+
+/* POSISI */
+.brand-nav.prev { left: 0; }
+.brand-nav.next { right: 0; }
+
+/* HOVER */
+.brand-nav:hover {
+    background: #fff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+
+    /* MATIKAN AUTO SCROLL */
+    .brand-track {
+        animation: none !important;
+        transform: translateX(0);
+        gap: 0;
+
+        display: flex;
+        width: 100%;
+        transition: transform 0.5s ease; /* biar smooth slide */
+    }
+
+    /* 1 ITEM = 1 LAYAR */
+    .brand-item {
+        min-width: 100%;
+        flex: 0 0 100%; /* 🔥 penting biar tidak kepotong */
+        height: 160px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* LOGO */
+    .brand-item img {
+        max-height: 120px;
+        max-width: 85%;
+        object-fit: contain;
+
+        transition: transform 0.4s ease;
+    }
+
+    /* HOVER (optional, aman) */
+    .brand-item:hover img {
+        transform: scale(1.05);
+    }
+
+    /* BUTTON */
+    .brand-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+
+        z-index: 10;
+    }
+
+    .brand-nav.prev {
+        left: 10px;
+    }
+
+    .brand-nav.next {
+        right: 10px;
+    }
+
+}
 
 /* =====================================================
    NEWS

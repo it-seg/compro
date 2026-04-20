@@ -289,32 +289,93 @@ $baseUrl = Yii::app()->request->baseUrl;
 </section>
 
 <!-- BRANDS -->
-<section class="section" id="brands">
+<section class="section brand-elegant" id="brands">
     <div class="container">
 
-        <div class="section-title">
-            <h2>Our Brands</h2>
+        <div class="section-title fade-up">
+            <span class="section-label">Our Network</span>
+            <h2 class="section-heading">Our Brands</h2>
         </div>
 
         <div class="brand-slider">
-
+            <!-- BUTTON PRE -->
+            <button class="brand-nav prev">&#10094;</button>
             <div class="brand-track">
-                <img src="images/brands/1.png">
-                <img src="images/brands/2.png">
-                <img src="images/brands/3.png">
-                <img src="images/brands/4.png">
-                <img src="images/brands/5.png">
 
-                <!-- DUPLICATE untuk loop smooth -->
-                <img src="images/brands/1.png">
-                <img src="images/brands/2.png">
-                <img src="images/brands/3.png">
-                <img src="images/brands/4.png">
-                <img src="images/brands/5.png">
+                <a href="https://www.pesonajayasukses.com" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/pjs.png">
+                </a>
+                <a href="http://www.madamtan.com/" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/madamtan.png">
+                </a>
+                <a href="https://www.pophotels.com/" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/pop.png">
+                </a>
+                <a href="http://www.pesonabintangutama.com" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/pbu.png">
+                </a>
+                <a href="http://www.naavagreen.com" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/naava.png">
+                </a>
+                <a href="http://www.natasha-skin.com" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/natasha.png">
+                </a>
+                <a href="#" class="brand-item">
+                    <img src="images/brand_landing/osmile.png">
+                </a>
+                <a href="#" class="brand-item">
+                    <img src="images/brand_landing/gbu.png">
+                </a>
+                <a href="#" class="brand-item">
+                    <img src="images/brand_landing/bank.png">
+                </a>
+                <a href="http://www.dionfarmaabadi.com" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/dfa.png">
+                </a>
+                <a href="http://www.hayyana.co.id" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/hayyana.png">
+                </a>
+
+                <!-- DUPLICATE WAJIB -->
+                <a href="https://www.pesonajayasukses.com" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/pjs.png">
+                </a>
+                <a href="http://www.madamtan.com/" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/madamtan.png">
+                </a>
+                <a href="https://www.pophotels.com/" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/pop.png">
+                </a>
+                <a href="http://www.pesonabintangutama.com" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/pbu.png">
+                </a>
+                <a href="http://www.naavagreen.com" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/naava.png">
+                </a>
+                <a href="http://www.natasha-skin.com" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/natasha.png">
+                </a>
+                <a href="#" class="brand-item">
+                    <img src="images/brand_landing/osmile.png">
+                </a>
+                <a href="#" class="brand-item">
+                    <img src="images/brand_landing/gbu.png">
+                </a>
+                <a href="#" class="brand-item">
+                    <img src="images/brand_landing/bank.png">
+                </a>
+                <a href="http://www.dionfarmaabadi.com" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/dfa.png">
+                </a>
+                <a href="http://www.hayyana.co.id" target="_blank" class="brand-item">
+                    <img src="images/brand_landing/hayyana.png">
+                </a>
 
             </div>
-
+            <!-- BUTTON NEXT -->
+            <button class="brand-nav next">&#10095;</button>
         </div>
+
 
     </div>
 </section>
