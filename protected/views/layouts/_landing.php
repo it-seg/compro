@@ -40,6 +40,7 @@ $baseUrl = Yii::app()->request->baseUrl;
                 <li class="nav-item"><a href="#services" class="nav-link">SERVICES</a></li>
                 <li class="nav-item"><a href="#brands" class="nav-link">BRAND</a></li>
                 <li class="nav-item"><a href="#news" class="nav-link">NEWS</a></li>
+                <li class="nav-item"><a href="#career" class="nav-link">CAREER</a></li>
 
             </ul>
         </div>
@@ -470,7 +471,7 @@ $baseUrl = Yii::app()->request->baseUrl;
 </section>
 
 <!-- CAREER -->
-<section class="section career-slider-section" id="career">
+<section class="section career-slider-section career-animate" id="career">
 
     <div class="container">
 
@@ -480,7 +481,7 @@ $baseUrl = Yii::app()->request->baseUrl;
         </div>
 
         <div class="career-slider">
-
+            <button class="career-nav prev">&#10094;</button>
             <div class="career-track">
 
                 <!-- ITEM -->
@@ -488,7 +489,7 @@ $baseUrl = Yii::app()->request->baseUrl;
                     <img src="images/career_landing/career1.jpg">
 
                     <div class="career-overlay">
-                        <h3>Crew Store</h3>
+                        <h3>Beauty Therapis Perawat</h3>
                         <p>Full Time • Yogyakarta</p>
 
                         <a href="https://wa.me/628xxxx" target="_blank">
@@ -501,7 +502,7 @@ $baseUrl = Yii::app()->request->baseUrl;
                     <img src="images/career_landing/career2.jpg">
 
                     <div class="career-overlay">
-                        <h3>Crew Store</h3>
+                        <h3>Karyawan Produksi</h3>
                         <p>Part Time • Yogyakarta</p>
 
                         <a href="https://wa.me/628xxxx" target="_blank">
@@ -514,23 +515,29 @@ $baseUrl = Yii::app()->request->baseUrl;
                 <div class="career-item">
                     <img src="images/career_landing/career1.jpg">
                     <div class="career-overlay">
-                        <h3>Crew Store</h3>
+                        <h3>Beauty Therapis Perawat</h3>
                         <p>Full Time • Yogyakarta</p>
-                        <a href="#">Apply Now</a>
+
+                        <a href="https://wa.me/628xxxx" target="_blank">
+                            Apply Now
+                        </a>
                     </div>
                 </div>
 
                 <div class="career-item">
                     <img src="images/career_landing/career2.jpg">
                     <div class="career-overlay">
-                        <h3>Crew Store</h3>
+                        <h3>Karyawan Produksi</h3>
                         <p>Part Time • Yogyakarta</p>
-                        <a href="#">Apply Now</a>
+
+                        <a href="https://wa.me/628xxxx" target="_blank">
+                            Apply Now
+                        </a>
                     </div>
                 </div>
 
             </div>
-
+            <button class="career-nav next">&#10095;</button>
         </div>
 
     </div>
@@ -561,15 +568,6 @@ $baseUrl = Yii::app()->request->baseUrl;
                             referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
-            </div>
-
-            <!-- COMPANY -->
-            <div class="footer-col">
-                <h6>Company</h6>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="https://job-like.com/joblist/company/383696/" target="_blank">Career</a></li>
-                </ul>
             </div>
 
         </div>

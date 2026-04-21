@@ -267,3 +267,93 @@ const newsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 newsItems.forEach(el => newsObserver.observe(el));
+
+
+const careerTrack = document.querySelector('.career-track');
+const careerItems = document.querySelectorAll('.career-item');
+const careerPrev = document.querySelector('.career-nav.prev');
+const careerNext = document.querySelector('.career-nav.next');
+
+let careerScroll = 0;
+const careerStep = 300;
+let careerIndex = 0;
+
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+function getCareerX() {
+    const style = window.getComputedStyle(careerTrack);
+    const matrix = new WebKitCSSMatrix(style.transform);
+    return matrix.m41;
+}
+
+function stopCareer() {
+    const currentX = getCareerX();
+    careerTrack.style.animation = 'none';
+    careerTrack.style.transform = `translateX(${currentX}px)`;
+    careerScroll = Math.abs(currentX);
+}
+
+function startCareer() {
+    careerTrack.style.animation = 'scrollCareer 25s linear infinite';
+}
+
+function updateCareerSlide() {
+    const width = careerTrack.clientWidth;
+    careerTrack.style.transform = `translateX(-${careerIndex * width}px)`;
+}
+
+// NEXT
+careerNext.addEventListener('click', () => {
+
+    if (isMobile()) {
+        if (careerIndex < careerItems.length - 1) {
+            careerIndex++;
+            updateCareerSlide();
+        }
+    } else {
+        stopCareer();
+        careerScroll += careerStep;
+        careerTrack.style.transform = `translateX(-${careerScroll}px)`;
+        setTimeout(startCareer, 2000);
+    }
+
+});
+
+// PREV
+careerPrev.addEventListener('click', () => {
+
+    if (isMobile()) {
+        if (careerIndex > 0) {
+            careerIndex--;
+            updateCareerSlide();
+        }
+    } else {
+        stopCareer();
+        careerScroll -= careerStep;
+        if (careerScroll < 0) careerScroll = 0;
+        careerTrack.style.transform = `translateX(-${careerScroll}px)`;
+        setTimeout(startCareer, 2000);
+    }
+
+});
+
+/* =========================================
+   CAREER ANIMATION
+========================================= */
+const careerSection = document.querySelector('.career-animate');
+
+const careerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            careerSection.classList.add('show');
+        } else {
+            careerSection.classList.remove('show'); // fade out juga
+        }
+
+    });
+}, { threshold: 0.2 });
+
+careerObserver.observe(careerSection);
