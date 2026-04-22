@@ -357,3 +357,17 @@ const careerObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 careerObserver.observe(careerSection);
+
+const appleVision = document.querySelector('#visionApple');
+
+const appleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            appleVision.classList.add('show');
+        } else {
+            appleVision.classList.remove('show');
+        }
+    });
+}, { threshold: 0.4 });
+
+appleObserver.observe(appleVision);
