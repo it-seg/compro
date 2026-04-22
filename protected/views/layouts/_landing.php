@@ -20,6 +20,7 @@ $baseUrl = Yii::app()->request->baseUrl;
 
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-elegant">
     <div class="container">
         <!-- Logo -->
@@ -139,6 +140,49 @@ $baseUrl = Yii::app()->request->baseUrl;
             </div>
 
         </div>
+    </div>
+</section>
+
+<!-- VISI MISI -->
+<section class="section vision-section" id="vision">
+    <div class="container">
+
+        <div class="section-title vision-animate">
+            <span class="section-label">Our Direction</span>
+            <h2 class="section-heading">Vision & Mission</h2>
+        </div>
+
+        <div class="vision-wrapper">
+
+            <!-- VISI -->
+            <div class="vision-card vision-animate delay-1">
+                <h3>Our Vision</h3>
+                <p>
+                    Menjadi perusahaan terintegrasi yang unggul dalam berbagai sektor industri,
+                    dengan fokus pada inovasi, kualitas, dan keberlanjutan.
+                </p>
+                <div class="vision-image">
+                    <img src="images/vision_landing/vision.jpg">
+                </div>
+            </div>
+
+            <!-- MISI -->
+            <div class="vision-card vision-animate delay-2">
+                <h3>Our Mission</h3>
+                <ul>
+                    <li>Menyediakan produk dan layanan berkualitas tinggi</li>
+                    <li>Mengembangkan sumber daya manusia yang profesional</li>
+                    <li>Mendorong inovasi berkelanjutan</li>
+                    <li>Membangun hubungan jangka panjang dengan mitra</li>
+                </ul>
+                <!-- TAMBAHAN IMAGE -->
+                <div class="vision-image">
+                    <img src="images/vision_landing/mission.jpg">
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </section>
 
@@ -428,42 +472,6 @@ $baseUrl = Yii::app()->request->baseUrl;
                 </div>
             </div>
 
-
-        </div>
-
-    </div>
-</section>
-
-<!-- VISI MISI -->
-<section class="section vision-section" id="vision">
-    <div class="container">
-
-        <div class="section-title vision-animate">
-            <span class="section-label">Our Direction</span>
-            <h2 class="section-heading">Vision & Mission</h2>
-        </div>
-
-        <div class="vision-wrapper">
-
-            <!-- VISI -->
-            <div class="vision-card vision-animate delay-1">
-                <h3>Our Vision</h3>
-                <p>
-                    Menjadi perusahaan terintegrasi yang unggul dalam berbagai sektor industri,
-                    dengan fokus pada inovasi, kualitas, dan keberlanjutan.
-                </p>
-            </div>
-
-            <!-- MISI -->
-            <div class="vision-card vision-animate delay-2">
-                <h3>Our Mission</h3>
-                <ul>
-                    <li>Menyediakan produk dan layanan berkualitas tinggi</li>
-                    <li>Mengembangkan sumber daya manusia yang profesional</li>
-                    <li>Mendorong inovasi berkelanjutan</li>
-                    <li>Membangun hubungan jangka panjang dengan mitra</li>
-                </ul>
-            </div>
 
         </div>
 

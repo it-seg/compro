@@ -1456,3 +1456,33 @@ hr::after {
     transform: translateX(0) scale(1);
     filter: blur(0);
 }
+
+/* =========================================
+   VISION IMAGE
+========================================= */
+.vision-image {
+    margin-top: 20px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* IMAGE */
+.vision-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* OVERLAY BIAR ELEGANT */
+.vision-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+            to top,
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0)
+    );
+}
