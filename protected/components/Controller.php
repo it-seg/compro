@@ -132,6 +132,8 @@ class Controller extends CController
 
     public $menuItemsLanding = [];
 
+    public $heroLandingItems = [];
+
     public $events = [];
 
     public function init()
@@ -210,6 +212,15 @@ class Controller extends CController
         $lang = Yii::app()->language;
 
         $this->menuItemsLanding = NavigationLanding::model()->findAll([
+            'condition' => 't.is_active = :active',
+            'params' => [':active' => '1'],
+            'order' => 't.sort_order ASC',
+        ]);
+
+        /* ===============================
+           HERO LANDING PAGE
+        ================================ */
+        $this->heroLandingItems = HeroLanding::model()->findAll([
             'condition' => 't.is_active = :active',
             'params' => [':active' => '1'],
             'order' => 't.sort_order ASC',

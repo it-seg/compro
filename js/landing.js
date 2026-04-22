@@ -391,3 +391,12 @@ const appleObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 appleObserver.observe(appleVision);
+
+/* =========================================
+   HERO SLIDE TIME
+========================================= */
+new bootstrap.Carousel('#heroSlider', {
+    interval: 4000,
+    pause: false,
+    ride: 'carousel'
+});

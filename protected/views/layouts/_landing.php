@@ -90,58 +90,64 @@ $lang = Yii::app()->language ?: 'id';
 
 <!-- HERO -->
 <section class="hero-carousel" id="home">
-
     <div id="heroSlider"
          class="carousel slide carousel-fade"
          data-bs-ride="carousel"
-         data-bs-interval="4000"
          data-bs-pause="false">
 
-        <!-- INDICATOR -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2"></button>
-        </div>
+        <?php if (!empty($this->heroLandingItems)): ?>
+            <div class="carousel-indicators">
+                <?php foreach ($this->heroLandingItems as $index => $item): ?>
+                    <button
+                            type="button"
+                            data-bs-target="#heroSlider"
+                            data-bs-slide-to="<?php echo $index; ?>"
+                            class="<?php echo $index === 0 ? 'active' : ''; ?>"
+                        <?php echo $index === 0 ? 'aria-current="true"' : ''; ?>>
+                    </button>
+                <?php endforeach; ?>
+            </div>
 
-        <!-- SLIDES -->
-        <div class="carousel-inner">
+            <div class="carousel-inner">
+                <?php foreach ($this->heroLandingItems as $index => $item): ?>
+                    <?php
+                    $heroTitle = ($lang === 'id' && !empty($item->title_ind))
+                        ? $item->title_ind
+                        : $item->title;
 
-            <div class="carousel-item active">
-                <div class="hero-slide" style="background-image: url('images/hero_landing/1.jpg');">
-                    <div class="overlay"></div>
-                    <div class="hero-content">
-                        <h1>PT. SETYAWAN EUNIKE GEMILANG</h1>
-                        <p>Holding Company FS Group</p>
+                    $heroSubtitle = ($lang === 'id' && !empty($item->subtitle_ind))
+                        ? $item->subtitle_ind
+                        : $item->subtitle;
+
+                    $heroImage = $baseUrl . '/images/hero_landing/' . $item->image;
+                    ?>
+                    <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+                        <div class="hero-slide" style="background-image: url('<?php echo CHtml::encode($heroImage); ?>');">
+                            <div class="overlay"></div>
+                            <div class="hero-content">
+                                <h1><?php echo CHtml::encode($heroTitle); ?></h1>
+                                <p><?php echo CHtml::encode($heroSubtitle); ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="hero-slide" style="background-image: url('images/hero_landing/1.jpg');">
+                        <div class="overlay"></div>
+                        <div class="hero-content">
+                            <h1>PT. SETYAWAN EUNIKE GEMILANG</h1>
+                            <p>Holding Company FS Group</p>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="carousel-item">
-                <div class="hero-slide" style="background-image: url('images/hero_landing/2.jpg');">
-                    <div class="overlay"></div>
-                    <div class="hero-content">
-                        <h1>Building Sustainable Business</h1>
-                        <p>Across Multiple Industries</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <div class="hero-slide" style="background-image: url('images/hero_landing/3.jpg');">
-                    <div class="overlay"></div>
-                    <div class="hero-content">
-                        <h1>Innovation & Growth</h1>
-                        <p>Driven by Excellence</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+        <?php endif; ?>
     </div>
-
 </section>
+
 
 <!-- ABOUT -->
 <section class="section about" id="about">
