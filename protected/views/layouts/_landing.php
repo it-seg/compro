@@ -1,6 +1,7 @@
 <?php
 $title = "FS Group | PT. Setyawan Eunike Gemilang";
 $baseUrl = Yii::app()->request->baseUrl;
+$lang = Yii::app()->language ?: 'id';
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,6 @@ $baseUrl = Yii::app()->request->baseUrl;
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= $baseUrl ?>/css/landing.css">
 </head>
 
@@ -23,30 +23,70 @@ $baseUrl = Yii::app()->request->baseUrl;
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-elegant">
     <div class="container">
-        <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center" href="#">
             <img src="images/logo.png" alt="FS Group" class="logo-navbar">
         </a>
 
-        <!-- Toggle -->
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-            ☰
-        </button>
+        <div class="d-flex align-items-center mobile-nav-actions">
+            <div class="mobile-lang-switcher d-lg-none">
+                <a href="<?php echo $this->createUrl('setLanguage', ['lang' => 'id']); ?>"
+                   class="lang-switch <?php echo $lang === 'id' ? 'active' : ''; ?>"
+                   title="Bahasa Indonesia">
+                    <img src="<?php echo $baseUrl; ?>/images/flags/id.png" alt="ID" class="lang-flag">
+                </a>
 
-        <!-- Menu -->
+                <a href="<?php echo $this->createUrl('setLanguage', ['lang' => 'en']); ?>"
+                   class="lang-switch <?php echo $lang === 'en' ? 'active' : ''; ?>"
+                   title="English">
+                    <img src="<?php echo $baseUrl; ?>/images/flags/en.png" alt="EN" class="lang-flag">
+                </a>
+            </div>
+
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    aria-controls="nav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                ☰
+            </button>
+        </div>
+
         <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item"><a href="#home" class="nav-link">HOME</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">ABOUT</a></li>
-                <li class="nav-item"><a href="#services" class="nav-link">SERVICES</a></li>
-                <li class="nav-item"><a href="#brands" class="nav-link">BRAND</a></li>
-                <li class="nav-item"><a href="#news" class="nav-link">NEWS</a></li>
-                <li class="nav-item"><a href="#career" class="nav-link">CAREER</a></li>
+                <?php foreach ($this->menuItemsLanding as $item): ?>
+                    <?php
+                    $label = ($lang === 'id' && !empty($item->label_ind))
+                        ? $item->label_ind
+                        : $item->label;
+                    ?>
+                    <li class="nav-item">
+                        <a href="<?php echo CHtml::encode($item->url); ?>" class="nav-link">
+                            <?php echo CHtml::encode(strtoupper($label)); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
 
+                <li class="nav-item ms-lg-3 d-none d-lg-block">
+                    <div class="d-flex align-items-center gap-2 lang-switcher">
+                        <a href="<?php echo $this->createUrl('setLanguage', ['lang' => 'id']); ?>"
+                           class="nav-link lang-switch <?php echo $lang === 'id' ? 'active' : ''; ?>"
+                           title="Bahasa Indonesia">
+                            <img src="<?php echo $baseUrl; ?>/images/flags/id.png" alt="ID" class="lang-flag">
+                        </a>
+
+                        <a href="<?php echo $this->createUrl('setLanguage', ['lang' => 'en']); ?>"
+                           class="nav-link lang-switch <?php echo $lang === 'en' ? 'active' : ''; ?>"
+                           title="English">
+                            <img src="<?php echo $baseUrl; ?>/images/flags/en.png" alt="EN" class="lang-flag">
+                        </a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <!-- HERO -->
 <section class="hero-carousel" id="home">

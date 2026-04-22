@@ -130,6 +130,8 @@ class Controller extends CController
 
     public $menuItems = [];
 
+    public $menuItemsLanding = [];
+
     public $events = [];
 
     public function init()
@@ -201,6 +203,17 @@ class Controller extends CController
             ->findAll([
                 'condition' => 't.is_active = 1',
                 'order' => 't.sort_order ASC']);
+
+        /* ===============================
+           MENU LANDING PAGE
+        ================================ */
+        $lang = Yii::app()->language;
+
+        $this->menuItemsLanding = NavigationLanding::model()->findAll([
+            'condition' => 't.is_active = :active',
+            'params' => [':active' => '1'],
+            'order' => 't.sort_order ASC',
+        ]);
 
         /* ===============================
            HEADER CONTENT (CACHED)

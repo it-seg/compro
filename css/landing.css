@@ -153,9 +153,6 @@ img {
 }
 
 /* MOBILE MENU */
-.navbar-collapse {
-    margin-top: 0;
-}
 @media (max-width: 991px) {
     .logo-navbar {
         height: 46px;
@@ -182,7 +179,7 @@ img {
 @media (max-width: 991px) {
 
     .navbar-collapse {
-        position: absolute;
+        position: static;
         top: 100%;
         left: 0;
         width: 100%;
@@ -1961,3 +1958,85 @@ hr::after {
     position: relative;
     z-index: 2;
 }
+
+.lang-switcher {
+    margin-left: 12px;
+}
+
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 6px;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
+.lang-switch:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.lang-flag {
+    width: 28px;
+    height: 18px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    display: block;
+}
+
+
+.lang-switch.active {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.lang-switch.active .lang-flag {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.18);
+}
+
+
+.mobile-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mobile-lang-switcher .lang-switch {
+    padding: 2px;
+}
+
+.mobile-lang-switcher .lang-flag {
+    width: 24px;
+    height: 16px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.35);
+}
+
+@media (min-width: 992px) {
+    .mobile-nav-actions {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .navbar-toggler {
+        margin-left: 0;
+    }
+}
+

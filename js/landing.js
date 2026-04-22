@@ -37,19 +37,39 @@ const fadeObserver = new IntersectionObserver((entries) => {
 fadeElements.forEach(el => fadeObserver.observe(el));
 
 /* =========================================
-   AUTO CLOSE NAVBAR (MOBILE)
+   NAVBAR MOBILE TOGGLE + AUTO CLOSE
 ========================================= */
-document.querySelectorAll('.navbar .nav-link').forEach(link => {
-    link.addEventListener('click', () => {
+document.addEventListener("DOMContentLoaded", function () {
+    const navbarCollapseEl = document.getElementById('nav');
+    const navbarToggler = document.querySelector('.navbar-toggler');
 
-        const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (!navbarCollapseEl || !navbarToggler) {
+        return;
+    }
 
-        if (navbarCollapse.classList.contains('show')) {
-            new bootstrap.Collapse(navbarCollapse).hide();
+    const navbarCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapseEl, {
+        toggle: false
+    });
+
+    navbarToggler.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (navbarCollapseEl.classList.contains('show')) {
+            navbarCollapse.hide();
+        } else {
+            navbarCollapse.show();
         }
+    });
 
+    document.querySelectorAll('#nav .nav-link').forEach(link => {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 991 && navbarCollapseEl.classList.contains('show')) {
+                navbarCollapse.hide();
+            }
+        });
     });
 });
+
 
 /* =========================================
    SERVICES OBSERVER (CLEAN)
