@@ -150,44 +150,82 @@ $lang = Yii::app()->language ?: 'id';
 
 
 <!-- ABOUT -->
-<section class="section about" id="about">
+<!-- ABOUT -->
+<section class="section about about-luxury" id="about">
     <div class="container">
-        <div class="row align-items-center about-box">
+        <div class="about-shell">
+            <div class="row align-items-center g-5">
 
-            <div class="col-md-6 fade-up delay-1">
-                <div class="about-content">
+                <div class="col-lg-5 fade-up delay-1">
+                    <div class="about-content">
+                        <?php
+                        $aboutLabel = $lang === 'id' ? 'Tentang Kami' : 'About';
+                        $aboutTitle = '';
+                        $aboutLead = '';
+                        $aboutDesc = '';
 
-                    <span class="about-label">About</span>
+                        if ($this->aboutLandingContent) {
+                            $aboutLabel = ($lang === 'id' && !empty($this->aboutLandingContent->label_ind))
+                                ? $this->aboutLandingContent->label_ind
+                                : ($this->aboutLandingContent->label ?: $aboutLabel);
 
-                    <h3 class="about-title">
-                        Building a Sustainable Business Ecosystem
-                    </h3>
+                            $aboutTitle = ($lang === 'id' && !empty($this->aboutLandingContent->title_ind))
+                                ? $this->aboutLandingContent->title_ind
+                                : $this->aboutLandingContent->title;
 
-                    <div class="about-divider"></div>
+                            $aboutLead = ($lang === 'id' && !empty($this->aboutLandingContent->lead_ind))
+                                ? $this->aboutLandingContent->lead_ind
+                                : $this->aboutLandingContent->lead;
 
-                    <p class="about-lead">
-                        Berawal dari Natasha Skin Clinic Center, FS Group berkembang menjadi holding
-                        yang mengelola berbagai sektor bisnis strategis.
-                    </p>
+                            $aboutDesc = ($lang === 'id' && !empty($this->aboutLandingContent->description_ind))
+                                ? $this->aboutLandingContent->description_ind
+                                : $this->aboutLandingContent->description;
+                        }
+                        ?>
 
-                    <p class="about-desc">
-                        Perkembangan bisnis yang semakin kompleks menuntut adanya struktur yang solid
-                        untuk mengelola, mengembangkan, dan menyinergikan seluruh unit usaha dalam satu
-                        visi besar yang berkelanjutan.
-                    </p>
+                        <span class="about-label"><?php echo CHtml::encode($aboutLabel); ?></span>
 
+                        <h3 class="about-title">
+                            <?php echo CHtml::encode($aboutTitle); ?>
+                        </h3>
+
+                        <div class="about-divider"></div>
+
+                        <p class="about-lead">
+                            <?php echo CHtml::encode($aboutLead); ?>
+                        </p>
+
+                        <p class="about-desc">
+                            <?php echo CHtml::encode($aboutDesc); ?>
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-6 fade-up delay-2">
-                <div class="about-image">
-                    <img src="images/about_landing/about.jpg" class="img-fluid">
+                <div class="col-lg-7 fade-up delay-2">
+                    <?php if (!empty($this->aboutLandingImages)): ?>
+                        <div class="about-gallery about-count-<?php echo count($this->aboutLandingImages); ?>">
+                            <?php foreach ($this->aboutLandingImages as $index => $item): ?>
+                                <figure class="about-media about-media-<?php echo $index + 1; ?>">
+                                    <img
+                                            src="<?php echo CHtml::encode($baseUrl . '/images/about_landing/' . $item->image); ?>"
+                                            alt="About Landing <?php echo $index + 1; ?>">
+                                </figure>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php else: ?>
+                        <div class="about-gallery about-count-1">
+                            <figure class="about-media about-media-1">
+                                <img src="<?php echo $baseUrl; ?>/images/about_landing/about.jpg" alt="About Landing">
+                            </figure>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 </section>
+
 
 <!-- VISI MISI -->
 <section class="section vision-section" id="vision">

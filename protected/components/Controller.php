@@ -134,6 +134,10 @@ class Controller extends CController
 
     public $heroLandingItems = [];
 
+    public $aboutLandingContent = null;
+    public $aboutLandingImages = [];
+
+
     public $events = [];
 
     public function init()
@@ -225,6 +229,22 @@ class Controller extends CController
             'params' => [':active' => '1'],
             'order' => 't.sort_order ASC',
         ]);
+
+        /* ===============================
+           ABOUT LANDING PAGE
+        ================================ */
+        $this->aboutLandingContent = AboutLanding::model()->find([
+            'condition' => 't.type = :type AND t.is_active = 1',
+            'params' => [':type' => 'content'],
+            'order' => 't.sort_order ASC',
+        ]);
+
+        $this->aboutLandingImages = AboutLanding::model()->findAll([
+            'condition' => 't.type = :type AND t.is_active = 1',
+            'params' => [':type' => 'image'],
+            'order' => 't.sort_order ASC',
+        ]);
+
 
         /* ===============================
            HEADER CONTENT (CACHED)
