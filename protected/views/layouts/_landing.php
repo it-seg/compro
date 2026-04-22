@@ -150,78 +150,74 @@ $lang = Yii::app()->language ?: 'id';
 
 
 <!-- ABOUT -->
-<!-- ABOUT -->
-<section class="section about about-luxury" id="about">
+<section class="section about about-fullbleed" id="about">
     <div class="container">
-        <div class="about-shell">
-            <div class="row align-items-center g-5">
+        <?php
+        $aboutLabel = $lang === 'id' ? 'Tentang Kami' : 'About';
+        $aboutTitle = '';
+        $aboutLead = '';
+        $aboutDesc = '';
 
-                <div class="col-lg-5 fade-up delay-1">
-                    <div class="about-content">
-                        <?php
-                        $aboutLabel = $lang === 'id' ? 'Tentang Kami' : 'About';
-                        $aboutTitle = '';
-                        $aboutLead = '';
-                        $aboutDesc = '';
+        if ($this->aboutLandingContent) {
+            $aboutLabel = ($lang === 'id' && !empty($this->aboutLandingContent->label_ind))
+                ? $this->aboutLandingContent->label_ind
+                : ($this->aboutLandingContent->label ?: $aboutLabel);
 
-                        if ($this->aboutLandingContent) {
-                            $aboutLabel = ($lang === 'id' && !empty($this->aboutLandingContent->label_ind))
-                                ? $this->aboutLandingContent->label_ind
-                                : ($this->aboutLandingContent->label ?: $aboutLabel);
+            $aboutTitle = ($lang === 'id' && !empty($this->aboutLandingContent->title_ind))
+                ? $this->aboutLandingContent->title_ind
+                : $this->aboutLandingContent->title;
 
-                            $aboutTitle = ($lang === 'id' && !empty($this->aboutLandingContent->title_ind))
-                                ? $this->aboutLandingContent->title_ind
-                                : $this->aboutLandingContent->title;
+            $aboutLead = ($lang === 'id' && !empty($this->aboutLandingContent->lead_ind))
+                ? $this->aboutLandingContent->lead_ind
+                : $this->aboutLandingContent->lead;
 
-                            $aboutLead = ($lang === 'id' && !empty($this->aboutLandingContent->lead_ind))
-                                ? $this->aboutLandingContent->lead_ind
-                                : $this->aboutLandingContent->lead;
+            $aboutDesc = ($lang === 'id' && !empty($this->aboutLandingContent->description_ind))
+                ? $this->aboutLandingContent->description_ind
+                : $this->aboutLandingContent->description;
+        }
 
-                            $aboutDesc = ($lang === 'id' && !empty($this->aboutLandingContent->description_ind))
-                                ? $this->aboutLandingContent->description_ind
-                                : $this->aboutLandingContent->description;
-                        }
-                        ?>
+        $aboutMainImage = !empty($this->aboutLandingImages)
+            ? $baseUrl . '/images/about_landing/' . $this->aboutLandingImages[0]->image
+            : $baseUrl . '/images/about_landing/about.jpg';
+        ?>
 
-                        <span class="about-label"><?php echo CHtml::encode($aboutLabel); ?></span>
-
-                        <h3 class="about-title">
-                            <?php echo CHtml::encode($aboutTitle); ?>
-                        </h3>
-
-                        <div class="about-divider"></div>
-
-                        <p class="about-lead">
-                            <?php echo CHtml::encode($aboutLead); ?>
-                        </p>
-
-                        <p class="about-desc">
-                            <?php echo CHtml::encode($aboutDesc); ?>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-7 fade-up delay-2">
-                    <?php if (!empty($this->aboutLandingImages)): ?>
-                        <div class="about-gallery about-count-<?php echo count($this->aboutLandingImages); ?>">
-                            <?php foreach ($this->aboutLandingImages as $index => $item): ?>
-                                <figure class="about-media about-media-<?php echo $index + 1; ?>">
-                                    <img
-                                            src="<?php echo CHtml::encode($baseUrl . '/images/about_landing/' . $item->image); ?>"
-                                            alt="About Landing <?php echo $index + 1; ?>">
-                                </figure>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php else: ?>
-                        <div class="about-gallery about-count-1">
-                            <figure class="about-media about-media-1">
-                                <img src="<?php echo $baseUrl; ?>/images/about_landing/about.jpg" alt="About Landing">
-                            </figure>
-                        </div>
-                    <?php endif; ?>
-                </div>
-
+        <div class="about-bleed-wrap fade-up delay-1">
+            <div class="about-bleed-visual">
+                <img src="<?php echo CHtml::encode($aboutMainImage); ?>" alt="About Landing Main">
+                <div class="about-bleed-overlay"></div>
             </div>
+
+            <div class="about-bleed-content">
+                <span class="about-label"><?php echo CHtml::encode($aboutLabel); ?></span>
+
+                <h3 class="about-title">
+                    <?php echo CHtml::encode($aboutTitle); ?>
+                </h3>
+
+                <div class="about-divider"></div>
+
+                <p class="about-lead">
+                    <?php echo CHtml::encode($aboutLead); ?>
+                </p>
+
+                <p class="about-desc">
+                    <?php echo CHtml::encode($aboutDesc); ?>
+                </p>
+            </div>
+
+            <?php if (!empty($this->aboutLandingImages) && count($this->aboutLandingImages) > 1): ?>
+                <div class="about-bleed-thumbs fade-up delay-2">
+                    <?php foreach ($this->aboutLandingImages as $index => $item): ?>
+                        <?php if ($index === 0) continue; ?>
+                        <?php if ($index > 3) break; ?>
+                        <figure class="about-thumb">
+                            <img
+                                    src="<?php echo CHtml::encode($baseUrl . '/images/about_landing/' . $item->image); ?>"
+                                    alt="About Landing <?php echo $index + 1; ?>">
+                        </figure>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
