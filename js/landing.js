@@ -180,6 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const careerSection = qs(".career-animate");
     const careerTrack = qs(".career-track");
     const careerItems = qsa(".career-item");
+    const originalCareerCount = careerItems.length / 2;
     const careerPrev = qs(".career-nav.prev");
     const careerNext = qs(".career-nav.next");
 
@@ -207,13 +208,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function updateCareerSlide() {
-            const width = careerTrack.clientWidth;
+            const width = careerItems[0].clientWidth;
             careerTrack.style.transform = `translateX(-${careerIndex * width}px)`;
         }
 
         careerNext.addEventListener("click", function () {
             if (isMobile()) {
-                if (careerIndex < careerItems.length - 1) {
+                if (careerIndex < originalCareerCount - 1) {
                     careerIndex += 1;
                     updateCareerSlide();
                 }
