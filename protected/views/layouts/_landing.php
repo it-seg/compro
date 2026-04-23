@@ -311,7 +311,7 @@ $lang = Yii::app()->language ?: 'id';
             <hr class="fade-up delay-2">
 
             <div class="row g-4 justify-content-center">
-                <?php foreach ($this->servicesLandingItems as $item): ?>
+                <?php foreach ($this->servicesLandingItems as $index => $item): ?>
                     <?php
                     $itemTitle = ($lang === 'id' && !empty($item->title_ind))
                         ? $item->title_ind
@@ -324,8 +324,16 @@ $lang = Yii::app()->language ?: 'id';
                     $links = isset($this->servicesLandingLinks[$item->id])
                         ? $this->servicesLandingLinks[$item->id]
                         : [];
+
+                    $layoutClass = 'service-layout-default';
+
+                    if ($index === 0) {
+                        $layoutClass = 'service-layout-featured';
+                    } elseif (in_array($index, [1, 2], true)) {
+                        $layoutClass = 'service-layout-tall';
+                    }
                     ?>
-                    <div class="col-lg-3 col-md-6 fade-up">
+                    <div class="col-lg-3 col-md-6 fade-up service-col <?php echo $layoutClass; ?>">
                         <article class="card card-service service-card-luxury">
                             <div class="service-card-media">
                                 <img src="<?php echo CHtml::encode($itemImage); ?>" alt="<?php echo CHtml::encode($itemTitle); ?>">
@@ -357,6 +365,7 @@ $lang = Yii::app()->language ?: 'id';
                         </article>
                     </div>
                 <?php endforeach; ?>
+
             </div>
 
             <hr class="fade-up delay-3">
@@ -365,151 +374,138 @@ $lang = Yii::app()->language ?: 'id';
 <?php endif; ?>
 
 
-
 <!-- BRANDS -->
-<section class="section brand-elegant" id="brands">
-    <div class="container">
+<?php if ($this->brandsLanding): ?>
+    <section class="section brands-premium" id="brands">
+        <div class="container">
+            <?php
+            $brandsLabel = ($lang === 'id' && !empty($this->brandsLanding->label_ind))
+                ? $this->brandsLanding->label_ind
+                : $this->brandsLanding->label;
 
-        <div class="section-title fade-up">
-            <span class="section-label">Our Network</span>
-            <h2 class="section-heading">Our Brands</h2>
-        </div>
+            $brandsTitle = ($lang === 'id' && !empty($this->brandsLanding->title_ind))
+                ? $this->brandsLanding->title_ind
+                : $this->brandsLanding->title;
 
-        <div class="brand-slider">
-            <!-- BUTTON PRE -->
-            <button class="brand-nav prev">&#10094;</button>
-            <div class="brand-track">
+            $brandsSubtitle = ($lang === 'id' && !empty($this->brandsLanding->subtitle_ind))
+                ? $this->brandsLanding->subtitle_ind
+                : $this->brandsLanding->subtitle;
+            ?>
 
-                <a href="https://www.pesonajayasukses.com" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/pjs.png">
-                </a>
-                <a href="http://www.madamtan.com/" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/madamtan.png">
-                </a>
-                <a href="https://www.pophotels.com/" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/pop.png">
-                </a>
-                <a href="http://www.pesonabintangutama.com" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/pbu.png">
-                </a>
-                <a href="http://www.naavagreen.com" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/naava.png">
-                </a>
-                <a href="http://www.natasha-skin.com" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/natasha.png">
-                </a>
-                <a href="#" class="brand-item">
-                    <img src="images/brand_landing/osmile.png">
-                </a>
-                <a href="#" class="brand-item">
-                    <img src="images/brand_landing/gbu.png">
-                </a>
-                <a href="#" class="brand-item">
-                    <img src="images/brand_landing/bank.png">
-                </a>
-                <a href="http://www.dionfarmaabadi.com" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/dfa.png">
-                </a>
-                <a href="http://www.hayyana.co.id" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/hayyana.png">
-                </a>
-
-                <!-- DUPLICATE WAJIB -->
-                <a href="https://www.pesonajayasukses.com" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/pjs.png">
-                </a>
-                <a href="http://www.madamtan.com/" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/madamtan.png">
-                </a>
-                <a href="https://www.pophotels.com/" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/pop.png">
-                </a>
-                <a href="http://www.pesonabintangutama.com" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/pbu.png">
-                </a>
-                <a href="http://www.naavagreen.com" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/naava.png">
-                </a>
-                <a href="http://www.natasha-skin.com" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/natasha.png">
-                </a>
-                <a href="#" class="brand-item">
-                    <img src="images/brand_landing/osmile.png">
-                </a>
-                <a href="#" class="brand-item">
-                    <img src="images/brand_landing/gbu.png">
-                </a>
-                <a href="#" class="brand-item">
-                    <img src="images/brand_landing/bank.png">
-                </a>
-                <a href="http://www.dionfarmaabadi.com" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/dfa.png">
-                </a>
-                <a href="http://www.hayyana.co.id" target="_blank" class="brand-item">
-                    <img src="images/brand_landing/hayyana.png">
-                </a>
-
+            <div class="brands-premium-head section-title fade-up">
+                <span class="section-label"><?php echo CHtml::encode($brandsLabel); ?></span>
+                <h2 class="section-heading"><?php echo CHtml::encode($brandsTitle); ?></h2>
+                <?php if (!empty($brandsSubtitle)): ?>
+                    <p class="brands-premium-subtitle"><?php echo CHtml::encode($brandsSubtitle); ?></p>
+                <?php endif; ?>
             </div>
-            <!-- BUTTON NEXT -->
-            <button class="brand-nav next">&#10095;</button>
+
+            <div class="brands-premium-grid">
+                <?php foreach ($this->brandsLandingItems as $index => $item): ?>
+                    <?php
+                    $brandName = ($lang === 'id' && !empty($item->name_ind))
+                        ? $item->name_ind
+                        : $item->name;
+
+                    $brandSubtitle = ($lang === 'id' && !empty($item->subtitle_ind))
+                        ? $item->subtitle_ind
+                        : $item->subtitle;
+
+                    $brandImage = !empty($item->image)
+                        ? $baseUrl . '/images/brand_landing/' . $item->image
+                        : $baseUrl . '/images/brand_landing/pjs.png';
+
+                    $brandUrl = !empty($item->url) ? $item->url : '#';
+                    ?>
+                    <a
+                            href="<?php echo CHtml::encode($brandUrl); ?>"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="brand-premium-tile fade-up">
+                        <div class="brand-premium-logo-wrap">
+                            <img src="<?php echo CHtml::encode($brandImage); ?>" alt="<?php echo CHtml::encode($brandName); ?>" class="brand-premium-logo">
+                        </div>
+
+                        <div class="brand-premium-copy">
+                            <h3><?php echo CHtml::encode($brandName); ?></h3>
+                            <?php if (!empty($brandSubtitle)): ?>
+                                <p><?php echo CHtml::encode($brandSubtitle); ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
+            </div>
         </div>
+    </section>
+<?php endif; ?>
 
-
-    </div>
-</section>
 
 <!-- NEWS -->
-<section class="section bg-light" id="news">
+<?php if ($this->newsLanding): ?>
+    <section class="section news-luxury" id="news">
     <div class="container">
+            <?php
+            $newsLabel = ($lang === 'id' && !empty($this->newsLanding->label_ind))
+                ? $this->newsLanding->label_ind
+                : $this->newsLanding->label;
 
-        <div class="section-title">
-            <h2>Latest News</h2>
-        </div>
+            $newsTitle = ($lang === 'id' && !empty($this->newsLanding->title_ind))
+                ? $this->newsLanding->title_ind
+                : $this->newsLanding->title;
 
-        <div class="row g-4">
+            $readMoreText = $lang === 'id' ? 'Baca Selengkapnya' : 'Read More';
+            ?>
 
-            <div class="col-md-6 news-animate">
-                <div class="card-news">
-                    <img src="images/news_landing/news1.png">
-                    <div class="p-3">
-                        <h5>Natasha Raih Sertifikasi ISO</h5>
-                        <p>Natasha Skin Clinic resmi mendapatkan ISO 9001:2015...</p>
-                        <button
-                                class="btn-readmore"
-                                data-title="Natasha Raih Sertifikasi ISO"
-                                data-desc="Natasha Skin Clinic resmi mendapatkan ISO 9001:2015 sebagai bentuk komitmen terhadap kualitas pelayanan dan standar internasional."
-                                data-img="images/news_landing/news1.png"
-                        >
-                            Read More
-                        </button>
-                    </div>
-                </div>
+            <div class="section-title fade-up">
+                <span class="section-label"><?php echo CHtml::encode($newsLabel); ?></span>
+                <h2 class="section-heading"><?php echo CHtml::encode($newsTitle); ?></h2>
             </div>
 
-            <div class="col-md-6 news-animate" >
-                <div class="card-news">
-                    <img src="images/news_landing/news2.jpg">
-                    <div class="p-3">
-                        <h5>Penghargaan Internasional</h5>
-                        <p>PT Dion Farma Abadi meraih penghargaan Eropa...</p>
-                        <button
-                                class="btn-readmore"
-                                data-title="Penghargaan Internasional"
-                                data-desc="Pada tanggal 12 Mei 2018,  PT DION FARMA ABADI  menerima penghargaan  European Award for Best Pratices 2018 diwakili oleh Bapak Jonatan Dion Setyawan selaku komisaris.  European Society for Quality Research (ESQR) ini diadakan di Brussel, Belgia. European Award for Best Practices sendiri diberikan kepada  perusahaan yang dinilai secara comprehensive telah mengimplementasikan dan berusaha keras dalam penerapan manajemen mutu perusahaan.
-                                ESQR (European Society for Quality Research) yang bertempat di Switzerland sebagai penyelenggara telah melakukan seleksi ketat ke berbagai Negara, untuk menemukan perusahaan-perusahaan yang berkomitmen dan terus berinovasi untuk meningkatkan kualitas dari Manajemen Perusahaan tersebut, dan salah satu dari sekitar 78 perusahaan yang terpilih adalah PT. Dion Farma Abadi."
-                                data-img="images/news_landing/news2.jpg"
-                        >
-                            Read More
-                        </button>
+            <div class="row g-4">
+                <?php foreach ($this->newsLandingItems as $item): ?>
+                    <?php
+                    $itemTitle = ($lang === 'id' && !empty($item->title_ind))
+                        ? $item->title_ind
+                        : $item->title;
+
+                    $itemExcerpt = ($lang === 'id' && !empty($item->excerpt_ind))
+                        ? $item->excerpt_ind
+                        : $item->excerpt;
+
+                    $itemContent = ($lang === 'id' && !empty($item->content_ind))
+                        ? $item->content_ind
+                        : $item->content;
+
+                    $itemImage = !empty($item->image)
+                        ? $baseUrl . '/images/news_landing/' . $item->image
+                        : $baseUrl . '/images/news_landing/news1.png';
+                    ?>
+                    <div class="col-md-6 news-animate">
+                        <article class="card-news news-card-luxury">
+                            <div class="news-card-media">
+                                <img src="<?php echo CHtml::encode($itemImage); ?>" alt="<?php echo CHtml::encode($itemTitle); ?>">
+                            </div>
+
+                            <div class="news-card-body">
+                                <h5><?php echo CHtml::encode($itemTitle); ?></h5>
+                                <p><?php echo CHtml::encode($itemExcerpt); ?></p>
+
+                                <button
+                                        class="btn-readmore"
+                                        data-title="<?php echo CHtml::encode($itemTitle); ?>"
+                                        data-desc="<?php echo CHtml::encode($itemContent); ?>"
+                                        data-img="<?php echo CHtml::encode($itemImage); ?>">
+                                    <?php echo CHtml::encode($readMoreText); ?>
+                                </button>
+                            </div>
+                        </article>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
-
-
         </div>
+    </section>
+<?php endif; ?>
 
-    </div>
-</section>
 
 <!-- CAREER -->
 <section class="section career-slider-section career-animate" id="career">
@@ -633,31 +629,23 @@ $lang = Yii::app()->language ?: 'id';
 <div class="modal fade modal-news" id="newsModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
+            <button type="button" class="modal-close" data-bs-dismiss="modal">✕</button>
 
-            <!-- CLOSE -->
-            <button type="button" class="modal-close" data-bs-dismiss="modal">
-                ✕
-            </button>
-
-            <!-- IMAGE -->
             <div class="modal-image-wrapper">
                 <img id="modalImage">
             </div>
 
-            <!-- CONTENT -->
             <div class="modal-body">
-
                 <div class="modal-content-inner">
                     <span class="modal-label">NEWS UPDATE</span>
                     <h3 id="modalTitle"></h3>
                     <p id="modalDesc"></p>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
+
 
 <!-- JS -->
 <script src="<?= $baseUrl ?>/js/landing.js"></script>

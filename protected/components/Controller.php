@@ -141,6 +141,13 @@ class Controller extends CController
     public $servicesLanding = null;
     public $servicesLandingItems = [];
     public $servicesLandingLinks = [];
+    public $brandsLanding = null;
+    public $brandsLandingItems = [];
+
+    public $newsLanding = null;
+    public $newsLandingItems = [];
+
+
 
 
 
@@ -314,6 +321,46 @@ class Controller extends CController
                 }
             }
         }
+
+        /* ===============================
+           BRANDS LANDING PAGE
+        ================================ */
+        $this->brandsLanding = BrandsLanding::model()->find([
+            'condition' => 't.is_active = 1',
+            'order' => 't.sort_order ASC',
+        ]);
+
+        if ($this->brandsLanding && (int)$this->brandsLanding->show_section === 1) {
+            $this->brandsLandingItems = BrandsLandingItem::model()->findAll([
+                'condition' => 't.brands_landing_id = :brandsId AND t.is_active = 1',
+                'params' => [':brandsId' => $this->brandsLanding->id],
+                'order' => 't.sort_order ASC',
+            ]);
+        } else {
+            $this->brandsLanding = null;
+            $this->brandsLandingItems = [];
+        }
+
+        /* ===============================
+           NEWS LANDING PAGE
+        ================================ */
+        $this->newsLanding = NewsLanding::model()->find([
+            'condition' => 't.is_active = 1',
+            'order' => 't.sort_order ASC',
+        ]);
+
+        if ($this->newsLanding && (int)$this->newsLanding->show_section === 1) {
+            $this->newsLandingItems = NewsLandingItem::model()->findAll([
+                'condition' => 't.news_landing_id = :newsId AND t.is_active = 1',
+                'params' => [':newsId' => $this->newsLanding->id],
+                'order' => 't.sort_order ASC',
+            ]);
+        } else {
+            $this->newsLanding = null;
+            $this->newsLandingItems = [];
+        }
+
+
 
 
 
