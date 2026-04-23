@@ -223,49 +223,71 @@ $lang = Yii::app()->language ?: 'id';
 </section>
 
 
-<!-- VISI MISI -->
-<section class="section vision-section" id="vision">
-    <div class="container">
+<?php if ($this->visionLanding): ?>
+    <section class="section vision-luxury" id="vision">
+        <div class="container">
+            <?php
+            $visionLabel = ($lang === 'id' && !empty($this->visionLanding->label_ind))
+                ? $this->visionLanding->label_ind
+                : $this->visionLanding->label;
 
-        <div class="section-title vision-animate">
-            <span class="section-label">Our Direction</span>
-            <h2 class="section-heading">Vision & Mission</h2>
-        </div>
+            $visionHeading = ($lang === 'id' && !empty($this->visionLanding->heading_ind))
+                ? $this->visionLanding->heading_ind
+                : $this->visionLanding->heading;
 
-        <div class="vision-apple" id="visionApple">
+            $visionTitle = ($lang === 'id' && !empty($this->visionLanding->title_ind))
+                ? $this->visionLanding->title_ind
+                : $this->visionLanding->title;
 
-            <!-- BACKGROUND -->
-            <div class="vision-apple-bg">
-                <img src="images/vision_landing/visimisi.jpg">
+            $visionSub = ($lang === 'id' && !empty($this->visionLanding->subtitle_ind))
+                ? $this->visionLanding->subtitle_ind
+                : $this->visionLanding->subtitle;
+
+            $visionImage = !empty($this->visionLanding->image)
+                ? $baseUrl . '/images/vision_landing/' . $this->visionLanding->image
+                : $baseUrl . '/images/vision_landing/visimisi.jpg';
+            ?>
+
+            <div class="vision-luxury-head section-title vision-animate">
+                <span class="section-label"><?php echo CHtml::encode($visionLabel); ?></span>
+                <h2 class="section-heading"><?php echo CHtml::encode($visionHeading); ?></h2>
             </div>
 
-            <!-- OVERLAY CONTENT -->
-            <div class="vision-apple-content">
+            <div class="vision-luxury-wrap" id="visionApple">
+                <div class="vision-luxury-bg">
+                    <img src="<?php echo CHtml::encode($visionImage); ?>" alt="Vision Mission">
+                    <div class="vision-luxury-overlay"></div>
+                </div>
 
-                <span class="vision-label">Our Direction</span>
+                <div class="vision-luxury-content">
+                    <span class="vision-label"><?php echo CHtml::encode($visionLabel); ?></span>
 
-                <h2 class="vision-title">
-                    Driving Growth <br>
-                    Through Innovation
-                </h2>
+                    <h2 class="vision-title">
+                        <?php echo nl2br(CHtml::encode($visionTitle)); ?>
+                    </h2>
 
-                <p class="vision-sub">
-                    Building a sustainable ecosystem across industries
-                </p>
+                    <p class="vision-sub">
+                        <?php echo CHtml::encode($visionSub); ?>
+                    </p>
 
-                <ul class="vision-points">
-                    <li>High quality products & services</li>
-                    <li>Professional human resources</li>
-                    <li>Continuous innovation</li>
-                    <li>Long-term partnership</li>
-                </ul>
-
+                    <?php if (!empty($this->visionLandingItems)): ?>
+                        <ul class="vision-points">
+                            <?php foreach ($this->visionLandingItems as $item): ?>
+                                <?php
+                                $pointText = ($lang === 'id' && !empty($item->text_ind))
+                                    ? $item->text_ind
+                                    : $item->text;
+                                ?>
+                                <li><?php echo CHtml::encode($pointText); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
             </div>
-
         </div>
+    </section>
+<?php endif; ?>
 
-    </div>
-</section>
 
 <!-- SERVICES -->
 <section class="section" id="services">

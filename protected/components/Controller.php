@@ -136,6 +136,9 @@ class Controller extends CController
 
     public $aboutLandingContent = null;
     public $aboutLandingImages = [];
+    public $visionLanding = null;
+    public $visionLandingItems = [];
+
 
 
     public $events = [];
@@ -244,6 +247,26 @@ class Controller extends CController
             'params' => [':type' => 'image'],
             'order' => 't.sort_order ASC',
         ]);
+
+        /* ===============================
+           VISION LANDING PAGE
+        ================================ */
+        $this->visionLanding = VisionLanding::model()->find([
+            'condition' => 't.is_active = 1',
+            'order' => 't.sort_order ASC',
+        ]);
+
+        if ($this->visionLanding && (int)$this->visionLanding->show_section === 1) {
+            $this->visionLandingItems = VisionLandingItem::model()->findAll([
+                'condition' => 't.vision_landing_id = :visionId AND t.is_active = 1',
+                'params' => [':visionId' => $this->visionLanding->id],
+                'order' => 't.sort_order ASC',
+            ]);
+        } else {
+            $this->visionLanding = null;
+            $this->visionLandingItems = [];
+        }
+
 
 
         /* ===============================
