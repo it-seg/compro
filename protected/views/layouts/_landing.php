@@ -640,8 +640,6 @@ $lang = Yii::app()->language ?: 'id';
                 <div class="footer-clean-brand">
                     <img src="images/logo.png" class="footer-clean-logo" alt="<?php echo CHtml::encode($companyName); ?>">
 
-                    <h3><?php echo CHtml::encode($companyName); ?></h3>
-
                     <div class="footer-clean-info">
                         <div class="footer-clean-info-item">
                             <i class="bi bi-geo-alt"></i>
