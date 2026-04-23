@@ -974,129 +974,185 @@ hr::after {
 
 
 /* =====================================================
-   SERVICES
+   SERVICES LUXURY
 ===================================================== */
-.card-service {
+.services-luxury {
+    position: relative;
+    background:
+            radial-gradient(circle at top left, rgba(212,175,55,0.10), transparent 22%),
+            linear-gradient(to bottom, #ffffff, #f7f8fb);
+    overflow: hidden;
+}
+
+.services-luxury .section-title {
+    margin-bottom: 38px;
+}
+
+.service-card-luxury {
     position: relative;
     opacity: 0;
     transform: translateY(50px) scale(0.98);
-    background: linear-gradient(to bottom, #ffffff, #fafafa);
-    border-radius: 16px;
+    background: linear-gradient(to bottom, #ffffff, #fbfbfb);
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+    transition: all 0.75s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform, opacity;
 }
 
-.card-service::before {
+.service-card-luxury.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.service-card-luxury::before {
     content: "";
     position: absolute;
     inset: 0;
     background:
-            radial-gradient(circle at top left, rgba(212, 175, 55, 0.25), transparent 60%),
-            radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.06), transparent 60%);
+            radial-gradient(circle at top left, rgba(212,175,55,0.22), transparent 58%),
+            radial-gradient(circle at bottom right, rgba(15,23,42,0.06), transparent 60%);
     opacity: 0;
     transition: 0.4s ease;
     z-index: 1;
 }
 
-.card-service::after {
+.service-card-luxury::after {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.card-service.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-.card-service img,
-.card-service .card-body {
-    position: relative;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.35);
+    pointer-events: none;
     z-index: 2;
 }
 
-.card-service img {
-    height: 220px;
-    width: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
+.service-card-luxury:hover::before {
+    opacity: 1;
 }
 
-.card-service .card-body {
-    padding: 28px 24px;
+.service-card-luxury:hover {
+    transform: translateY(-10px);
+    box-shadow:
+            0 30px 80px rgba(15,23,42,0.12),
+            0 0 22px rgba(212,175,55,0.12);
+}
+
+.service-card-media {
     position: relative;
+    height: 240px;
+    overflow: hidden;
 }
 
-.card-service .card-body::before {
+.service-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.service-card-luxury:hover .service-card-media img {
+    transform: scale(1.06);
+}
+
+.service-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11,15,25,0.36), rgba(11,15,25,0.02));
+}
+
+.service-card-luxury .card-body {
+    position: relative;
+    z-index: 3;
+    padding: 28px 24px 26px;
+}
+
+.service-card-luxury .card-body::before {
     content: "";
     position: absolute;
     left: 0;
     top: 30px;
     width: 3px;
-    height: 50px;
+    height: 56px;
     background: linear-gradient(to bottom, var(--color-gold), transparent);
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 8px rgba(212,175,55,0.45);
 }
 
-.card-service h5 {
-    font-size: 16px;
-    letter-spacing: 1.2px;
+.service-card-luxury h5 {
+    font-size: 15px;
+    letter-spacing: 1.5px;
     font-weight: 600;
-    margin-bottom: 10px;
-    padding-left: 12px;
+    margin-bottom: 14px;
+    padding-left: 14px;
+    color: #132238;
 }
 
-.card-service p {
-    margin-bottom: 0;
-    color: var(--color-muted);
-    line-height: 1.8;
+.service-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 14px;
 }
 
-.card-service a {
-    text-decoration: none;
-    color: var(--color-text);
-    transition: 0.3s ease;
+.service-line {
+    position: relative;
+    display: block;
+    font-size: 13px;
+    line-height: 1.75;
+    color: #667085;
+    transition: color 0.25s ease;
 }
 
-.card-service a:hover {
-    color: var(--color-gold);
+.service-line::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-gold);
 }
 
-.card-service:hover::before {
-    opacity: 1;
-}
-
-.card-service:hover {
-    transform: translateY(-8px);
-    box-shadow:
-            0 30px 80px rgba(0, 0, 0, 0.12),
-            0 0 20px rgba(212, 175, 55, 0.15);
-}
-
-.card-service:hover img {
-    transform: scale(1.05);
+.service-card-luxury:hover .service-line {
+    color: #334155;
 }
 
 @media (max-width: 768px) {
-    #services .row {
+    .services-luxury .row {
         justify-content: center;
     }
 
-    #services .row > div {
+    .services-luxury .row > div {
         display: flex;
         justify-content: center;
         width: 100%;
     }
 
-    .card-service {
-        width: 90%;
-        max-width: 320px;
+    .service-card-luxury {
+        width: 92%;
+        max-width: 340px;
         margin: 0 auto;
     }
+
+    .service-card-media {
+        height: 220px;
+    }
+
+    .service-card-luxury .card-body {
+        padding: 24px 20px 22px;
+    }
 }
+
+.service-line-link {
+    text-decoration: none;
+}
+
+.service-line-link:hover .service-line {
+    color: var(--color-gold);
+}
+
 
 
 /* =====================================================

@@ -138,6 +138,10 @@ class Controller extends CController
     public $aboutLandingImages = [];
     public $visionLanding = null;
     public $visionLandingItems = [];
+    public $servicesLanding = null;
+    public $servicesLandingItems = [];
+    public $servicesLandingLinks = [];
+
 
 
 
@@ -266,6 +270,52 @@ class Controller extends CController
             $this->visionLanding = null;
             $this->visionLandingItems = [];
         }
+
+        /* ===============================
+           SERVICES LANDING PAGE
+        ================================ */
+        $this->servicesLanding = ServicesLanding::model()->find([
+            'condition' => 't.is_active = 1',
+            'order' => 't.sort_order ASC',
+        ]);
+
+        if ($this->servicesLanding && (int)$this->servicesLanding->show_section === 1) {
+            $this->servicesLandingItems = ServicesLandingItem::model()->findAll([
+                'condition' => 't.services_landing_id = :servicesId AND t.is_active = 1',
+                'params' => [':servicesId' => $this->servicesLanding->id],
+                'order' => 't.sort_order ASC',
+            ]);
+        } else {
+            $this->servicesLanding = null;
+            $this->servicesLandingItems = [];
+        }
+
+        $this->servicesLandingLinks = [];
+
+        if (!empty($this->servicesLandingItems)) {
+            $itemIds = array_map(function ($item) {
+                return (int)$item->id;
+            }, $this->servicesLandingItems);
+
+            if (!empty($itemIds)) {
+                $criteria = new CDbCriteria();
+                $criteria->addInCondition('services_landing_item_id', $itemIds);
+                $criteria->compare('is_active', 1);
+                $criteria->order = 'sort_order ASC';
+
+                $links = ServicesLandingLink::model()->findAll($criteria);
+
+                foreach ($links as $link) {
+                    $itemId = (int)$link->services_landing_item_id;
+                    if (!isset($this->servicesLandingLinks[$itemId])) {
+                        $this->servicesLandingLinks[$itemId] = [];
+                    }
+                    $this->servicesLandingLinks[$itemId][] = $link;
+                }
+            }
+        }
+
+
 
 
 

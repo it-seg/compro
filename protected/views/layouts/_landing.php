@@ -290,151 +290,81 @@ $lang = Yii::app()->language ?: 'id';
 
 
 <!-- SERVICES -->
-<section class="section" id="services">
-    <div class="container">
+<?php if ($this->servicesLanding): ?>
+    <section class="section services-luxury" id="services">
+        <div class="container">
+            <?php
+            $servicesLabel = ($lang === 'id' && !empty($this->servicesLanding->label_ind))
+                ? $this->servicesLanding->label_ind
+                : $this->servicesLanding->label;
 
-        <span class="section-label fade-up delay-1">Our Expertise</span>
+            $servicesTitle = ($lang === 'id' && !empty($this->servicesLanding->title_ind))
+                ? $this->servicesLanding->title_ind
+                : $this->servicesLanding->title;
+            ?>
 
-        <h2 class="section-heading fade-up delay-2">
-            Business Units That Drive Growth
-        </h2>
-
-        <hr class="fade-up delay-3">
-
-        <div class="row g-4 justify-content-center">
-
-            <!-- 1 -->
-            <div class="col-lg-3 col-md-6">
-                <a href="#" class="service-link">
-                    <div class="card card-service">
-                        <img src="images/services_landing/srv1.jpg">
-
-                        <div class="card-body">
-                            <h5>COSMETIC FACTORY</h5>
-                            <p>
-                                <a href="http://www.dionfarmaabadi.com" target="_blank">PT. Dion Farma
-                                    Abadi</a><br>
-                                <a href="http://www.pesonabintangutama.com" target="_blank">PT. Pesona Bintang
-                                    Utama </a>
-                            </p>
-                        </div>
-                    </div>
-                </a>
+            <div class="section-title fade-up delay-1">
+                <span class="section-label"><?php echo CHtml::encode($servicesLabel); ?></span>
+                <h2 class="section-heading"><?php echo CHtml::encode($servicesTitle); ?></h2>
             </div>
 
-            <!-- 2 -->
-            <div class="col-lg-3 col-md-6">
-                <a href="#" class="service-link">
-                    <div class="card card-service">
-                        <img src="images/services_landing/srv2.jpg">
-                        <div class="card-body">
-                            <h5>PHARMACEUTICAL FACTORY</h5>
-                            <p>
-                                <a href="http://www.pesonabintangutama.com" target="_blank">PT. Pesona Bintang
-                                    Utama </a>
-                            </p>
-                        </div>
+            <hr class="fade-up delay-2">
+
+            <div class="row g-4 justify-content-center">
+                <?php foreach ($this->servicesLandingItems as $item): ?>
+                    <?php
+                    $itemTitle = ($lang === 'id' && !empty($item->title_ind))
+                        ? $item->title_ind
+                        : $item->title;
+
+                    $itemImage = !empty($item->image)
+                        ? $baseUrl . '/images/services_landing/' . $item->image
+                        : $baseUrl . '/images/services_landing/srv1.jpg';
+
+                    $links = isset($this->servicesLandingLinks[$item->id])
+                        ? $this->servicesLandingLinks[$item->id]
+                        : [];
+                    ?>
+                    <div class="col-lg-3 col-md-6 fade-up">
+                        <article class="card card-service service-card-luxury">
+                            <div class="service-card-media">
+                                <img src="<?php echo CHtml::encode($itemImage); ?>" alt="<?php echo CHtml::encode($itemTitle); ?>">
+                                <div class="service-card-overlay"></div>
+                            </div>
+
+                            <div class="card-body">
+                                <h5><?php echo CHtml::encode(strtoupper($itemTitle)); ?></h5>
+
+                                <?php if (!empty($links)): ?>
+                                    <div class="service-lines">
+                                        <?php foreach ($links as $link): ?>
+                                            <?php
+                                            $linkLabel = ($lang === 'id' && !empty($link->label_ind))
+                                                ? $link->label_ind
+                                                : $link->label;
+                                            ?>
+                                            <a
+                                                    href="<?php echo CHtml::encode($link->url); ?>"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="service-line-link">
+                                                <span class="service-line"><?php echo CHtml::encode($linkLabel); ?></span>
+                                            </a>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </article>
                     </div>
-                </a>
+                <?php endforeach; ?>
             </div>
 
-            <!-- 3 -->
-            <div class="col-lg-3 col-md-6">
-                <a href="#" class="service-link">
-                    <div class="card card-service">
-                        <img src="images/services_landing/srv4.jpg">
-                        <div class="card-body">
-                            <h5>OTC COSMETIC</h5>
-                            <p>
-                                <a href="http://www.natasha-skin.com" target="_blank">Natasha Skin Clinic
-                                    Center </a><br>
-                                <a href="http://www.naavagreen.com" target="_blank">Naavagreen Natural Skin
-                                    Care </a><br>
-                                <a href="http://www.aishaderm.co.id" target="_blank">Aishaderm</a><br>
-                                <a href="http://www.hayyana.co.id" target="_blank">Hayyana</a>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- 4 -->
-            <div class="col-lg-3 col-md-6">
-                <a href="#" class="service-link">
-                    <div class="card card-service">
-                        <img src="images/services_landing/srv3.jpg">
-                        <div class="card-body">
-                            <h5>RESTAURANT</h5>
-                            <p>
-                                <a href="http://www.madamtan.com/" target="_blank">Madam Tan</a><br>
-                                <a href="https://www.instagram.com/saribundoyk/?hl=en" target="_blank">Sari
-                                    Bundo Yogyakarta
-                                </a><br>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- 5 -->
-            <div class="col-lg-3 col-md-6">
-                <a href="#" class="service-link">
-                    <div class="card card-service">
-                        <img src="images/services_landing/srv5.jpg">
-                        <div class="card-body">
-                            <h5>OFFICE SPACE LEASSER</h5>
-                            <p>
-                                <a href="http://www.bprnatasha.com" target="_blank">Bank Natasha Building</a>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- 6 -->
-            <div class="col-lg-3 col-md-6">
-                <a href="#" class="service-link">
-                    <div class="card card-service">
-                        <img src="images/services_landing/srv6.jpg">
-                        <div class="card-body">
-                            <h5>TOUR & TRAVELS</h5>
-                            <p>
-                                <a href="https://www.instagram.com/grandbintangtour/" target="_blank">Grand
-                                    Bintang</a>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- 7 -->
-            <div class="col-lg-3 col-md-6">
-                <a href="#" class="service-link">
-                    <div class="card card-service">
-                        <img src="images/services_landing/srv6.jpg">
-                        <div class="card-body">
-                            <h5>HOTEL & VILLA</h5>
-                            <p>
-                                <a href="https://www.astonhotelsinternational.com/id/hotel/view/43/grand-aston-yogyakarta" target="_blank">Hotel Grand Aston</a><br>
-                                <a href="https://www.pophotels.com/POP!-Timoho" target="_blank">Hotel POP!
-                                    Timoho</a><br>
-                                <a href="http://www.villabianti.com/profile.html" target="_blank">Villa Bianti
-                                    Bali</a><br>
-                                <a href="http://www.villabianti.com/home" target="_blank">Bianti Private
-                                    Residence Yogyakarta</a>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-
+            <hr class="fade-up delay-3">
         </div>
+    </section>
+<?php endif; ?>
 
-        <hr class="fade-up delay-3">
 
-    </div>
-</section>
 
 <!-- BRANDS -->
 <section class="section brand-elegant" id="brands">
