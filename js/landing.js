@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ===================================================== */
     const qs = (selector, scope = document) => scope.querySelector(selector);
     const qsa = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
+    const isTabletOrMobile = () => window.innerWidth <= 991;
     const isMobile = () => window.innerWidth <= 768;
 
     function createObserver(elements, options, onIntersect, onExit) {
@@ -86,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         qsa("#nav .nav-link").forEach((link) => {
             link.addEventListener("click", function () {
-                if (window.innerWidth <= 991 && navbarCollapseEl.classList.contains("show")) {
+                if (isTabletOrMobile() && navbarCollapseEl.classList.contains("show")) {
                     navbarCollapse.hide();
                 }
             });
@@ -166,87 +167,12 @@ document.addEventListener("DOMContentLoaded", function () {
     /* =====================================================
        BRANDS
     ===================================================== */
-    const brandSection = qs("#brands");
-    const brandTrack = qs(".brand-track");
-    const brandItems = qsa(".brand-item");
-    const brandPrev = qs(".brand-nav.prev");
-    const brandNext = qs(".brand-nav.next");
-
     createObserver(
-        brandSection ? [brandSection] : [],
-        { threshold: 0.2 },
-        () => {
-            if (brandSection) {
-                brandSection.classList.remove("fade-out");
-            }
-
-            brandItems.forEach((item, index) => {
-                setTimeout(() => item.classList.add("show"), index * 80);
-            });
-        },
-        () => {
-            if (brandSection) {
-                brandSection.classList.add("fade-out");
-            }
-
-            brandItems.forEach((item) => item.classList.remove("show"));
-        }
+        qsa(".brand-premium-tile"),
+        { threshold: 0.12 },
+        (target) => target.classList.add("show"),
+        (target) => target.classList.remove("show")
     );
-
-    if (brandTrack && brandPrev && brandNext && brandItems.length) {
-        let brandScrollAmount = 0;
-        let brandIndex = 0;
-        const brandScrollStep = 200;
-
-        function stopBrandAnimation() {
-            const currentX = getTranslateX(brandTrack);
-            brandTrack.style.animation = "none";
-            brandTrack.style.transform = `translateX(${currentX}px)`;
-            brandScrollAmount = Math.abs(currentX);
-        }
-
-        function startBrandAnimation() {
-            brandTrack.style.animation = "scrollBrand 25s linear infinite";
-        }
-
-        function updateBrandSlide() {
-            const width = brandTrack.clientWidth;
-            brandTrack.style.transform = `translateX(-${brandIndex * width}px)`;
-        }
-
-        brandNext.addEventListener("click", function () {
-            if (isMobile()) {
-                if (brandIndex < brandItems.length - 1) {
-                    brandIndex += 1;
-                    updateBrandSlide();
-                }
-                return;
-            }
-
-            stopBrandAnimation();
-            brandScrollAmount += brandScrollStep;
-            brandTrack.style.transform = `translateX(-${brandScrollAmount}px)`;
-            setTimeout(startBrandAnimation, 2000);
-        });
-
-        brandPrev.addEventListener("click", function () {
-            if (isMobile()) {
-                if (brandIndex > 0) {
-                    brandIndex -= 1;
-                    updateBrandSlide();
-                }
-                return;
-            }
-
-            stopBrandAnimation();
-            brandScrollAmount -= brandScrollStep;
-            if (brandScrollAmount < 0) {
-                brandScrollAmount = 0;
-            }
-            brandTrack.style.transform = `translateX(-${brandScrollAmount}px)`;
-            setTimeout(startBrandAnimation, 2000);
-        });
-    }
 
     /* =====================================================
        CAREER

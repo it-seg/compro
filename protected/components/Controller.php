@@ -143,9 +143,14 @@ class Controller extends CController
     public $servicesLandingLinks = [];
     public $brandsLanding = null;
     public $brandsLandingItems = [];
-
     public $newsLanding = null;
     public $newsLandingItems = [];
+    public $careerLanding = null;
+    public $careerLandingItems = [];
+
+    public $footerLanding = null;
+
+
 
 
 
@@ -359,6 +364,34 @@ class Controller extends CController
             $this->newsLanding = null;
             $this->newsLandingItems = [];
         }
+
+        /* ===============================
+   CAREER LANDING PAGE
+================================ */
+        $this->careerLanding = CareerLanding::model()->find([
+            'condition' => 't.is_active = 1',
+            'order' => 't.sort_order ASC',
+        ]);
+
+        if ($this->careerLanding && (int)$this->careerLanding->show_section === 1) {
+            $this->careerLandingItems = CareerLandingItem::model()->findAll([
+                'condition' => 't.career_landing_id = :careerId AND t.is_active = 1',
+                'params' => [':careerId' => $this->careerLanding->id],
+                'order' => 't.sort_order ASC',
+            ]);
+        } else {
+            $this->careerLanding = null;
+            $this->careerLandingItems = [];
+        }
+
+        /* ===============================
+           FOOTER LANDING PAGE
+        ================================ */
+        $this->footerLanding = FooterLanding::model()->find([
+            'condition' => 't.is_active = 1 AND t.show_section = 1',
+            'order' => 't.sort_order ASC',
+        ]);
+
 
 
 

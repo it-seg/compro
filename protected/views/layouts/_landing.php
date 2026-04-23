@@ -13,6 +13,7 @@ $lang = Yii::app()->language ?: 'id';
 
     <!-- FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="<?= $baseUrl ?>/css/landing.css">
@@ -508,121 +509,219 @@ $lang = Yii::app()->language ?: 'id';
 
 
 <!-- CAREER -->
-<section class="section career-slider-section career-animate" id="career">
+<?php if ($this->careerLanding): ?>
+    <section class="section career-slider-section career-animate" id="career">
+        <div class="container">
+            <?php
+            $careerLabel = ($lang === 'id' && !empty($this->careerLanding->label_ind))
+                ? $this->careerLanding->label_ind
+                : $this->careerLanding->label;
 
-    <div class="container">
+            $careerTitle = ($lang === 'id' && !empty($this->careerLanding->title_ind))
+                ? $this->careerLanding->title_ind
+                : $this->careerLanding->title;
+            ?>
 
-        <div class="section-title">
-            <span class="section-label">Join Us</span>
-            <h2 class="section-heading">Career Opportunities</h2>
-        </div>
-
-        <div class="career-slider">
-            <button class="career-nav prev">&#10094;</button>
-            <div class="career-track">
-
-                <!-- ITEM -->
-                <div class="career-item">
-                    <img src="images/career_landing/career1.jpg">
-
-                    <div class="career-overlay">
-                        <h3>Beauty Therapis Perawat</h3>
-                        <p>Full Time • Yogyakarta</p>
-
-                        <a href="https://wa.me/628xxxx" target="_blank">
-                            Apply Now
-                        </a>
-                    </div>
-                </div>
-
-                <div class="career-item">
-                    <img src="images/career_landing/career2.jpg">
-
-                    <div class="career-overlay">
-                        <h3>Karyawan Produksi</h3>
-                        <p>Part Time • Yogyakarta</p>
-
-                        <a href="https://wa.me/628xxxx" target="_blank">
-                            Apply Now
-                        </a>
-                    </div>
-                </div>
-
-                <!-- DUPLICATE UNTUK LOOP -->
-                <div class="career-item">
-                    <img src="images/career_landing/career1.jpg">
-                    <div class="career-overlay">
-                        <h3>Beauty Therapis Perawat</h3>
-                        <p>Full Time • Yogyakarta</p>
-
-                        <a href="https://wa.me/628xxxx" target="_blank">
-                            Apply Now
-                        </a>
-                    </div>
-                </div>
-
-                <div class="career-item">
-                    <img src="images/career_landing/career2.jpg">
-                    <div class="career-overlay">
-                        <h3>Karyawan Produksi</h3>
-                        <p>Part Time • Yogyakarta</p>
-
-                        <a href="https://wa.me/628xxxx" target="_blank">
-                            Apply Now
-                        </a>
-                    </div>
-                </div>
-
+            <div class="section-title">
+                <span class="section-label"><?php echo CHtml::encode($careerLabel); ?></span>
+                <h2 class="section-heading"><?php echo CHtml::encode($careerTitle); ?></h2>
             </div>
-            <button class="career-nav next">&#10095;</button>
-        </div>
 
-    </div>
-</section>
+            <div class="career-slider">
+                <button class="career-nav prev">&#10094;</button>
+                <div class="career-track">
+                    <?php foreach ($this->careerLandingItems as $item): ?>
+                        <?php
+                        $careerItemTitle = ($lang === 'id' && !empty($item->title_ind))
+                            ? $item->title_ind
+                            : $item->title;
+
+                        $careerJobType = ($lang === 'id' && !empty($item->job_type_ind))
+                            ? $item->job_type_ind
+                            : $item->job_type;
+
+                        $careerLocation = ($lang === 'id' && !empty($item->location_ind))
+                            ? $item->location_ind
+                            : $item->location;
+
+                        $careerButton = ($lang === 'id' && !empty($item->button_label_ind))
+                            ? $item->button_label_ind
+                            : $item->button_label;
+
+                        $careerImage = !empty($item->image)
+                            ? $baseUrl . '/images/career_landing/' . $item->image
+                            : $baseUrl . '/images/career_landing/career1.jpg';
+                        ?>
+                        <div class="career-item">
+                            <img src="<?php echo CHtml::encode($careerImage); ?>" alt="<?php echo CHtml::encode($careerItemTitle); ?>">
+
+                            <div class="career-overlay">
+                                <h3><?php echo CHtml::encode($careerItemTitle); ?></h3>
+                                <p><?php echo CHtml::encode(trim($careerJobType . ' • ' . $careerLocation)); ?></p>
+
+                                <a href="<?php echo CHtml::encode($item->apply_url); ?>" target="_blank" rel="noopener noreferrer">
+                                    <?php echo CHtml::encode($careerButton ?: ($lang === 'id' ? 'Lamar Sekarang' : 'Apply Now')); ?>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
+                    <?php foreach ($this->careerLandingItems as $item): ?>
+                        <?php
+                        $careerItemTitle = ($lang === 'id' && !empty($item->title_ind))
+                            ? $item->title_ind
+                            : $item->title;
+
+                        $careerJobType = ($lang === 'id' && !empty($item->job_type_ind))
+                            ? $item->job_type_ind
+                            : $item->job_type;
+
+                        $careerLocation = ($lang === 'id' && !empty($item->location_ind))
+                            ? $item->location_ind
+                            : $item->location;
+
+                        $careerButton = ($lang === 'id' && !empty($item->button_label_ind))
+                            ? $item->button_label_ind
+                            : $item->button_label;
+
+                        $careerImage = !empty($item->image)
+                            ? $baseUrl . '/images/career_landing/' . $item->image
+                            : $baseUrl . '/images/career_landing/career1.jpg';
+                        ?>
+                        <div class="career-item">
+                            <img src="<?php echo CHtml::encode($careerImage); ?>" alt="<?php echo CHtml::encode($careerItemTitle); ?>">
+
+                            <div class="career-overlay">
+                                <h3><?php echo CHtml::encode($careerItemTitle); ?></h3>
+                                <p><?php echo CHtml::encode(trim($careerJobType . ' • ' . $careerLocation)); ?></p>
+
+                                <a href="<?php echo CHtml::encode($item->apply_url); ?>" target="_blank" rel="noopener noreferrer">
+                                    <?php echo CHtml::encode($careerButton ?: ($lang === 'id' ? 'Lamar Sekarang' : 'Apply Now')); ?>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <button class="career-nav next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
+
 
 <!-- FOOTER -->
-<footer class="footer-luxury footer-animate">
+<?php if ($this->footerLanding): ?>
+    <footer class="footer-clean footer-animate">
+        <div class="container">
+            <?php
+            $footerAddress = ($lang === 'id' && !empty($this->footerLanding->address_ind))
+                ? $this->footerLanding->address_ind
+                : $this->footerLanding->address;
 
-    <div class="container">
+            $footerPhone = ($lang === 'id' && !empty($this->footerLanding->phone_ind))
+                ? $this->footerLanding->phone_ind
+                : $this->footerLanding->phone;
 
-        <div class="footer-top">
+            $footerCopyright = ($lang === 'id' && !empty($this->footerLanding->copyright_text_ind))
+                ? $this->footerLanding->copyright_text_ind
+                : $this->footerLanding->copyright_text;
 
-            <!-- BRAND -->
-            <div class="footer-col brand">
-                <img src="images/logo.png" class="footer-logo">
+            $socialTitle = ($lang === 'id' && !empty($this->footerLanding->social_title_ind))
+                ? $this->footerLanding->social_title_ind
+                : $this->footerLanding->social_title;
 
-                <p class="footer-address">
-                    Jl. Urip Sumoharjo No.69 A<br>
-                    Klitren, Gondokusuman, Kota Yogyakarta<br>
-                    Daerah Istimewa Yogyakarta 55222<br><br>
-                    (0274) 586877
-                </p>
+            $companyName = 'PT. Setyawan Eunike Gemilang';
+            $menuTitle = $lang === 'id' ? 'Navigasi' : 'Navigation';
+            $contactTitle = $lang === 'id' ? 'Kontak' : 'Contact';
+            $followTitle = $socialTitle ?: ($lang === 'id' ? 'Ikuti Kami' : 'Follow Us');
+            ?>
 
-                <div class="footer-map">
-                    <iframe
-                            src="https://www.google.com/maps?q=Jl.%20Urip%20Sumoharjo%20No.69%20A%20Yogyakarta&output=embed"
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+            <div class="footer-clean-top">
+                <div class="footer-clean-brand">
+                    <img src="images/logo.png" class="footer-clean-logo" alt="<?php echo CHtml::encode($companyName); ?>">
+
+                    <h3><?php echo CHtml::encode($companyName); ?></h3>
+
+                    <div class="footer-clean-info">
+                        <div class="footer-clean-info-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span><?php echo nl2br(CHtml::encode(str_replace('<br>', "\n", (string)$footerAddress))); ?></span>
+                        </div>
+
+                        <div class="footer-clean-info-item">
+                            <i class="bi bi-telephone"></i>
+                            <span><?php echo CHtml::encode((string)$footerPhone); ?></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-clean-nav">
+                    <h6><?php echo CHtml::encode($menuTitle); ?></h6>
+
+                    <div class="footer-clean-links">
+                        <?php foreach ($this->menuItemsLanding as $item): ?>
+                            <?php
+                            $footerMenuLabel = ($lang === 'id' && !empty($item->label_ind))
+                                ? $item->label_ind
+                                : $item->label;
+                            ?>
+                            <a href="<?php echo CHtml::encode($item->url); ?>">
+                                <?php echo CHtml::encode($footerMenuLabel); ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <div class="footer-clean-contact">
+                    <h6><?php echo CHtml::encode($followTitle); ?></h6>
+
+                    <div class="footer-clean-social">
+                        <?php if (!empty($this->footerLanding->instagram_url)): ?>
+                            <a href="<?php echo CHtml::encode($this->footerLanding->instagram_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        <?php endif; ?>
+
+                        <?php if (!empty($this->footerLanding->facebook_url)): ?>
+                            <a href="<?php echo CHtml::encode($this->footerLanding->facebook_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        <?php endif; ?>
+
+                        <?php if (!empty($this->footerLanding->tiktok_url)): ?>
+                            <a href="<?php echo CHtml::encode($this->footerLanding->tiktok_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                                <i class="bi bi-tiktok"></i>
+                            </a>
+                        <?php endif; ?>
+
+                        <?php if (!empty($this->footerLanding->youtube_url)): ?>
+                            <a href="<?php echo CHtml::encode($this->footerLanding->youtube_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+
+                    <?php if (!empty($this->footerLanding->map_embed)): ?>
+                        <div class="footer-clean-map">
+                            <iframe
+                                    src="<?php echo CHtml::encode($this->footerLanding->map_embed); ?>"
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
 
+            <div class="footer-clean-bottom">
+                <p>
+                    © <script>document.write(new Date().getFullYear());</script>
+                    <?php echo CHtml::encode($companyName); ?> — <?php echo CHtml::encode((string)$footerCopyright); ?>
+                </p>
+            </div>
         </div>
-
-        <!-- DIVIDER -->
-        <div class="footer-divider"></div>
-
-        <!-- BOTTOM -->
-        <div class="footer-bottom">
-            <p>
-                © <script>document.write(new Date().getFullYear());</script>
-                PT. Setyawan Eunike Gemilang — All Rights Reserved
-            </p>
-        </div>
-
-    </div>
-
-</footer>
+    </footer>
+<?php endif; ?>
 
 
 <!-- NEWS MODAL -->
