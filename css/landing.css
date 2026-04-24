@@ -1187,10 +1187,6 @@ hr::after {
         width: auto;
     }
 
-    .service-layout-featured .service-card-media {
-        height: 320px;
-    }
-
     .service-layout-featured .service-card-luxury {
         min-height: 100%;
     }
@@ -1206,26 +1202,6 @@ hr::after {
 
     .service-layout-featured .service-line {
         font-size: 14px;
-    }
-
-    .service-layout-tall .service-card-media {
-        height: 290px;
-    }
-
-    .service-layout-default .service-card-media {
-        height: 220px;
-    }
-
-    .services-luxury .row > .service-col:nth-child(4n + 2) .service-card-luxury {
-        margin-top: 26px;
-    }
-
-    .services-luxury .row > .service-col:nth-child(4n + 3) .service-card-luxury {
-        margin-top: 56px;
-    }
-
-    .services-luxury .row > .service-col:nth-child(4n + 4) .service-card-luxury {
-        margin-top: 18px;
     }
 }
 
@@ -1273,6 +1249,26 @@ hr::after {
     .service-line {
         font-size: 13px;
     }
+}
+
+/* =========================================
+   SERVICES ENTERPRISE UPGRADE
+========================================= */
+
+.service-card-media {
+    height: 250px !important;
+}
+
+.service-card-luxury {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-card-luxury .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 
