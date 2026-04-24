@@ -2398,3 +2398,132 @@ hr::after {
         scroll-behavior: auto !important;
     }
 }
+
+
+/* =========================================
+   PRODUCT SECTION
+========================================= */
+.product-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background: #306880;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #02232a;
+}
+
+/* GRID */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 28px;
+}
+
+.product-item {
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* IMAGE BOX */
+.product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+/* NAME */
+.product-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.product-item {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-item.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.career-item {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    transition: all 0.7s ease;
+}
+
+.career-animate.show .career-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.career-item {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    transition: all 0.7s ease;
+}
+
+.career-animate.show .career-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.about-bleed-content,
+.about-bleed-thumbs {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.about-bleed-wrap.show .about-bleed-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.about-bleed-wrap.show .about-bleed-thumbs {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}

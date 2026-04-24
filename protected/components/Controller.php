@@ -150,7 +150,8 @@ class Controller extends CController
 
     public $footerLanding = null;
 
-
+    public $productGroups = [];
+    public $productItems = [];
 
 
 
@@ -392,6 +393,19 @@ class Controller extends CController
             'order' => 't.sort_order ASC',
         ]);
 
+        /* ===============================
+           PRODUCT LANDING PAGE
+        =============================== */
+
+        $this->productGroups = ProductGroup::model()->findAll([
+            'condition' => 't.is_active = 1',
+            'order' => 't.sort_order ASC',
+        ]);
+
+        $this->productItems = ProductItem::model()->findAll([
+            'condition' => 't.is_active = 1',
+            'order' => 't.sort_order ASC',
+        ]);
 
 
 

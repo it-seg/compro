@@ -256,4 +256,45 @@ document.addEventListener("DOMContentLoaded", function () {
         (target) => target.classList.add("show"),
         (target) => target.classList.remove("show")
     );
+
+
+    /* =====================================================
+       PRODUCT FILTER
+    ===================================================== */
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const productItems = document.querySelectorAll(".product-item");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+
+            // ACTIVE BUTTON
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            const filter = button.getAttribute("data-filter");
+
+            productItems.forEach(item => {
+                if (filter === "all") {
+                    item.style.display = "block";
+                } else {
+                    if (item.classList.contains(filter)) {
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                }
+            });
+
+        });
+    });
+
+    createObserver(
+        qsa(".about-bleed-wrap"),
+        { threshold: 0.2 },
+        (target) => target.classList.add("show"),
+        (target) => target.classList.remove("show")
+    );
+
+
+
 });

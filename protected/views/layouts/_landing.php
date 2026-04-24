@@ -289,6 +289,46 @@ $lang = Yii::app()->language ?: 'id';
     </section>
 <?php endif; ?>
 
+<!-- PRODUCT -->
+<section class="section product-section" id="product">
+    <div class="container">
+
+        <div class="section-title fade-up">
+            <span class="section-label">PRODUCT</span>
+            <h2 class="section-heading">Our Products</h2>
+        </div>
+
+        <!-- FILTER BUTTON -->
+        <div class="product-filter">
+            <button class="filter-btn active" data-filter="all">Show All</button>
+
+            <?php foreach ($this->productGroups as $group): ?>
+                <button class="filter-btn" data-filter="group-<?php echo $group->id; ?>">
+                    <?php echo CHtml::encode($group->name); ?>
+                </button>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div class="product-grid">
+            <?php foreach ($this->productItems as $item): ?>
+                <div class="product-item fade-up group-<?php echo $item->group_id; ?>">
+
+                    <div class="product-image">
+                        <img src="<?php echo $baseUrl . '/images/product/' . $item->image; ?>" alt="">
+                    </div>
+
+                    <p class="product-name">
+                        <?php echo CHtml::encode($item->name); ?>
+                    </p>
+
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+    </div>
+</section>
+
 
 <!-- SERVICES -->
 <?php if ($this->servicesLanding): ?>
@@ -522,7 +562,7 @@ $lang = Yii::app()->language ?: 'id';
                 : $this->careerLanding->title;
             ?>
 
-            <div class="section-title">
+            <div class="section-title fade-up">
                 <span class="section-label"><?php echo CHtml::encode($careerLabel); ?></span>
                 <h2 class="section-heading"><?php echo CHtml::encode($careerTitle); ?></h2>
             </div>
