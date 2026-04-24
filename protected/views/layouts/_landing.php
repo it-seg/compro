@@ -556,7 +556,7 @@ $lang = Yii::app()->language ?: 'id';
                             <img src="<?php echo CHtml::encode($careerImage); ?>" alt="<?php echo CHtml::encode($careerItemTitle); ?>">
 
                             <div class="career-overlay">
-                                <h3><?php echo CHtml::encode($careerItemTitle); ?></h3>
+<!--                                <h3>--><?php //echo CHtml::encode($careerItemTitle); ?><!--</h3>-->
                                 <p><?php echo CHtml::encode(trim($careerJobType . ' • ' . $careerLocation)); ?></p>
 
                                 <a href="<?php echo CHtml::encode($item->apply_url); ?>" target="_blank" rel="noopener noreferrer">
@@ -592,7 +592,7 @@ $lang = Yii::app()->language ?: 'id';
                             <img src="<?php echo CHtml::encode($careerImage); ?>" alt="<?php echo CHtml::encode($careerItemTitle); ?>">
 
                             <div class="career-overlay">
-                                <h3><?php echo CHtml::encode($careerItemTitle); ?></h3>
+<!--                                <h3>--><?php //echo CHtml::encode($careerItemTitle); ?><!--</h3>-->
                                 <p><?php echo CHtml::encode(trim($careerJobType . ' • ' . $careerLocation)); ?></p>
 
                                 <a href="<?php echo CHtml::encode($item->apply_url); ?>" target="_blank" rel="noopener noreferrer">
