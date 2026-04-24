@@ -275,10 +275,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             productItems.forEach(item => {
                 if (filter === "all") {
-                    item.style.display = "block";
+                    item.style.display = "";
                 } else {
                     if (item.classList.contains(filter)) {
-                        item.style.display = "block";
+                        item.style.display = "";
                     } else {
                         item.style.display = "none";
                     }
@@ -294,6 +294,8 @@ document.addEventListener("DOMContentLoaded", function () {
         (target) => target.classList.add("show"),
         (target) => target.classList.remove("show")
     );
+
+
 
 
 
