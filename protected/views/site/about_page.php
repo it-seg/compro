@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle = 'About Us | Tip Tap Toe';
+$this->pageTitle = '';
 $images = $this->getAboutImages();
 
 $heroImage = null;

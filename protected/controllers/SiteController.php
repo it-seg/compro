@@ -28,6 +28,11 @@ class SiteController extends Controller
         }
     }
 
+    public function actionAbout_page()
+    {
+        $this->render('about_page',[]);
+    }
+
     public function actionMenu()
     {
         $menus = $this->getMenuData(); // dari DB
