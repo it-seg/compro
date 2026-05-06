@@ -3,6 +3,12 @@ $title = "FS Group | PT. Setyawan Eunike Gemilang";
 $baseUrl = Yii::app()->request->baseUrl;
 $lang = Yii::app()->language ?: 'id';
 
+$landingPageActive = Yii::app()->db->createCommand()
+    ->select('is_active')
+    ->from('homepage_sections')
+    ->where('section_key=:key', [':key' => 'landing_page'])
+    ->queryScalar();
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -20,7 +26,7 @@ $lang = Yii::app()->language ?: 'id';
 </head>
 
 <body>
-
+<?php if ($landingPageActive == 1): ?>
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-elegant">
     <div class="container">
@@ -87,7 +93,7 @@ $lang = Yii::app()->language ?: 'id';
         </div>
     </div>
 </nav>
-
+<?php endif; ?>
 
 <!-- HERO -->
 <section class="hero-carousel" id="home">

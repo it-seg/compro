@@ -1,3 +1,10 @@
+<?php
+$landingPageActive = Yii::app()->db->createCommand()
+    ->select('is_active')
+    ->from('homepage_sections')
+    ->where('section_key=:key', [':key' => 'landing_page'])
+    ->queryScalar();
+?>
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,6 +96,9 @@
     </svg>
 </button>
 <!-- CONTENT -->
+<?php if ($landingPageActive == 0): ?>
+<?php $this->renderPartial('//layouts/_navbar'); ?>
+<?php endif; ?>
 <main class="page-content">
     <?php echo $content; ?>
 </main>
