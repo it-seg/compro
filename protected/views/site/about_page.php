@@ -58,4 +58,4 @@ foreach ($images as $img) {
 
 <!-- TRANSITION TO EVENT -->
 <div class="about-event-divider"></div>
-<?php $this->renderPartial('//layouts/_event'); ?>
+<?php $this->renderPartial('//layouts/_footer'); ?>
