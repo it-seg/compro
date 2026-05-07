@@ -337,18 +337,27 @@
 @media(max-width:768px){
 
     .menu-scroll.menu-center{
-        grid-auto-columns:240px;
-        gap:20px;
+
+        justify-content:flex-start;
+
+        grid-auto-columns:220px;
+        gap:18px;
 
         overflow-x:auto;
+        overflow-y:hidden;
 
-        padding-left:14px;
-        padding-right:14px;
+        padding:10px 14px;
+
+        scroll-padding-left:14px;
     }
 
     .menu-scroll.menu-center .menu-card:hover{
         transform:none;
     }
+}
+
+.menu-scroll{
+    box-sizing:border-box;
 }
 .menu-scroll:active{
     cursor:grabbing;
