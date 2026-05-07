@@ -267,18 +267,22 @@
 ================================================= */
 
 .menu-scroll.menu-center{
+
     justify-content:center;
 
     grid-auto-columns:minmax(360px, 420px);
+
     gap:48px;
 
     padding:30px 0 40px;
 
-    overflow:visible;
+    overflow-x:auto;
+    overflow-y:visible;
 }
 
 /* Bigger luxury cards */
 .menu-scroll.menu-center .menu-card{
+
     border-radius:28px;
 
     box-shadow:
@@ -286,6 +290,7 @@
             0 0 0 1px rgba(227,193,138,.12);
 
     transform:translateY(0);
+
     transition:
             transform .45s ease,
             box-shadow .45s ease;
@@ -293,6 +298,7 @@
 
 /* Floating hover */
 .menu-scroll.menu-center .menu-card:hover{
+
     transform:
             translateY(-12px)
             scale(1.03);
@@ -304,10 +310,13 @@
 
 /* Premium label */
 .menu-scroll.menu-center .menu-label{
+
     margin:0 24px 24px;
+
     padding:12px 0;
 
     font-size:13px;
+
     letter-spacing:.35em;
 
     border-radius:16px;
@@ -325,29 +334,32 @@
     display:none;
 }
 
-/* Responsive */
+/* Tablet */
 @media(max-width:992px){
 
     .menu-scroll.menu-center{
-        grid-auto-columns:320px;
-        gap:30px;
+
+        grid-auto-columns:300px;
+
+        gap:24px;
     }
 }
 
+/* Mobile */
 @media(max-width:768px){
 
     .menu-scroll.menu-center{
 
         justify-content:flex-start;
 
-        grid-auto-columns:220px !important;
+        grid-auto-columns:220px;
 
         gap:18px;
 
+        padding:10px 14px 20px;
+
         overflow-x:auto;
         overflow-y:hidden;
-
-        padding:10px 14px;
 
         scroll-padding-left:14px;
     }
@@ -355,10 +367,6 @@
     .menu-scroll.menu-center .menu-card:hover{
         transform:none;
     }
-}
-
-.menu-scroll{
-    box-sizing:border-box;
 }
 .menu-scroll:active{
     cursor:grabbing;
