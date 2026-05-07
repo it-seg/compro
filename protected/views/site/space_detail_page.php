@@ -9,7 +9,7 @@ $images = [];
 
 if (is_dir($folder)) {
 
-    $files = glob($folder . '/*.{jpg,jpeg,png,webp}', GLOB_BRACE);
+    $files = glob($folder . '/*.{jpg,jpeg,png,webp,heic}', GLOB_BRACE);
 
     sort($files);
 

@@ -363,11 +363,11 @@ class SiteController extends Controller
             return [];
         }
 
-        $files = glob($basePath . '/*.{jpg,jpeg,png,webp}', GLOB_BRACE);
+        $files = glob($basePath . '/*.{jpg,jpeg,png,webp,heic}', GLOB_BRACE);
 
         // exclude cover
         $files = array_filter($files, function ($f) {
-            return !preg_match('/cover\.(jpg|jpeg|png|webp)$/i', $f);
+            return !preg_match('/cover\.(jpg|jpeg|png|webp|heic)$/i', $f);
         });
 
         sort($files);

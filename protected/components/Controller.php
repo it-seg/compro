@@ -607,7 +607,7 @@ class Controller extends CController
         $urlFolder = Yii::app()->baseUrl . '/images/header/';
 
         // allowed image types
-        $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+        $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'heic'];
 
         if (is_dir($folder)) {
             foreach (scandir($folder) as $file) {
@@ -634,7 +634,7 @@ class Controller extends CController
         }
 
         // scan for common image/video extensions
-        $files = glob($folder . '/*.{jpg,jpeg,png,gif,webp,mp4,mov,webm}', GLOB_BRACE);
+        $files = glob($folder . '/*.{jpg,jpeg,png,gif,webp,mp4,mov,webm,heic}', GLOB_BRACE);
         // sort by modified time descending so newest first (optional)
         usort($files, function ($a, $b) {
             return filemtime($b) - filemtime($a);
@@ -732,7 +732,7 @@ class Controller extends CController
             return [];
         }
 
-        $files = glob($folder . '*.{jpg,jpeg,png,webp}', GLOB_BRACE);
+        $files = glob($folder . '*.{jpg,jpeg,png,webp,heic}', GLOB_BRACE);
         if (!$files) {
             return [];
         }
@@ -767,7 +767,7 @@ class Controller extends CController
             return [];
         }
 
-        $files = glob($folder . '*.{jpg,jpeg,png,webp}', GLOB_BRACE);
+        $files = glob($folder . '*.{jpg,jpeg,png,webp,heic}', GLOB_BRACE);
         if (!$files) {
             return [];
         }
@@ -835,7 +835,7 @@ class Controller extends CController
             return [];
         }
 
-        $files = glob($basePath . '/*.{jpg,jpeg,png,webp}', GLOB_BRACE);
+        $files = glob($basePath . '/*.{jpg,jpeg,png,webp,heic}', GLOB_BRACE);
 
         if (!$files) {
             return [];
