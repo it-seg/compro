@@ -1,13 +1,26 @@
 <?php
 $baseUrl = Yii::app()->baseUrl;
-$folder  = Yii::getPathOfAlias('webroot') . '/images/spaces/' . $space['folder'];
-$images  = [];
+
+$folder = Yii::getPathOfAlias('webroot') .
+    '/images/' .
+    $space['folder'];
+
+$images = [];
 
 if (is_dir($folder)) {
+
     $files = glob($folder . '/*.{jpg,jpeg,png,webp}', GLOB_BRACE);
+
     sort($files);
+
     foreach ($files as $f) {
-        $images[] = $baseUrl . '/images/spaces/' . $space['folder'] . '/' . basename($f);
+
+        $images[] =
+            $baseUrl .
+            '/images/' .
+            $space['folder'] .
+            '/' .
+            basename($f);
     }
 }
 ?>
@@ -32,33 +45,45 @@ if (is_dir($folder)) {
         </a>
     </div>
 
-    <?php if (count($images) >= 3): ?>
+    <?php if (!empty($images)): ?>
 
         <div class="space-split-layout">
 
+            <!-- HERO -->
             <div class="space-split-hero">
                 <img src="<?= $images[0]; ?>" alt="">
             </div>
 
-            <div class="space-split-side">
-                <div class="space-split-img">
-                    <img src="<?= $images[1]; ?>" alt="">
+            <!-- SIDE -->
+            <?php if (count($images) > 1): ?>
+                <div class="space-split-side">
+
+                    <?php foreach (array_slice($images, 1, 2) as $img): ?>
+                        <div class="space-split-img">
+                            <img src="<?= $img; ?>" alt="">
+                        </div>
+                    <?php endforeach; ?>
+
                 </div>
-                <div class="space-split-img">
-                    <img src="<?= $images[2]; ?>" alt="">
-                </div>
-            </div>
+            <?php endif; ?>
 
         </div>
 
+        <!-- MORE -->
         <?php if (count($images) > 3): ?>
+
             <div class="space-more-gallery">
+
                 <?php foreach (array_slice($images, 3) as $img): ?>
+
                     <div class="space-more-item">
                         <img src="<?= $img; ?>" alt="">
                     </div>
+
                 <?php endforeach; ?>
+
             </div>
+
         <?php endif; ?>
 
     <?php endif; ?>
@@ -77,4 +102,8 @@ if (is_dir($folder)) {
 
 
 <!-- SPACE SECTION (OTHER SPACES / CTA) -->
-<?php $this->renderPartial('//layouts/_space'); ?>
+<?php
+$this->renderPartial('//layouts/_space', [
+    'spaces' => $spaces
+]);
+?>

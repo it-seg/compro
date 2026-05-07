@@ -189,10 +189,9 @@ class SiteController extends Controller
 
         $sql = "
         SELECT
-            slug,
+            slug, images_folder_url AS folder,
             COALESCE({$titleCol}, title) AS title,
-            COALESCE(`{$descCol}`, `desc`) AS `desc`,
-            slug AS folder
+            COALESCE(`{$descCol}`, `desc`) AS `desc`
         FROM space
         WHERE slug = :slug
           AND is_active = 1
@@ -208,8 +207,11 @@ class SiteController extends Controller
             throw new CHttpException(404, 'Space not found');
         }
 
+        $spaces = $this->getSpaceData();
+
         $this->render('space_detail_page', [
-            'space' => $space
+            'space'  => $space,
+            'spaces' => $spaces
         ]);
     }
 
