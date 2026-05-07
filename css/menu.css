@@ -270,3 +270,8 @@
 .menu-scroll:active{
     cursor:grabbing;
 }
+
+/* CENTER IF FEW ITEMS */
+.menu-scroll.menu-center{
+    justify-content:center;
+}
