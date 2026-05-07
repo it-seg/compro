@@ -57,3 +57,4 @@
     </div>
 
 </section>
+<?php $this->renderPartial('//layouts/_footer'); ?>

@@ -66,6 +66,7 @@ $posts = $this->getInstagramFeed(30);
 
 </section>
 
+<?php $this->renderPartial('//layouts/_footer'); ?>
 <script>
     document.addEventListener('click', function (e) {
         const item = e.target.closest('.gallery-item');

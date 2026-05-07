@@ -134,3 +134,5 @@ $excludeId   = $hasUpcoming ? (int)$upcoming->id : 0;
     <?php endif; ?>
 
 </div>
+
+<?php $this->renderPartial('//layouts/_footer'); ?>
