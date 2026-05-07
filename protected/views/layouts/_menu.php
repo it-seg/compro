@@ -17,7 +17,7 @@
             <button class="menu-arrow left" aria-label="Scroll Left">‹</button>
 
             <!-- MENU GRID -->
-            <div class="menu-grid menu-scroll menu-center">
+            <div class="menu-grid menu-scroll <?= count($menus) <= 2 ? 'menu-center' : ''; ?>">
 
                 <?php foreach ($menus as $m): ?>
                     <a href="<?= Yii::app()->createUrl('site/menu', ['section' => $m['slug']]) ?>"
