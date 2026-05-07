@@ -8,7 +8,7 @@
         </h1>
 
         <a href="https://wa.me/<?= $this->whatsApp_number ?>
-?text=<?= urlencode('Halo, saya ingin menghubungi Tip Tap Toe. Mohon informasinya.'); ?>"
+?text=<?= urlencode('Halo, saya ingin membuat reservasi. Mohon informasinya.'); ?>"
            class="contact-page-wa-btn"
            target="_blank">
             <?= CHtml::encode($this->contact_button); ?>

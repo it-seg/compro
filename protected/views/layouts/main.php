@@ -104,7 +104,8 @@ $landingPageActive = Yii::app()->db->createCommand()
 </main>
 <?php $this->renderPartial('//layouts/_debug_script'); ?>
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/6281329403145"
+<a href="https://wa.me/<?= $this->whatsApp_number ?>
+?text=<?= urlencode('Halo, saya ingin membuat reservasi. Mohon informasinya.'); ?>"
    class="wa-float"
    target="_blank"
    aria-label="Chat WhatsApp">
