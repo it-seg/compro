@@ -299,8 +299,8 @@ class SiteController extends Controller
 
         foreach ($rows as &$s) {
             $folder = trim($s['images_folder_url']);
-            $basePath = Yii::getPathOfAlias('webroot') . '/images/spaces/' . $folder;
-            $baseUrl  = Yii::app()->baseUrl . '/images/spaces/' . $folder;
+            $basePath = Yii::getPathOfAlias('webroot') . '/images/' . $folder;
+            $baseUrl  = Yii::app()->baseUrl . '/images/' . $folder;
 
             // PRIORITY: cover image in folder
             $cover = null;
@@ -334,8 +334,8 @@ class SiteController extends Controller
         foreach ($rows as &$m) {
             $folder = trim($m['images_folder_url']);
 
-            $basePath = Yii::getPathOfAlias('webroot') . '/images/menu/' . $folder;
-            $baseUrl  = Yii::app()->baseUrl . '/images/menu/' . $folder;
+            $basePath = Yii::getPathOfAlias('webroot') . '/images/' . $folder;
+            $baseUrl  = Yii::app()->baseUrl . '/images/' . $folder;
 
             // cari cover
             $cover = null;
@@ -354,8 +354,8 @@ class SiteController extends Controller
 
     protected function getMenuImages($folder)
     {
-        $basePath = Yii::getPathOfAlias('webroot') . '/images/menu/' . $folder;
-        $baseUrl  = Yii::app()->baseUrl . '/images/menu/' . $folder;
+        $basePath = Yii::getPathOfAlias('webroot') . '/images/' . $folder;
+        $baseUrl  = Yii::app()->baseUrl . '/images/' . $folder;
 
         if (!is_dir($basePath)) {
             return [];
