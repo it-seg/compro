@@ -17,7 +17,7 @@
         </div>
 
         <!-- SLIDER -->
-        <div class="swiper space-swiper">
+        <div class="swiper space-swiper <?= count($spaces) <= 3 ? 'space-showcase' : ''; ?>">
             <div class="swiper-wrapper">
 
                 <?php foreach ($spaces as $s): ?>

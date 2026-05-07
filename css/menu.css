@@ -355,3 +355,31 @@
 .menu-scroll.menu-center{
     justify-content:center;
 }
+
+/* =================================
+   MOBILE FIX
+================================= */
+
+@media(max-width:768px){
+
+    .menu-scroll.menu-center{
+
+        display:grid;
+        grid-template-columns:1fr;
+
+        justify-content:center;
+
+        gap:22px;
+
+        overflow:visible;
+
+        padding:10px 0 20px;
+    }
+
+    .menu-scroll.menu-center .menu-card{
+        width:100%;
+        max-width:320px;
+        margin:0 auto;
+    }
+
+}
