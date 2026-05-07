@@ -340,7 +340,8 @@
 
         justify-content:flex-start;
 
-        grid-auto-columns:220px;
+        grid-auto-columns:220px !important;
+
         gap:18px;
 
         overflow-x:auto;
