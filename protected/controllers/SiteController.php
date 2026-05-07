@@ -324,7 +324,7 @@ class SiteController extends Controller
 
         $rows = Yii::app()->db->createCommand("
         SELECT
-            slug,
+            slug,images_folder_url,
             {$nameCol} AS name
         FROM menu
         WHERE is_active = 1
@@ -332,9 +332,10 @@ class SiteController extends Controller
     ")->queryAll();
 
         foreach ($rows as &$m) {
+            $folder = trim($m['images_folder_url']);
 
-            $basePath = Yii::getPathOfAlias('webroot') . '/images/menu/' . $m['slug'];
-            $baseUrl  = Yii::app()->baseUrl . '/images/menu/' . $m['slug'];
+            $basePath = Yii::getPathOfAlias('webroot') . '/images/menu/' . $folder;
+            $baseUrl  = Yii::app()->baseUrl . '/images/menu/' . $folder;
 
             // cari cover
             $cover = null;
@@ -351,10 +352,10 @@ class SiteController extends Controller
         return $rows;
     }
 
-    protected function getMenuImages($slug)
+    protected function getMenuImages($folder)
     {
-        $basePath = Yii::getPathOfAlias('webroot') . '/images/menu/' . $slug;
-        $baseUrl  = Yii::app()->baseUrl . '/images/menu/' . $slug;
+        $basePath = Yii::getPathOfAlias('webroot') . '/images/menu/' . $folder;
+        $baseUrl  = Yii::app()->baseUrl . '/images/menu/' . $folder;
 
         if (!is_dir($basePath)) {
             return [];
