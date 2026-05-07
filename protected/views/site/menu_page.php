@@ -28,7 +28,7 @@ $active = $activeSection ?? null;
     <?php foreach ($menus as $m): ?>
 
         <?php
-        $images = $this->getMenuImages($m['slug']);
+        $images = $this->getMenuImages($m['images_folder_url']);
         ?>
 
         <div class="menu-pages <?= $active === $m['slug'] ? 'active' : '' ?>"
