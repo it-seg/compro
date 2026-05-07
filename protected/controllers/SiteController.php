@@ -289,7 +289,7 @@ class SiteController extends Controller
 
         $rows = Yii::app()->db->createCommand("
         SELECT
-            slug,
+            slug,images_folder_url,
             COALESCE({$titleCol}, title) AS title,
             COALESCE(`{$descCol}`, `desc`) AS `desc`
         FROM space
@@ -298,9 +298,9 @@ class SiteController extends Controller
     ")->queryAll();
 
         foreach ($rows as &$s) {
-
-            $basePath = Yii::getPathOfAlias('webroot') . '/images/spaces/' . $s['slug'];
-            $baseUrl  = Yii::app()->baseUrl . '/images/spaces/' . $s['slug'];
+            $folder = trim($s['images_folder_url']);
+            $basePath = Yii::getPathOfAlias('webroot') . '/images/spaces/' . $folder;
+            $baseUrl  = Yii::app()->baseUrl . '/images/spaces/' . $folder;
 
             // PRIORITY: cover image in folder
             $cover = null;
