@@ -57,5 +57,5 @@
     </div>
 
 </section>
-<?php $this->renderPartial('//layouts/_contact.php'); ?>
+<?php $this->renderPartial('//layouts/_contact'); ?>
 <?php $this->renderPartial('//layouts/_footer'); ?>
