@@ -253,3 +253,45 @@
         letter-spacing:.34em;
     }
 }
+
+/* ================================
+   MOBILE HERO HEIGHT
+================================ */
+
+@media(max-width:768px){
+
+    .hero-wrap{
+        height:25svh;
+        min-height:0;
+    }
+
+    .hero-content{
+        padding:20px 18px;
+    }
+
+    .hero-cta-group{
+        margin-top:20px;
+        gap:12px;
+    }
+
+    .hero-cta{
+        padding:12px 24px;
+    }
+
+}
+/* ================================
+   TABLET / IPAD
+================================ */
+
+@media(min-width:769px) and (max-width:1024px){
+
+    .hero-wrap{
+        height:38svh;
+        min-height:500px;
+    }
+
+    .neon-title{
+        font-size:42px;
+    }
+
+}
