@@ -9,7 +9,7 @@
 ========================= */
 
 .about-section{
-    padding:110px 5vw;
+    padding:30px 5vw;
     background:
             linear-gradient(
                     180deg,
@@ -30,7 +30,7 @@
     grid-template-columns:1.1fr .9fr;
     gap:80px;
 
-    padding:70px;
+    padding:72px;
     border-radius:34px;
 
     background:
@@ -241,7 +241,7 @@
 @media(max-width:900px){
 
     .about-section{
-        padding:50px 4vw;
+        padding:10px 4vw;
     }
 
     .about-container{

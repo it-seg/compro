@@ -7,10 +7,8 @@
     background:
             linear-gradient(
                     180deg,
-                    #efe6dc 0%,
-                    #cfa985 35%,
-                    #8a5b3f 70%,
-                    #3b2015 100%
+                    var(--space-bg-1),
+                    var(--space-bg-2)
             );
     color:#fff;
 }
