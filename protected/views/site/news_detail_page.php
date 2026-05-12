@@ -76,3 +76,5 @@ $this->pageTitle = CHtml::encode($news['title']) . ' | Tip Tap Toe';
     <?php endif; ?>
 
 </section>
+<?php $this->renderPartial('//layouts/_contact'); ?>
+<?php $this->renderPartial('//layouts/_footer'); ?>

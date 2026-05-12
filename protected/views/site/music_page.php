@@ -78,3 +78,5 @@ $hasMusic = isset($posts) && is_array($posts) && count($posts) > 0;
     <img class="lightbox-img" id="lightboxImg">
     <span class="music-nav next">&#10095;</span>
 </div>
+<?php $this->renderPartial('//layouts/_contact'); ?>
+<?php $this->renderPartial('//layouts/_footer'); ?>

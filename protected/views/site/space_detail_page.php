@@ -107,4 +107,5 @@ $this->renderPartial('//layouts/_space', [
     'spaces' => $spaces
 ]);
 ?>
+<?php $this->renderPartial('//layouts/_contact'); ?>
 <?php $this->renderPartial('//layouts/_footer'); ?>

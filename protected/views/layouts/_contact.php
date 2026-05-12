@@ -3,7 +3,7 @@
         <!-- CENTER LOGO + SOCIAL -->
         <div class="contact-logo">
 
-            <img src="<?= Yii::app()->baseUrl ?><?= CHtml::encode($this->logo) ?>">
+            <img src="<?= Yii::app()->baseUrl ?><?= CHtml::encode($this->logo_footer) ?>">
 
             <div class="contact-social-label">
                 <?= CHtml::encode($this->social_sub_title); ?>

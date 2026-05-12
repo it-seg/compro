@@ -134,3 +134,5 @@ if ($hasNews) {
     <?php endif; ?>
 
 </section>
+<?php $this->renderPartial('//layouts/_contact'); ?>
+<?php $this->renderPartial('//layouts/_footer'); ?>

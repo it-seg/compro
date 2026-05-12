@@ -5,7 +5,6 @@
            href="<?= Yii::app()->homeUrl; ?>">
             <img
                     src="<?= Yii::app()->baseUrl . $this->logo; ?>"
-                    alt="Tip Tap Toe"
                     class="navbar-logo">
         </a>
 

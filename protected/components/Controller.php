@@ -52,16 +52,13 @@ class Controller extends CController
 
     public $map;
     public $hero_interval;
-
     public $instagramToken;
     public $logo;
+    public $logo_footer;
     public $whatsApp_number;
-
     public $email;
     public $phone_number;
-
     public $address;
-
     public $tiktok_username;
     public  $instagram_username;
     public $facebook_username;
@@ -531,6 +528,7 @@ class Controller extends CController
 
         $this->instagramToken = $dataSetting['instagramToken'] ?? '';
         $this->logo = $dataSetting['logo'] ?? '';
+        $this->logo_footer = $dataSetting['logo_footer'] ?? '';
         $this->whatsApp_number = $dataSetting['whatsApp_number'] ?? '';
         $this->email = $dataSetting['email'] ?? '';
         $this->phone_number = $dataSetting['phone_number'] ?? '';

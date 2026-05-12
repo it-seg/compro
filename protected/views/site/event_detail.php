@@ -96,5 +96,5 @@ $this->renderPartial('//layouts/_event', [
     'events'          => $events,
 ]);
 ?>
-
+<?php $this->renderPartial('//layouts/_contact'); ?>
 <?php $this->renderPartial('//layouts/_footer'); ?>

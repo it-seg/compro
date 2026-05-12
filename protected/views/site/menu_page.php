@@ -43,4 +43,5 @@ $active = $activeSection ?? null;
     <?php endforeach; ?>
 
 </div>
+<?php $this->renderPartial('//layouts/_contact'); ?>
 <?php $this->renderPartial('//layouts/_footer'); ?>

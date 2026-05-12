@@ -65,7 +65,7 @@ $posts = $this->getInstagramFeed(30);
     <?php endif; ?>
 
 </section>
-
+<?php $this->renderPartial('//layouts/_contact'); ?>
 <?php $this->renderPartial('//layouts/_footer'); ?>
 <script>
     document.addEventListener('click', function (e) {
