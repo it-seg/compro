@@ -45,9 +45,13 @@
                 <span><?= CHtml::encode($this->about_sub_title); ?></span>
             </h2>
 
-            <?= CHtml::decode($this->about_value_p1); ?>
+            <div class="about-editor-content">
+                <?= $this->about_value_p1; ?>
+            </div>
 
-            <?= CHtml::decode($this->about_value_p2); ?>
+            <div class="about-editor-content">
+                <?= $this->about_value_p2; ?>
+            </div>
             <hr>
 
             <a href="<?= Yii::app()->createUrl('site/about_page'); ?>"

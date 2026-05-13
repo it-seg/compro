@@ -336,3 +336,42 @@
     }
 
 }
+
+.about-editor-content{
+    color:#444;
+    font-size:15px;
+    line-height:1.9;
+}
+
+.about-editor-content p:last-child{
+    margin-bottom:0;
+}
+
+.ql-align-center{
+    text-align:center;
+}
+
+.ql-align-right{
+    text-align:right;
+}
+
+.ql-align-justify{
+    text-align:justify;
+}
+
+.ql-align-left{
+    text-align:left;
+}
+
+.about-content ul{
+    padding-left:20px;
+}
+
+.about-content ol{
+    padding-left:20px;
+}
+
+.about-content p{
+    margin-bottom:14px;
+    line-height:1.8;
+}
