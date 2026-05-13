@@ -49,11 +49,6 @@
                 <?= $this->about_value_p1; ?>
             </div>
 
-            <div class="about-editor-content">
-                <?= $this->about_value_p2; ?>
-            </div>
-            <hr>
-
             <a href="<?= Yii::app()->createUrl('site/about_page'); ?>"
                class="about-btn">
                 <?= CHtml::encode($this->about_button); ?>
