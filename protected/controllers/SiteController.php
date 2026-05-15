@@ -167,6 +167,11 @@ class SiteController extends Controller
         $this->render('contact_page');
     }
 
+    public function actionAbout()
+    {
+        $this->render('about_page',[]);
+    }
+
     public function actionNews()
     {
         $this->render('news_page', [
