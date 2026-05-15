@@ -69,7 +69,7 @@
                     var(--about-bg-2)
             );
 
-    padding:100px 6vw;
+    padding:30px 6vw;
 }
 
 .about-story-inner{
@@ -167,10 +167,19 @@
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(280px,1fr)
+            minmax(220px,280px)
         );
 
     gap:24px;
+}
+
+/* DESKTOP CENTER */
+@media(min-width:769px){
+
+    .about-gallery-grid{
+        justify-content:center;
+    }
+
 }
 
 /* ITEM */
