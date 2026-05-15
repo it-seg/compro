@@ -236,7 +236,7 @@
 
 
 /* ================================
-   MOBILE ADJUSTMENT
+   MOBILE HERO HEIGHT
 ================================ */
 
 @media(max-width:768px){
@@ -255,13 +255,6 @@
         font-size:10px;
         letter-spacing:.34em;
     }
-}
-
-/* ================================
-   MOBILE HERO HEIGHT
-================================ */
-
-@media(max-width:768px){
 
     .hero-wrap{
         height:28svh;
@@ -270,7 +263,6 @@
     .hero-rotator,
     .hero-media,
     .hero-overlay{
-        top:60px;
     }
 
     .hero-content{
