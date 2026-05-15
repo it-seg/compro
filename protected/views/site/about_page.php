@@ -64,7 +64,16 @@ if (!empty($images)) {
                         loading="eager"
                 >
 
-                <div class="about-hero-overlay">
+
+            </section>
+
+        <?php endif; ?>
+
+        <!-- STORY -->
+
+        <section class="about-story">
+
+            <div class="about-story-inner">
 
                     <h1>
                         <?= CHtml::encode($this->about_title); ?>
@@ -73,17 +82,6 @@ if (!empty($images)) {
                     <p>
                         <?= CHtml::encode($this->about_sub_title); ?>
                     </p>
-
-                </div>
-
-            </section>
-
-        <?php endif; ?>
-
-        <!-- STORY -->
-        <section class="about-story">
-
-            <div class="about-story-inner">
 
                 <p class="lead">
                     <?= CHtml::decode($this->about_value_p1); ?>
