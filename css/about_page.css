@@ -70,8 +70,8 @@
     background:
             linear-gradient(
                     180deg,
-                    #3b2015,
-                    #2a160d
+                    var(--about-bg-1),
+                    var(--about-bg-2)
             );
 
     padding:100px 6vw;
@@ -99,6 +99,16 @@
 /* =========================
    GALLERY
 ========================= */
+.about-gallery{
+    background:
+            linear-gradient(
+                    180deg,
+                    var(--about-bg-1),
+                    var(--about-bg-2)
+            );
+
+    padding:90px 6vw 120px;
+}
 
 .about-gallery-grid{
     max-width:1300px;
