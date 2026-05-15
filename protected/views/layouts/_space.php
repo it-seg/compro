@@ -17,24 +17,26 @@
         </div>
 
         <!-- SLIDER -->
-        <div class="swiper space-swiper <?= count($spaces) <= 3 ? 'space-showcase' : ''; ?>">
-            <div class="swiper-wrapper">
+        <div class="space-slider-wrap">
+
+            <!-- LEFT -->
+            <button class="space-arrow left" aria-label="Scroll Left">‹</button>
+
+            <div class="space-scroll <?= count($spaces) <= 3 ? 'space-showcase' : ''; ?>">
 
                 <?php foreach ($spaces as $s): ?>
 
-                    <div class="swiper-slide">
+                    <div class="space-item">
                         <div class="space-card">
 
                             <img
                                     src="<?= CHtml::encode($s['cover']); ?>"
                                     alt="<?= CHtml::encode($s['title']); ?>">
 
-                            <!-- TITLE BADGE -->
                             <div class="space-label">
                                 <?= CHtml::encode($s['title']); ?>
                             </div>
 
-                            <!-- CTA -->
                             <a href="<?= Yii::app()->createUrl('site/spaceDetail', [
                                 'slug' => $s['slug']
                             ]); ?>"
@@ -49,9 +51,9 @@
 
             </div>
 
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-pagination"></div>
+            <!-- RIGHT -->
+            <button class="space-arrow right" aria-label="Scroll Right">›</button>
+
         </div>
 
     </div>
