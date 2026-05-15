@@ -238,7 +238,6 @@
 /* ================================
    MOBILE HERO HEIGHT
 ================================ */
-
 @media(max-width:768px){
 
     .hero-overlay{
@@ -257,12 +256,6 @@
 
     .hero-wrap{
         height:28svh;
-    }
-
-    .hero-rotator,
-    .hero-media,
-    .hero-overlay{
-        top:1px;
     }
 
     .hero-content{
