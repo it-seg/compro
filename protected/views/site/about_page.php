@@ -64,7 +64,7 @@ foreach ($images as $img) {
                     ?>
 
                     <div class="about-gallery-item <?= $orientation; ?>">
-                        <img src="<?= $img; ?>" alt="Tip Tap Toe Gallery">
+                        <img src="<?= $img; ?>" alt="Gallery">
                     </div>
 
                 <?php endforeach; ?>
@@ -74,8 +74,9 @@ foreach ($images as $img) {
     <?php endif; ?>
 
 </section>
+<br>
 
 <!-- TRANSITION TO EVENT -->
-<div class="about-event-divider"></div>
+
 <?php $this->renderPartial('//layouts/_contact'); ?>
 <?php $this->renderPartial('//layouts/_footer'); ?>

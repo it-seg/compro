@@ -51,7 +51,7 @@
 .about-hero-overlay h1{
     font-size:42px;
     letter-spacing:.32em;
-    color:#efd9b0;
+    color:#2a1e1a;
     margin-bottom:18px;
 }
 
@@ -59,7 +59,7 @@
     font-size:13px;
     letter-spacing:.22em;
     text-transform:uppercase;
-    color:#e2c7a8;
+    color:#2a1e1a;
 }
 
 /* =========================
@@ -85,14 +85,14 @@
 .about-story .lead{
     font-size:19px;
     line-height:2;
-    color:#efd9b0;
+    color:#2a1e1a;
     margin-bottom:32px;
 }
 
 .about-story p{
     font-size:15px;
     line-height:1.9;
-    color:#e2c7a8;
+    color:#2a1e1a;
     margin-bottom:18px;
 }
 
@@ -107,7 +107,7 @@
                     var(--about-bg-2)
             );
 
-    padding:90px 6vw 120px;
+    padding:60px 6vw 100px;
 }
 
 .about-gallery-grid{
@@ -232,6 +232,7 @@
 
     .about-gallery{
         padding:60px 6vw 90px;
+
     }
 
 }
