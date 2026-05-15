@@ -322,26 +322,3 @@
 
 
 
-/* =================================
-   DIVIDER BOTTOM — LUXURY SEPARATOR
-================================= */
-
-.event-section::after{
-    content:"";
-    display:block;
-
-    width:75%;
-    height:1px;
-
-    background:
-            linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(227,193,138,.45),
-                    transparent
-            );
-
-    margin:35px auto 0;
-
-    opacity:.7;
-}
