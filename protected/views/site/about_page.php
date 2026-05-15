@@ -45,11 +45,30 @@ foreach ($images as $img) {
     <?php if (!empty($galleryImages)): ?>
         <section class="about-gallery">
             <div class="about-gallery-grid">
+
                 <?php foreach ($galleryImages as $img): ?>
-                    <div class="about-gallery-item">
+
+                    <?php
+                    $size = @getimagesize($_SERVER['DOCUMENT_ROOT'] . $img);
+
+                    $orientation = 'portrait';
+
+                    if ($size) {
+                        $width  = $size[0];
+                        $height = $size[1];
+
+                        if ($width > $height) {
+                            $orientation = 'landscape';
+                        }
+                    }
+                    ?>
+
+                    <div class="about-gallery-item <?= $orientation; ?>">
                         <img src="<?= $img; ?>" alt="Tip Tap Toe Gallery">
                     </div>
+
                 <?php endforeach; ?>
+
             </div>
         </section>
     <?php endif; ?>
