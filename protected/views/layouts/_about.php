@@ -3,7 +3,34 @@
     <div class="about-container">
 
         <?php
-        $aboutImages = $this->getAboutImages();
+        $images = $this->getAboutImages();
+
+        $aboutImages = [];
+
+        /*
+        |--------------------------------------------------------------------------
+        | FILTER COVER IMAGE
+        |--------------------------------------------------------------------------
+        | gambar dengan nama:
+        | cover / hero / banner
+        | tidak ditampilkan di section about
+        */
+
+        foreach ($images as $img) {
+
+            $filename = strtolower(basename($img));
+
+            if (
+                strpos($filename, 'cover') !== false ||
+                strpos($filename, 'hero') !== false ||
+                strpos($filename, 'banner') !== false
+            ) {
+                continue;
+            }
+
+            $aboutImages[] = $img;
+        }
+
         $count = count($aboutImages);
         ?>
 
