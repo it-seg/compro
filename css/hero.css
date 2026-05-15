@@ -8,7 +8,6 @@
     height:82vh;
     overflow:hidden;
 
-    padding-top:60px;
     box-sizing:border-box;
 }
 
@@ -236,7 +235,7 @@
 
 
 /* ================================
-   MOBILE HERO HEIGHT
+   MOBILE HERO
 ================================ */
 @media(max-width:768px){
 
@@ -255,7 +254,8 @@
     }
 
     .hero-wrap{
-        height:28svh;
+        height:42svh;
+        padding-top:60px; /* tinggi navbar */
     }
 
     .hero-content{
@@ -272,6 +272,7 @@
     }
 
 }
+
 /* ================================
    TABLET / IPAD
 ================================ */
