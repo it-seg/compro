@@ -87,6 +87,58 @@ if (!empty($images)) {
                     <?= CHtml::decode($this->about_value_p1); ?>
                 </p>
 
+
+                <!-- GALLERY -->
+                <?php if (!empty($galleryImages)): ?>
+
+                    <section class="about-gallery">
+
+                        <div class="about-gallery-grid">
+
+                            <?php foreach ($galleryImages as $img): ?>
+
+                                <?php
+
+                                $orientation = 'portrait';
+
+                                $filePath = Yii::getPathOfAlias('webroot') . $img;
+
+                                if (file_exists($filePath)) {
+
+                                    $size = @getimagesize($filePath);
+
+                                    if ($size) {
+
+                                        $width  = $size[0];
+                                        $height = $size[1];
+
+                                        if ($width > $height) {
+                                            $orientation = 'landscape';
+                                        }
+                                    }
+                                }
+
+                                ?>
+
+                                <div class="about-gallery-item <?= $orientation; ?>">
+
+                                    <img
+                                            src="<?= $img; ?>"
+                                            alt="Gallery"
+                                            loading="lazy"
+                                    >
+
+                                </div>
+
+                            <?php endforeach; ?>
+
+                        </div>
+
+                    </section>
+
+                <?php endif; ?>
+
+
                 <p>
                     <?= CHtml::decode($this->about_value_p2); ?>
                 </p>
@@ -95,55 +147,7 @@ if (!empty($images)) {
 
         </section>
 
-        <!-- GALLERY -->
-        <?php if (!empty($galleryImages)): ?>
 
-            <section class="about-gallery">
-
-                <div class="about-gallery-grid">
-
-                    <?php foreach ($galleryImages as $img): ?>
-
-                        <?php
-
-                        $orientation = 'portrait';
-
-                        $filePath = Yii::getPathOfAlias('webroot') . $img;
-
-                        if (file_exists($filePath)) {
-
-                            $size = @getimagesize($filePath);
-
-                            if ($size) {
-
-                                $width  = $size[0];
-                                $height = $size[1];
-
-                                if ($width > $height) {
-                                    $orientation = 'landscape';
-                                }
-                            }
-                        }
-
-                        ?>
-
-                        <div class="about-gallery-item <?= $orientation; ?>">
-
-                            <img
-                                    src="<?= $img; ?>"
-                                    alt="Gallery"
-                                    loading="lazy"
-                            >
-
-                        </div>
-
-                    <?php endforeach; ?>
-
-                </div>
-
-            </section>
-
-        <?php endif; ?>
 
     </section>
 <br>
