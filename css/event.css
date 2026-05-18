@@ -1,43 +1,31 @@
+/* =================================================
+   EVENT SECTION
+================================================= */
+
 .event-section{
     position:relative;
+
     background:
             linear-gradient(
                     180deg,
                     var(--event-bg-1),
                     var(--event-bg-2)
             );
-    padding:50px 0 50px;
+
+    padding:50px 5vw 50px;
+
     color:#fff;
 }
 
-.event-section::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    height:40px;
-
-    background:
-            linear-gradient(
-                    180deg,
-                    rgba(24,17,12,0),
-                    var(--event-bg-1)
-            );
-
-    pointer-events:none;
-}
-
-
-
-/* =================================
+/* =================================================
    HEADER
-================================= */
+================================================= */
 
 .event-header{
     display:flex;
     justify-content:center;
-    margin-bottom:24px;   /* ✅ rapihin jarak */
+
+    margin-bottom:34px;
 }
 
 .event-title-wrap{
@@ -45,280 +33,342 @@
 }
 
 .event-title{
+    margin:0;
+
     font-size:34px;
     letter-spacing:.15em;
-    color: var(--event-color-title);
+
+    color:var(--event-color-title);
 }
 
 .event-title:after{
     content:"";
+
     display:block;
+
     width:80px;
     height:2px;
+
+    margin:14px auto 0;
+
     background:#9FB4A3;
-    margin:12px auto 0;
+
     opacity:.65;
 }
 
 .event-sub{
-    margin-top:10px;
+
+    margin-top:12px;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+
     gap:10px;
 
     font-size:12px;
     letter-spacing:.15em;
-    color: var(--event-color-sub-title);
+
+    color:var(--event-color-sub-title);
 }
 
 .event-sub .dot{
     width:7px;
     height:7px;
-    background:#9FB4A3;
+
     border-radius:50%;
+
+    background:#9FB4A3;
 }
 
+/* =================================================
+   SLIDER WRAP
+================================================= */
 
-
-/* =================================
-   SWIPER LAYOUT
-================================= */
-
-.event-swiper{
-    max-width:1100px;
-    margin:0 auto 35px;
-
-    padding:0 50px 30px;
-    padding-right:120px;
-
+.event-slider-wrap{
     position:relative;
-    overflow:visible;
+
+    max-width:1300px;
+
+    margin:0 auto;
 }
 
-.event-swiper .swiper-slide{
-    width: calc(100% / 3) !important;
-    max-width:100%;
+/* =================================================
+   HORIZONTAL SCROLL
+================================================= */
+
+.event-scroll{
+
+    display:grid;
+
+    grid-auto-flow:column;
+
+    grid-auto-columns:320px;
+
+    gap:26px;
+
+    overflow-x:auto;
+    overflow-y:visible;
+
+    scroll-behavior:smooth;
+
+    padding:10px 0 20px;
+
+    scrollbar-width:none;
 }
 
-
-/* Responsive slides */
-
-@media(max-width:992px){
-    .event-swiper .swiper-slide{
-        width:50% !important;
-    }
+.event-scroll::-webkit-scrollbar{
+    display:none;
 }
 
-@media(max-width:600px){
-    .event-swiper .swiper-slide{
-        width:85% !important;
-    }
+/* =================================================
+   CENTER MODE
+================================================= */
 
-    .event-swiper{
-        padding-right:60px;
-    }
+.event-scroll.event-center{
+
+    justify-content:center;
+
+    grid-auto-columns:minmax(320px, 420px);
 }
 
+/* =================================================
+   CARD WRAP
+================================================= */
 
-/* Peek fade edge */
-
-.event-swiper::after{
-    content:"";
-    position:absolute;
-    top:0;
-    right:0;
-
-    width:120px;
-    height:100%;
-
-    background:
-            linear-gradient(
-                    90deg,
-                    rgba(16,16,16,0),
-                    rgba(16,16,16,.98)
-            );
-
-    pointer-events:none;
+.event-card-wrap{
+    width:100%;
 }
 
-
-/* =================================
+/* =================================================
    EVENT CARD
-================================= */
+================================================= */
 
 .event-card{
-    width:100% !important;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
     aspect-ratio:4/5;
 
     background:#000;
 
-    border-radius:16px;
-    overflow:hidden;
-    position:relative;
+    box-shadow:
+            0 25px 70px rgba(0,0,0,.28);
 
-    box-shadow:0 14px 35px rgba(0,0,0,.38);
-
-    transition:.3s ease;
+    transition:.35s ease;
 }
 
 .event-card:hover{
-    transform:translateY(-6px) scale(1.04);
+    transform:
+            translateY(-6px)
+            scale(1.03);
 }
 
 .event-card img{
+
     width:100%;
     height:100%;
+
     object-fit:cover;
+
+    transition:.7s ease;
 }
 
+.event-card:hover img{
+    transform:scale(1.08);
+}
 
+.event-card::after{
+    content:"";
 
-/* =================================
+    position:absolute;
+    inset:0;
+
+    background:
+            linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,.05),
+                    rgba(0,0,0,.50)
+            );
+}
+
+/* =================================================
    DATE LABEL
-================================= */
+================================================= */
 
 .event-label{
+
     position:absolute;
-    top:12px;
-    left:12px;
+
+    top:14px;
+    left:14px;
+
+    z-index:2;
 
     background:#9FB4A3;
     color:#111;
 
-    padding:6px 14px;
+    padding:7px 14px;
+
     border-radius:50px;
 
     font-size:11px;
 }
 
-
-
-/* =================================
-   BOTTOM TITLE BAR
-================================= */
+/* =================================================
+   BOTTOM
+================================================= */
 
 .event-title-card{
+
     position:absolute;
+
     left:0;
     right:0;
     bottom:0;
 
-    padding:14px 12px 16px;
-    text-align:center;
+    z-index:2;
+
+    padding:18px 16px 20px;
 
     background:
             linear-gradient(
                     to top,
-                    rgba(0,0,0,.75),
+                    rgba(0,0,0,.78),
                     rgba(0,0,0,0)
             );
-
-    font-size:12px;
-    letter-spacing:.12em;
 }
 
-
-
-/* =================================
-   ACTION BUTTONS
-================================= */
+/* =================================================
+   ACTIONS
+================================================= */
 
 .event-actions{
+
     display:flex;
+
     justify-content:center;
+
     gap:10px;
+
     flex-wrap:wrap;
 }
 
-/* LEARN MORE */
+/* =================================================
+   BUTTON
+================================================= */
 
 .btn-learn{
+
     border:1px solid #9FB4A3;
+
     color:#9FB4A3;
 
-    padding:6px 16px;
-    border-radius:20px;
+    padding:7px 18px;
+
+    border-radius:30px;
 
     text-decoration:none;
+
     font-size:11px;
 
-    transition:.2s;
+    letter-spacing:.12em;
+
+    transition:.25s ease;
 }
 
 .btn-learn:hover{
+
     background:#9FB4A3;
+
     color:#111;
 }
 
-/* WA BUTTON */
+/* =================================================
+   ARROWS
+================================================= */
 
-.btn-wa{
-    background:#25D366;
-    color:#111;
+.event-arrow{
 
-    padding:6px 16px;
-    border-radius:20px;
+    position:absolute;
 
-    text-decoration:none;
+    top:50%;
+    transform:translateY(-50%);
 
-    display:flex;
-    align-items:center;
-    gap:6px;
+    z-index:20;
 
-    font-size:11px;
-}
+    width:46px;
+    height:46px;
 
-.btn-wa:hover{
-    background:#1EBE5D;
-}
+    border:none;
 
+    border-radius:50%;
 
+    background:rgba(20,15,10,.55);
 
-/* ICON */
+    backdrop-filter:blur(6px);
 
-.wa-icon-small{
-    width:14px;
-    height:14px;
-    fill:#111;
-}
-
-
-
-/* =================================
-   SWIPER CONTROLS
-================================= */
-
-.swiper-button-next,
-.swiper-button-prev{
     color:#9FB4A3;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    transition:.3s ease;
 }
 
-.swiper-pagination-bullet{
-    background:#777;
+.event-arrow:hover{
+
+    background:rgba(20,15,10,.85);
+
+    transform:
+            translateY(-50%)
+            scale(1.08);
 }
 
-.swiper-pagination-bullet-active{
-    background:#9FB4A3;
+.event-arrow.left{
+    left:-18px;
 }
 
+.event-arrow.right{
+    right:-18px;
+}
 
+/* =================================================
+   EMPTY
+================================================= */
 
-/* =================================
+.no-event{
+
+    text-align:center;
+
+    opacity:.7;
+
+    padding:20px;
+}
+
+/* =================================================
    MOBILE
-================================= */
+================================================= */
 
 @media(max-width:768px){
 
-    .event-swiper{
-        padding:0 20px 25px;
+    .event-title{
+        font-size:26px;
     }
 
-    .event-title{
-        font-size:24px;
+    .event-scroll{
+
+        grid-auto-columns:240px;
+
+        gap:18px;
+    }
+
+    .event-arrow{
+        display:none;
     }
 }
-
-
-

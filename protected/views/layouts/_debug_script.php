@@ -144,36 +144,6 @@
         }
 
 
-        /* =========================
-           EVENT SWIPER
-        ========================= */
-        if (document.querySelector('.event-swiper')) {
-
-            new Swiper(".event-swiper", {
-
-                slidesPerView: 3,
-                spaceBetween: 25,
-                grabCursor: true,
-
-                navigation: {
-                    nextEl: ".event-swiper .swiper-button-next",
-                    prevEl: ".event-swiper .swiper-button-prev"
-                },
-
-                pagination: {
-                    el: ".event-swiper .swiper-pagination",
-                    clickable: true
-                },
-
-                breakpoints: {
-                    0: {slidesPerView: 1.1},
-                    600: {slidesPerView: 2},
-                    992: {slidesPerView: 3}
-                }
-
-            });
-
-        }
 
 
         /* =========================
@@ -587,4 +557,68 @@
 </script>
 
 
+/* =========================
+EVENT SWIPER
+========================= */
+<script>
+
+    document.querySelectorAll('.event-arrow').forEach(btn => {
+
+        btn.addEventListener('click', () => {
+
+            const slider = btn.closest('.event-slider-wrap')
+                .querySelector('.event-scroll');
+
+            const amount = slider.clientWidth * 0.8;
+
+            slider.scrollBy({
+                left: btn.classList.contains('left')
+                    ? -amount
+                    : amount,
+                behavior:'smooth'
+            });
+
+        });
+
+    });
+
+    document.querySelectorAll('.event-scroll').forEach(slider => {
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', e => {
+
+            isDown = true;
+
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        slider.addEventListener('mousemove', e => {
+
+            if (!isDown) return;
+
+            e.preventDefault();
+
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.6;
+
+            slider.scrollLeft = scrollLeft - walk;
+
+        });
+
+    });
+
+</script>
 
