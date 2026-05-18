@@ -73,7 +73,7 @@ if (!empty($images)) {
 
         <section class="about-story">
 
-            <div class="about-story-inner">
+            <div class="about-story-inner"><p class="lead"></p>
 
                     <h1>
                         <?= CHtml::encode($this->about_title); ?>
@@ -142,6 +142,8 @@ if (!empty($images)) {
                 <p>
                     <?= CHtml::decode($this->about_value_p2); ?>
                 </p>
+                <p class="lead"></p>
+                <br>
 
             </div>
 
