@@ -152,6 +152,5 @@ if (!empty($images)) {
 
 
     </section>
-<br>
 <?php $this->renderPartial('//layouts/_contact'); ?>
 <?php $this->renderPartial('//layouts/_footer'); ?>
