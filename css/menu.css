@@ -82,8 +82,7 @@
     aspect-ratio:4/5;
 
     background:#EFE6DC;
-    box-shadow:
-            0 25px 70px rgba(0,0,0,.28);
+
 
     transition:.35s ease;
 }
@@ -107,12 +106,6 @@
     content:"";
     position:absolute;
     inset:0;
-    background:
-            linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,.05),
-                    rgba(0,0,0,.50)
-            );
 }
 
 /* =======================
@@ -140,9 +133,6 @@
     font-weight:500;
     text-transform:uppercase;
 
-    box-shadow:
-            0 4px 10px rgba(0,0,0,.12);
-
     transition:.25s ease;
     z-index:2;
 }
@@ -150,8 +140,6 @@
 .menu-card:hover .menu-label{
     transform:translateY(-2px);
     background:#F1E8DD;
-    box-shadow:
-            0 8px 16px rgba(0,0,0,.18);
 }
 
 /* =======================
@@ -285,9 +273,6 @@
 
     border-radius:28px;
 
-    box-shadow:
-            0 30px 90px rgba(0,0,0,.38),
-            0 0 0 1px rgba(227,193,138,.12);
 
     transform:translateY(0);
 
@@ -303,9 +288,6 @@
             translateY(-12px)
             scale(1.03);
 
-    box-shadow:
-            0 45px 120px rgba(0,0,0,.50),
-            0 0 0 1px rgba(227,193,138,.20);
 }
 
 /* Premium label */
@@ -325,8 +307,6 @@
 
     backdrop-filter:blur(8px);
 
-    box-shadow:
-            0 10px 30px rgba(0,0,0,.18);
 }
 
 /* Hide arrows in showcase mode */
