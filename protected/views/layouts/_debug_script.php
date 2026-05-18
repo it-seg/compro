@@ -557,9 +557,6 @@
 </script>
 
 
-/* =========================
-EVENT SWIPER
-========================= */
 <script>
 
     document.querySelectorAll('.event-arrow').forEach(btn => {
