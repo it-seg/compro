@@ -348,3 +348,38 @@
         font-size:13px;
     }
 }
+/* =================================
+   MOBILE FULL BLEED FIX
+================================= */
+
+@media(max-width:768px){
+
+    .event-section{
+        padding-left:0;
+        padding-right:0;
+    }
+
+    .event-slider-wrap{
+        overflow:visible;
+    }
+
+    .event-scroll{
+
+        padding-left:16px;
+        padding-right:16px;
+
+        box-sizing:border-box;
+
+        scroll-padding-left:16px;
+        scroll-padding-right:16px;
+
+        grid-auto-columns:78vw;
+
+        gap:16px;
+    }
+
+    .event-scroll.event-center{
+        justify-content:flex-start;
+    }
+
+}
