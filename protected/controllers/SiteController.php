@@ -73,7 +73,7 @@ class SiteController extends Controller
         ",
             'condition' => 'is_active = 1 AND event_date >= :today',
             'params'    => [':today' => $today],
-            'order'     => 'event_date ASC',
+            'order'     => 'event_date DESC',
         ]);
 
         // ================================
