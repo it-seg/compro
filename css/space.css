@@ -167,7 +167,6 @@
     overflow: hidden;
 
     background: #000;
-    box-shadow: 0 16px 35px rgba(0,0,0,.35);
 
     transition: transform .35s ease;
 }
