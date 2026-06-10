@@ -89,19 +89,13 @@ class SiteController extends Controller
 
         $otherEvents = Event::model()->findAll([
             'select' => "
-            *,
-            COALESCE({$titleCol}, title) AS title,
-            COALESCE({$descCol}, description) AS description
+        *,
+        COALESCE({$titleCol}, title) AS title,
+        COALESCE({$descCol}, description) AS description
         ",
             'condition' => $condition,
             'params'    => $params,
-            'order'     => "
-            CASE
-                WHEN event_date >= CURDATE() THEN 0
-                ELSE 1
-            END ASC,
-            event_date ASC
-        ",
+            'order'     => 'event_date ASC, event_time ASC',
         ]);
 
         $eventBg1 = $this->event_bg_1 ?? '#1b120c';
