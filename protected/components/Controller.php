@@ -595,7 +595,8 @@ class Controller extends CController
         $this->events = Event::model()
             ->active()
             ->findAll([
-                'order' => 'event_date DESC'
+                'condition' => 'event_date >= CURDATE()',
+                'order'     => 'event_date ASC, event_time ASC'
             ]);
     }
 
