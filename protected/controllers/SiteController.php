@@ -71,15 +71,14 @@ class SiteController extends Controller
             COALESCE({$titleCol}, title) AS title,
             COALESCE({$descCol}, description) AS description
         ",
-            'condition' => 'is_active = 1 AND event_date >= :today',
-            'params'    => [':today' => $today],
-            'order'     => 'event_date ASC',
+            'condition' => 'is_active = 1 AND event_date >= CURDATE()',
+            'order'     => 'event_date ASC, event_time ASC',
         ]);
 
         // ================================
         // OTHER EVENTS
         // ================================
-        $condition = 'is_active = 1';
+        $condition = 'is_active = 1 AND event_date >= CURDATE()';
         $params    = [];
 
         if ($upcoming) {
@@ -89,9 +88,9 @@ class SiteController extends Controller
 
         $otherEvents = Event::model()->findAll([
             'select' => "
-        *,
-        COALESCE({$titleCol}, title) AS title,
-        COALESCE({$descCol}, description) AS description
+            *,
+            COALESCE({$titleCol}, title) AS title,
+            COALESCE({$descCol}, description) AS description
         ",
             'condition' => $condition,
             'params'    => $params,
