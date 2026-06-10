@@ -63,7 +63,7 @@ class SiteController extends Controller
         $descCol  = ($lang === 'id') ? 'description_ind' : 'description';
 
         // ================================
-        // UPCOMING EVENT
+        // UPCOMING EVENT (TERDEKAT)
         // ================================
         $upcoming = Event::model()->find([
             'select' => "
@@ -73,7 +73,7 @@ class SiteController extends Controller
         ",
             'condition' => 'is_active = 1 AND event_date >= :today',
             'params'    => [':today' => $today],
-            'order'     => 'event_date DESC',
+            'order'     => 'event_date ASC',
         ]);
 
         // ================================
@@ -95,7 +95,13 @@ class SiteController extends Controller
         ",
             'condition' => $condition,
             'params'    => $params,
-            'order'     => 'event_date DESC',
+            'order'     => "
+            CASE
+                WHEN event_date >= CURDATE() THEN 0
+                ELSE 1
+            END ASC,
+            event_date ASC
+        ",
         ]);
 
         $eventBg1 = $this->event_bg_1 ?? '#1b120c';
