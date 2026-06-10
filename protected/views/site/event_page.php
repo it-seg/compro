@@ -104,9 +104,9 @@ $excludeId   = $hasUpcoming ? (int)$upcoming->id : 0;
     // LOAD OTHER EVENTS (SAFE QUERY)
     // ========================================================
     $events = Event::model()->findAll([
-        'condition' => 'is_active = 1 AND id != :id',
+        'condition' => 'is_active = 1 AND id != :id AND event_date >= CURDATE()',
         'params'    => [':id' => $excludeId],
-        'order'     => 'event_date DESC',
+        'order'     => 'event_date ASC, event_time ASC',
         'limit'     => 6
     ]);
     ?>
