@@ -602,6 +602,8 @@ hr::after {
     color: rgba(255, 255, 255, 0.92);
     font-weight: 500;
     margin-bottom: 20px;
+    text-align: justify;
+    margin: 0 auto 20px;
 }
 
 .about-desc {
@@ -609,6 +611,8 @@ hr::after {
     line-height: 1.95;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 0;
+    text-align: justify;
+    margin: 0 auto 20px;
 }
 
 .about-bleed-thumbs {
@@ -620,6 +624,7 @@ hr::after {
     align-items: stretch;
     gap: 16px;
     max-width: 58%;
+    margin: 0 auto 20px;
 }
 
 .about-thumb {

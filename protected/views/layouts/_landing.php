@@ -701,7 +701,7 @@ function sectionActive($sections, $key)
                 ? $this->footerLanding->social_title_ind
                 : $this->footerLanding->social_title;
 
-            $companyName = 'PT. Setyawan Eunike Gemilang';
+            $companyName = 'dr. Teeth';
             $menuTitle = $lang === 'id' ? 'Navigasi' : 'Navigation';
             $contactTitle = $lang === 'id' ? 'Kontak' : 'Contact';
             $followTitle = $socialTitle ?: ($lang === 'id' ? 'Ikuti Kami' : 'Follow Us');
