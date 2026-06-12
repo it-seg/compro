@@ -42,12 +42,6 @@ body {
     line-height: 1.6;
 }
 
-h1,
-h2,
-h3 {
-    font-family: 'Playfair Display', serif;
-    margin-top: 0;
-}
 
 img {
     max-width: 100%;
@@ -72,7 +66,7 @@ a {
 }
 
 .section-label {
-    color: var(--color-gold);
+    color: white;
     font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -81,6 +75,7 @@ a {
 .section-heading {
     font-size: 32px;
     margin-top: 10px;
+    color: white;
     margin-bottom: 0;
 }
 
@@ -463,14 +458,14 @@ hr::after {
 }
 
 .hero-content h1 {
-    font-size: clamp(22px, 6vw, 48px);
+    font-size: 62px;
     line-height: 1.04;
     margin-bottom: 14px;
     text-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
 .hero-content p {
-    font-size: clamp(15px, 2vw, 22px);
+    font-size: clamp(25px, 2vw, 22px);
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 0;
     letter-spacing: 0.4px;
@@ -1275,10 +1270,7 @@ hr::after {
 ===================================================== */
 .brands-premium {
     position: relative;
-    background:
-            radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.10), transparent 18%),
-            radial-gradient(circle at 85% 20%, rgba(15, 23, 42, 0.05), transparent 20%),
-            linear-gradient(to bottom, #fcfbf8, #f4f6fa);
+    background: #0f172a;
     overflow: hidden;
 }
 
@@ -1306,7 +1298,7 @@ hr::after {
 .brands-premium-subtitle {
     max-width: 620px;
     margin: 16px auto 0;
-    color: #64748b;
+    color: white;
     font-size: 15px;
     line-height: 1.85;
 }
@@ -1322,8 +1314,8 @@ hr::after {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 28px 24px 24px;
-    border-radius: 26px;
+    padding: 8px 24px 24px;
+    border-radius: 2px;
     text-decoration: none;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.96));
     border: 1px solid rgba(15, 23, 42, 0.06);
@@ -1350,10 +1342,10 @@ hr::after {
     position: absolute;
     left: 24px;
     bottom: 0;
-    width: 48px;
-    height: 3px;
+    width: 75%;
+    height: 2px;
     border-radius: 999px;
-    background: linear-gradient(to right, var(--color-gold), rgba(212, 175, 55, 0.12));
+    background: darkslateblue;
     transition: width 0.35s ease;
 }
 
@@ -1374,22 +1366,18 @@ hr::after {
 
 .brand-premium-logo-wrap {
     position: relative;
-    z-index: 2;
-    height: 100px;
+    /*z-index: 2;*/
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 2px;
-    padding: 14px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(15, 23, 42, 0.05);
 }
 
 .brand-premium-logo {
-    max-width: 100%;
-    max-height: 72px;
+    max-width: 80%;
     object-fit: contain;
+    border-radius: 5px;
     transition: transform 0.45s ease;
 }
 
@@ -1406,7 +1394,7 @@ hr::after {
     font-size: 12px;
     line-height: 1.35;
     margin: 0 0 8px;
-    color: #132238;
+    color: darkslateblue;
 }
 
 .brand-premium-copy p {

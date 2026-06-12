@@ -496,7 +496,7 @@ function sectionActive($sections, $key)
                             class="brand-premium-tile fade-up">
                         <div class="brand-premium-logo-wrap">
                             <img src="<?php echo CHtml::encode($brandImage); ?>" alt="<?php echo CHtml::encode($brandName); ?>" class="brand-premium-logo">
-                        </div>
+                        </div><hr>
 
                         <div class="brand-premium-copy">
                             <h3><?php echo CHtml::encode($brandName); ?></h3>
