@@ -37,7 +37,7 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--color-text);
-    background: #fff;
+    background: #0f172a;
     overflow-x: hidden;
     line-height: 1.6;
 }
@@ -424,7 +424,7 @@ hr::after {
 }
 
 .hero-slide {
-    height: 80vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -509,9 +509,7 @@ hr::after {
 .about-fullbleed {
     position: relative;
     padding: 90px 0;
-    background:
-            radial-gradient(circle at top left, rgba(212, 175, 55, 0.1), transparent 24%),
-            linear-gradient(to bottom, #f4f1ea, #fbfbfb);
+    background:#0f172a;
     overflow: hidden;
 }
 
