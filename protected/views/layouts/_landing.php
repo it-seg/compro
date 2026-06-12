@@ -9,6 +9,22 @@ $landingPageActive = Yii::app()->db->createCommand()
     ->where('section_key=:key', [':key' => 'landing_page'])
     ->queryScalar();
 
+$menuSections = Yii::app()->db->createCommand()
+    ->select('url, is_active')
+    ->from('navigation_landing')
+    ->queryAll();
+
+$sectionStatus = [];
+
+foreach ($menuSections as $row) {
+    $key = str_replace('#', '', $row['url']);
+    $sectionStatus[$key] = (int)$row['is_active'];
+}
+
+function sectionActive($sections, $key)
+{
+    return !empty($sections[$key]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -96,6 +112,7 @@ $landingPageActive = Yii::app()->db->createCommand()
 <?php endif; ?>
 
 <!-- HERO -->
+<?php if (sectionActive($sectionStatus, 'home')): ?>
 <section class="hero-carousel" id="home">
     <div id="heroSlider"
          class="carousel slide carousel-fade"
@@ -154,9 +171,11 @@ $landingPageActive = Yii::app()->db->createCommand()
         <?php endif; ?>
     </div>
 </section>
+<?php endif; ?>
 
 
 <!-- ABOUT -->
+<?php if (sectionActive($sectionStatus, 'about')): ?>
 <section class="section about about-fullbleed" id="about">
     <div class="container">
         <?php
@@ -228,9 +247,9 @@ $landingPageActive = Yii::app()->db->createCommand()
         </div>
     </div>
 </section>
+<?php endif; ?>
 
-
-<?php if ($this->visionLanding): ?>
+<?php if ($this->visionLanding && sectionActive($sectionStatus, 'vision')): ?>
     <section class="section vision-luxury" id="vision">
         <div class="container">
             <?php
@@ -295,13 +314,16 @@ $landingPageActive = Yii::app()->db->createCommand()
     </section>
 <?php endif; ?>
 
+
+
 <!-- PRODUCT -->
+<?php if (sectionActive($sectionStatus, 'product')): ?>
 <section class="section product-section" id="product">
     <div class="container">
 
         <div class="section-title fade-up">
-            <span class="section-label">PRODUCT</span>
-            <h2 class="section-heading">Our Products</h2>
+            <span class="section-label">PREMIUM CARE</span>
+            <h2 class="section-heading">Comprehensive Dental Treatments</h2>
         </div>
 
         <!-- FILTER BUTTON -->
@@ -323,10 +345,12 @@ $landingPageActive = Yii::app()->db->createCommand()
                     <div class="product-image">
                         <img src="<?php echo $baseUrl . '/images/product/' . $item->image; ?>" alt="">
                     </div>
-
+                <hr>
                     <p class="product-name">
                         <?php echo CHtml::encode($item->name); ?>
                     </p>
+
+                    <hr>
 
                 </div>
             <?php endforeach; ?>
@@ -334,10 +358,11 @@ $landingPageActive = Yii::app()->db->createCommand()
 
     </div>
 </section>
+<?php endif; ?>
 
 
 <!-- SERVICES -->
-<?php if ($this->servicesLanding): ?>
+<?php if ($this->servicesLanding && sectionActive($sectionStatus, 'services')): ?>
     <section class="section services-luxury" id="services">
         <div class="container">
             <?php
@@ -422,7 +447,7 @@ $landingPageActive = Yii::app()->db->createCommand()
 
 
 <!-- BRANDS -->
-<?php if ($this->brandsLanding): ?>
+<?php if ($this->brandsLanding && sectionActive($sectionStatus, 'brands')): ?>
     <section class="section brands-premium" id="brands">
         <div class="container">
             <?php
@@ -488,7 +513,7 @@ $landingPageActive = Yii::app()->db->createCommand()
 
 
 <!-- NEWS -->
-<?php if ($this->newsLanding): ?>
+<?php if ($this->newsLanding && sectionActive($sectionStatus, 'news')): ?>
     <section class="section news-luxury" id="news">
     <div class="container">
             <?php
@@ -555,7 +580,7 @@ $landingPageActive = Yii::app()->db->createCommand()
 
 
 <!-- CAREER -->
-<?php if ($this->careerLanding): ?>
+<?php if ($this->careerLanding && sectionActive($sectionStatus, 'career')): ?>
     <section class="section career-slider-section career-animate" id="career">
         <div class="container">
             <?php
@@ -656,8 +681,8 @@ $landingPageActive = Yii::app()->db->createCommand()
 
 
 <!-- FOOTER -->
-<?php if ($this->footerLanding): ?>
-    <footer class="footer-clean footer-animate">
+<?php if ($this->footerLanding && sectionActive($sectionStatus, 'contact')): ?>
+    <footer class="footer-clean footer-animate" id="contact">
         <div class="container">
             <?php
             $footerAddress = ($lang === 'id' && !empty($this->footerLanding->address_ind))
@@ -698,53 +723,7 @@ $landingPageActive = Yii::app()->db->createCommand()
                         </div>
                     </div>
                 </div>
-
-                <div class="footer-clean-nav">
-                    <h6><?php echo CHtml::encode($menuTitle); ?></h6>
-
-                    <div class="footer-clean-links">
-                        <?php foreach ($this->menuItemsLanding as $item): ?>
-                            <?php
-                            $footerMenuLabel = ($lang === 'id' && !empty($item->label_ind))
-                                ? $item->label_ind
-                                : $item->label;
-                            ?>
-                            <a href="<?php echo CHtml::encode($item->url); ?>">
-                                <?php echo CHtml::encode($footerMenuLabel); ?>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-
                 <div class="footer-clean-contact">
-                    <h6><?php echo CHtml::encode($followTitle); ?></h6>
-
-                    <div class="footer-clean-social">
-                        <?php if (!empty($this->footerLanding->instagram_url)): ?>
-                            <a href="<?php echo CHtml::encode($this->footerLanding->instagram_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                        <?php endif; ?>
-
-                        <?php if (!empty($this->footerLanding->facebook_url)): ?>
-                            <a href="<?php echo CHtml::encode($this->footerLanding->facebook_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                        <?php endif; ?>
-
-                        <?php if (!empty($this->footerLanding->tiktok_url)): ?>
-                            <a href="<?php echo CHtml::encode($this->footerLanding->tiktok_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                                <i class="bi bi-tiktok"></i>
-                            </a>
-                        <?php endif; ?>
-
-                        <?php if (!empty($this->footerLanding->youtube_url)): ?>
-                            <a href="<?php echo CHtml::encode($this->footerLanding->youtube_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                                <i class="bi bi-youtube"></i>
-                            </a>
-                        <?php endif; ?>
-                    </div>
-
                     <?php if (!empty($this->footerLanding->map_embed)): ?>
                         <div class="footer-clean-map">
                             <iframe
@@ -754,6 +733,48 @@ $landingPageActive = Yii::app()->db->createCommand()
                             </iframe>
                         </div>
                     <?php endif; ?>
+                </div>
+                <div class="footer-clean-nav">
+                    <h6><?php echo CHtml::encode($followTitle); ?></h6>
+                    <div class="footer-clean-social">
+                        <?php if (!empty($this->footerLanding->instagram_url)): ?>
+                            <a href="<?php echo CHtml::encode($this->footerLanding->instagram_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        <?php endif; ?>
+
+                        <!--                        --><?php //if (!empty($this->footerLanding->facebook_url)): ?>
+                        <!--                            <a href="--><?php //echo CHtml::encode($this->footerLanding->facebook_url); ?><!--" target="_blank" rel="noopener noreferrer" aria-label="Facebook">-->
+                        <!--                                <i class="bi bi-facebook"></i>-->
+                        <!--                            </a>-->
+                        <!--                        --><?php //endif; ?>
+
+                        <?php if (!empty($this->footerLanding->tiktok_url)): ?>
+                            <a href="<?php echo CHtml::encode($this->footerLanding->tiktok_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                                <i class="bi bi-tiktok"></i>
+                            </a>
+                        <?php endif; ?>
+
+                        <!--                        --><?php //if (!empty($this->footerLanding->youtube_url)): ?>
+                        <!--                            <a href="--><?php //echo CHtml::encode($this->footerLanding->youtube_url); ?><!--" target="_blank" rel="noopener noreferrer" aria-label="YouTube">-->
+                        <!--                                <i class="bi bi-youtube"></i>-->
+                        <!--                            </a>-->
+                        <!--                        --><?php //endif; ?>
+                    </div>
+                    <!--                    <h6>--><?php //echo CHtml::encode($menuTitle); ?><!--</h6>-->
+                    <!---->
+                    <!--                    <div class="footer-clean-links">-->
+                    <!--                        --><?php //foreach ($this->menuItemsLanding as $item): ?>
+                    <!--                            --><?php
+                    //                            $footerMenuLabel = ($lang === 'id' && !empty($item->label_ind))
+                    //                                ? $item->label_ind
+                    //                                : $item->label;
+                    //                            ?>
+                    <!--                            <a href="--><?php //echo CHtml::encode($item->url); ?><!--">-->
+                    <!--                                --><?php //echo CHtml::encode($footerMenuLabel); ?>
+                    <!--                            </a>-->
+                    <!--                        --><?php //endforeach; ?>
+                    <!--                    </div>-->
                 </div>
             </div>
 

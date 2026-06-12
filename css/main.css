@@ -42,7 +42,7 @@ html, body {
 
 .back-to-top {
     bottom: 30px;
-    background: rgba(201, 106, 80, .92);
+    background: #02232a;
     backdrop-filter: blur(4px);
 
     box-shadow: 0 8px 20px rgba(0, 0, 0, .15),
@@ -50,7 +50,7 @@ html, body {
 }
 
 .back-to-top:hover {
-    background: #B4573F;
+    background: #02232a;
 }
 
 
